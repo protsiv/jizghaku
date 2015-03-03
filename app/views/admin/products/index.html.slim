@@ -1,0 +1,25 @@
+h3 Продукти
+
+table
+  thead
+    tr
+      th Назва
+      th Категорія
+      /th Баннер
+      th
+      th
+      th
+
+  tbody
+    - @products.each do |product|
+      tr
+        td = product.name
+        td = product.category.try(&:name)
+        /td = product.index_banner.try(&:name)
+        td = link_to 'Переглянути', admin_product_path(product)
+        td = link_to 'Редагувати', edit_admin_product_path(product)
+        td = link_to 'Видалити', admin_product_path(product), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Добавити новий', new_admin_product_path

@@ -1,0 +1,56 @@
+-if restorans && restorans.count > 0
+  .selector_restaurants_wrap
+    .row.text-center
+      -restorans.each_with_index do |r, i|
+        .columns.large-4.medium-4.small-4
+          .restaurant-wrap
+            .row
+              .columns
+                a href=restaurant_all_menu_path(r.slug)
+                  .restaurant-logo.box-shadow-restourant
+                    = image_tag r.logo
+            .row
+              .columns
+                .about-restaurant.align-center
+                  a href=restaurant_all_menu_path(r.slug)
+                    = raw r.about
+
+      /.columns.large-4.medium-4.small-4
+      /  .restaurant-wrap
+      /    .row
+      /      .columns
+      /        a href=restaurant_all_menu_path(restaurant[1].slug)
+      /          .restaurant-logo.box-shadow-restourant
+      /            = embedded_svg ("bruno-logo.svg")
+      /    .row
+      /      .columns
+      /        .about-restaurant.align-center
+      /          a href=restaurant_all_menu_path(restaurant[1].slug)
+      /            strong Італійська кухня
+      /          p Піца, паста, свіжі салати, напої
+      /.columns.large-4.medium-4.small-4
+      /  .restaurant-wrap
+      /    .row
+      /      .columns
+      /        a href=restaurant_all_menu_path(restaurant[2].slug)
+      /          .restaurant-logo.box-shadow-restourant
+      /            = embedded_svg ("baba-frana.svg")
+      /    .row
+      /      .columns
+      /        .about-restaurant
+      /          a href=restaurant_all_menu_path(restaurant[2].slug)
+      /            strong Європейська кухня
+      /          p Страви з мяса, борщ, зупа, вареники, узвари, солодке
+      /.columns.large-4.medium-4.small-4
+      /  .restaurant-wrap
+      /    .row
+      /      .columns
+      /        a href=restaurant_all_menu_path(restaurant[0].slug)
+      /          .restaurant-logo.box-shadow-restourant
+      /            = embedded_svg ("barbaris.svg")
+      /    .row
+      /      .columns
+      /        .about-restaurant
+      /          a href=restaurant_all_menu_path(restaurant[0].slug)
+      /            strong Японська кухня
+      /          p Суші, супи, роли та інші японські страви

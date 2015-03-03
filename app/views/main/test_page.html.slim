@@ -1,0 +1,29 @@
+.row
+  .columns.large-6.large-centered
+    p begin
+    - if @categories
+      - @categories.each do |cat|
+        =cat.name
+    - else
+      p nill
+    p end
+
+.row
+  .columns.large-6.large-centered
+    p begin
+    - if @products_common
+      - @products_common.each do |cat|
+        =cat.name
+    - else
+      p nill
+    p end
+.row
+  .columns
+    - banner = Banner.first()
+    = banner.inspect
+    hr
+    = banner.products[0].inspect
+    hr
+    - banner.products.each do |p|
+      = p.name
+      hr

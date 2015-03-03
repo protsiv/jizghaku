@@ -1,0 +1,95 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+
+MyTabs = ($this, container, tabHeader, tabBody) ->
+  current_position = $this.index()
+  $tabs_container = $this.closest(container)
+  $head_tabs_li = $tabs_container.find(tabHeader)
+  $body_tabs_li = $tabs_container.find(tabBody)
+
+  $head_tabs_li.removeClass('active')
+  $this.addClass(' active')
+  $body_tabs_li.removeClass('active')
+  $body_tabs_li.eq(current_position).addClass(' active')
+  #  $head_tabs_li.children().removeClass('active')
+  #  $this.children().first().addClass('active')
+#  $body_tabs_li.removeClass('active').addClass('hide')
+#  $body_tabs_li.eq(current_position).addClass('active').removeClass('hide')
+
+$(document).ready ->
+
+#  init mixit up filters
+  $('.filters_container').mixItUp
+    load:
+      filter: '.all'
+  $('ul.catalog-sidebar li').click ->
+    $('ul.catalog-sidebar li').removeClass('active-all')
+
+#    init reveal modal
+#  // or directly on the modal
+#  $('#CallOrderModal').foundation('reveal', 'open')
+#  $('a.reveal-link').trigger('click')
+#  $('#myModal').foundation('reveal', 'close')
+#  $('#myModal').foundation 'reveal', 'open',
+#    animation: 'none'
+#    animationspeed: 0
+#    closeonbackgroundclick: true
+#    dismissmodalclass: 'close-reveal-modal'
+
+#  init bx slider for main banner
+  $(".bxslider").bxSlider()
+
+# init buisness launch carousel
+  owl1 = $("#business_lunch")
+  owl1.owlCarousel
+    loop:false,
+    nav:false,
+    margin:10,
+    items:1
+
+    navigation: false,
+    items: 1 #10 items above 1000px browser width
+    itemsDesktop: [ #5 items between 1000px and 901px
+      1000
+      1
+    ]
+    itemsDesktopSmall: [ # betweem 900px and 601px
+      900
+      1
+    ]
+    itemsTablet: [ #2 items between 600 and 0
+      780
+      1
+    ]
+    itemsMobile: []
+    autoPlay : false
+
+  d = new Date()
+  t = d.getDay()
+  if t > 5
+    t = 1
+  currentDay = t - 1
+  $("#business_lunch").trigger 'owl.jumpTo', currentDay
+
+#  init good peaple say tabs
+  $('.gps-header').click ->
+    MyTabs $(this), '.good-people-say-wrap', '.gps-header', '.gps-tab'
+
+# click event to scroll to top
+  $(".scrollToTop").click ->
+    $("html, body").animate
+      scrollTop: 0
+    , 800
+    false
+
+#    slowing notice
+
+  $notification = $('#notification')
+  setTimeout (->
+    $notification.fadeOut 'slow'
+  ), 4000
+
+
+

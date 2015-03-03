@@ -1,0 +1,17 @@
+= simple_form_for [:admin, @banner] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Назва", input_html: {placeholder: ' '}, hint: "Назва банера"
+    /= f.input :image, as: :image_preview, label: "Зображення", hint: "Зображення"
+    = f.input :position, label: "Позиція", input_html: {placeholder: ''}, hint: "Позиція"
+    = f.input :published, label: "Чи опублікувати?", input_html: {placeholder: ''}, hint: "Чи опублікувати?"
+    /= f.input :description, label: "Опис", input_html: {placeholder: ' '}, hint: "Опис" do
+    /  .ckEditor
+    /    = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
+    /= f.association :products, :input_html => {:rows => 5 }
+    /= f.simple_fields_for :products do |p|
+    /  = p.input :name
+    /= f.simple_fields_for :products do |p|
+    /  = p.input :name, label: "Products "
+  .form-actions
+    = f.button :submit

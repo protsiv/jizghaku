@@ -1,0 +1,18 @@
+= simple_form_for [:admin, @restaurant] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Назва", input_html: {placeholder: 'Етно-паб «Баба-Франя»'}, hint: "Назва ресторан"
+    = f.input :slug, label: "Транслітерація", input_html: {placeholder: 'baba-frania'}, hint: "Транслітерація"
+    = f.input :logo, as: :image_preview, label: "Логотип", hint: "Логотип"
+    = f.input :position, label: "Індекс сортування", hint: "Індекс сортування"
+    = f.input :main_image, as: :image_preview, label: "Головне фото", hint: "Головна фотографія"
+    = f.input :about, label: "Коротка інформація", input_html: {placeholder: 'Європейська кухня', :rows => 5}, hint: "Коротка інформація"
+    = f.input :short_description, label: "Короткий опис", input_html: {placeholder: 'Кафе-бар «Барбарис» пропонує вас скуштувати найкращі ...', :rows => 6}, hint: "Короткий опис"
+    = f.input :description, label: "Повний опис",  hint: "Повний опис" do
+      .ckEditor
+        = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
+    = f.input :address, label: "Адреса", input_html: {placeholder: 'вул. Львівська 16, м. Стрий'}, hint: "Адреса"
+    = f.input :phone_number, label: "Номер телефону", input_html: {placeholder: '+38 (097) 097 -05-05'}, hint: "Номер телефону"
+    = f.input :time_of_work, label: "Години роботи", input_html: {placeholder: ' ', :rows => 5}, hint: "Години роботи"
+  .form-actions
+    = f.button :submit

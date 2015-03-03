@@ -1,0 +1,30 @@
+h3 Категорії
+
+table
+  thead
+    tr
+      th ID
+      th Назва
+      th Ссилка
+      th Ресторан
+      th
+      th
+      th
+  tbody
+    - @categories.each do |category|
+      tr
+        td = category.id
+        td = category.name
+        td = category.slug
+        - if category.common?
+          td Спільна
+        - else
+          td = category.restaurant.try(&:name)
+        /td = category.restaurant.try{|r| r.name}
+        td = link_to 'Переглянути', admin_category_path(category)
+        td = link_to 'Редагувати', edit_admin_category_path(category)
+        td = link_to 'Видалити', admin_category_path(category), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Добавити новий', new_admin_category_path

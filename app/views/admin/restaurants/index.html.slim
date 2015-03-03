@@ -1,0 +1,27 @@
+h3 Ресторани
+
+table
+  thead
+    tr
+      th Назва
+      th Ссилка
+      th Логотип
+      th Позиція
+      th
+      th
+      th
+
+  tbody
+    - @restaurants.each do |restaurant|
+      tr
+        td = restaurant.name
+        td = restaurant.slug
+        td = image_tag restaurant.logo
+        td = restaurant.position
+        td = link_to 'Переглянути', admin_restaurant_path(restaurant)
+        td = link_to 'Редагувати', edit_admin_restaurant_path(restaurant)
+        td = link_to 'Видалити', admin_restaurant_path(restaurant), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Добавити новий', new_admin_restaurant_path

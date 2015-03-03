@@ -1,0 +1,14 @@
+= simple_form_for [:admin, @product] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Назва", input_html: {placeholder: ' '}, hint: "Назва продукту"
+    = f.input :image, as: :image_preview, label: "Зображення", hint: "Зображення"
+    = f.input :slug, label: "Ссилка", input_html: {placeholder: ''}, hint: "Ссилка"
+    = f.input :price, label: "Ціна", input_html: {placeholder: ''}, hint: "Ціна"
+    = f.input :description, label: "Опис", input_html: {placeholder: ' '}, hint: "Опис" do
+      .ckEditor
+        = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
+    = f.association :category, :label_method => lambda { |cat| "#{cat.restaurant.try{|r| "#{r.name} > "}} #{cat.name}" }, label: "Категорія", hint: "Виберіть категорію:"
+    = f.association :banner
+  .form-actions
+    = f.button :submit

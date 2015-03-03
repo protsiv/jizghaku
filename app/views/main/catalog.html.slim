@@ -1,0 +1,139 @@
+.row
+  .columns.large-offset-2
+    ul.breadcrumbs
+      li.has-drop
+        a =@current_restaurant.name
+        - if @restaurants && @restaurants.count > 0
+        ul.breadcrumbs-drop
+          - @restaurants.each do |r|
+            li
+              a =r.name
+      li.has-drop
+        a href="#" Все меню
+        - if @categories && @categories.count > 0
+          ul.breadcrumbs-drop
+            - @categories.each do |c|
+              li
+                a =c.name
+
+      /li.current
+      /  a href="#" Cloning
+-restaurant = Restaurant.order(created_at: :asc)
+.restaurant-wrap class="#{if params[:restaurant] == 'bruno' then 'brown' else if params[:restaurant] == 'baba-franya' then 'blue' else if params[:restaurant] == 'barbarus' then 'yellow-green' end end }"
+  .row
+    .columns.large-3.medium-3
+      = raw @current_restaurant.about
+    -restorans.each_with_index do |r, i|
+      .columns.large-3.medium-3
+        a href=restaurant_all_menu_path(r.slug)
+          .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
+
+            = embedded_svg_from_abs  r.logo.path
+
+  .row
+    .columns.large-3.medium-3
+      .row
+        .columns
+          ul.catalog-sidebar
+            li.filter.active-all data-filter="all"
+              a
+                |Все меню &nbsp;
+                sup
+                  |(
+                  /span = @products_count
+                  | )
+            -@categories.each do |c|
+              - count = c.products.count
+              li.filter data-filter=".#{c.slug}"
+                a
+                  = c.name
+                  |&nbsp;
+                  sup
+                    |(
+                    span = count
+                    | )
+            -@common_categories.each do |c|
+              - count = c.products.count
+              li.filter data-filter=".#{c.slug}"
+                a
+                  = c.name
+                  |&nbsp;
+                  sup
+                    |(
+                    span = count
+                    | )
+      - if @current_restaurant
+        .about-contact-info-wrap
+          .row
+            .columns
+              h4
+                a href=restaurant_about_path(@current_restaurant.slug)
+                  = @current_restaurant.name
+              /= image_tag @current_restorant.avatar.url(:thumb)
+              a href=restaurant_about_path(@current_restaurant.slug)
+                = image_tag @current_restaurant.main_image
+              p = @current_restaurant.short_description
+            .columns
+              .contacts-wrap
+                .row
+                  .columns.large-2
+                    = embedded_svg ("Yizhaku-location.svg")
+                  .columns.large-10
+                    p = @current_restaurant.address
+                .row
+                  .columns.large-2
+                    = embedded_svg ("Yizhaku-phone.svg")
+                  .columns.large-10
+                    p
+                      a = @current_restaurant.phone_number
+          .row
+            .columns
+              a.link-about-restaurant.right href=restaurant_about_path(@current_restaurant.slug)
+                |Детальніше
+    .columns.large-9.medium-9
+      .row.filters_container
+        - if @products && @products.count > 0
+          - @products.each_with_index do |p, i|
+            -filter_class = p.category.slug
+            .columns.large-4.medium-6.mix.all class="#{filter_class}" class="#{'end' if i == @products.count-1}"
+              .one-product-wrap
+                .bi style="background: url('#{p.image.url(:thumb)}')no-repeat center center;"
+                .information-block-wrap
+                  .price-wrap.text-center
+                    .price
+                      strong = p.price.round
+                      p грн
+                  .information-block
+                    .name-wrap
+                      h2 =p.name
+                    .description-wrap
+                      p =p.description
+                    form action=""
+                      .input
+                        input type="number" value="1"
+                      button type="submit" name="order-product" value="true" Замовити
+        - if @products_common && @products_common.count > 0
+          - @products_common.each_with_index do |p, i|
+            -filter_class = p.category.slug
+            .columns.large-4.medium-6.mix.all class="#{filter_class}" class="#{'end' if i == @products_common.count-1}"
+              .one-product-wrap
+                .bi style="background: url('#{p.image.url(:thumb)}')no-repeat center center;"
+                .information-block-wrap
+                  .price-wrap.text-center
+                    .price
+                      strong = p.price.round
+                      p грн
+                  .information-block
+                    .name-wrap
+                      h2 =p.name
+                    .description-wrap
+                      p =p.description
+                    form action=""
+                      .input
+                        input type="number" value="1"
+                      button type="submit" name="order-product" value="true" Замовити
+
+
+
+
+

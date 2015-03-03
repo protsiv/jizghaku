@@ -1,0 +1,117 @@
+#BasketModal.reveal-modal data-reveal=""
+  .basket-modal-wrap
+    .modal-header.blue-background-pattern.text-center
+      h2 Що будемо?
+      a.close-reveal-modal
+    .modal-content
+      .row
+        .columns
+          ul
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Що будемо?
+            li.passive
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Куди доставляємо?
+            li.passive
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Все вірно?
+            .clearfix
+      /.row
+      /  .columns
+      /    .test-div
+      /      .input.input-count
+      /        .input-count-up
+      /        .input-count-down
+      /        .input-inner
+      /          input value="1"
+      .one-item
+        .row
+          .columns.large-4.medium-4
+            .delete-item
+            .basket-item-image.basket-item style="background: url(#{asset_path('l2-grill-soup-lunch.jpg')})no-repeat center center;"
+          .columns.large-8.medium-8
+            .row
+              .columns
+                b Піца «Аl prosciutto e funghi»
+                p Bruno di Grande/велика піца у розмірі 50 см (соус неаполітанський, моцарела, prosciutto Cotto, salamі Milano, гриби, бергадер, помідори, болгарський перець, salami Picante, базилік, пармезан.
+            .row
+              .columns.large-3.medium-3.small-3
+                b
+                  span  Ø 50 см
+              .columns.large-5.medium-5.small-5
+                p
+                  .round-input
+                    .input.input-count
+                      .input-count-up
+                      .input-count-down
+                      .input-inner
+                        input value="1"
+                  span  шт, на суму:
+              .columns.large-4.medium-4.small-4
+                strong
+                  |109
+                  sup
+                    |25
+                  span
+                    |грн
+        .row
+          .columns
+            hr
+      .one-item
+        .row
+          .columns.large-4.medium-4
+            .delete-item
+            .basket-item-image.basket-item style="background: url(#{asset_path('P1.jpg')})no-repeat center center;"
+          .columns.large-8.medium-8
+            b Піца «Аl prosciutto e funghi»
+            p Bruno di Grande/велика піца у розмірі 50 см (соус неаполітанський, моцарела, prosciutto Cotto, salamі Milano, гриби, бергадер, помідори, болгарський перець, salami Picante, базилік, пармезан.
+        .row
+          .columns
+            hr
+      .one-item
+        .row
+          .columns.large-4.medium-4
+            .delete-item
+            .basket-item-image.basket-item style="background: url(#{asset_path('lunch-rush-winnipeg-simply-viet.jpg')})no-repeat center center;"
+          .columns.large-8.medium-8
+            b Піца «Аl prosciutto e funghi»
+            p Bruno di Grande/велика піца у розмірі 50 см (соус неаполітанський, моцарела, prosciutto Cotto, salamі Milano, гриби, бергадер, помідори, болгарський перець, salami Picante, базилік, пармезан.
+        .row
+          .columns
+            hr
+
+      .row
+        .columns.large-6.medium-6.small-6
+        .columns.large-6.medium-6.small-6
+          .row
+            .columns.large-6.medium-6.small-6
+              p Всього 24 товара на суму:
+            .columns.large-6.medium-6.small-6
+              strong
+                |109
+                sup
+                  |25
+                span
+                  |грн
+    .modal-footer.text-center
+      .number-order-wrap.box-shadow-restourant
+        .number-order-inner
+          .number-order
+            strong
+              |№
+              br
+              |305
+      a.secondary data-reveal-id="BasketSecondStepModal" href="#" Далі...

@@ -1,0 +1,11 @@
+=render partial: 'partials/index_main_banner'
+=render partial: 'partials/selector_shop'
+=render partial: 'partials/offer_of_the_week'
+- current_day_of_week = Date.today.wday
+- if current_day_of_week > 0 || current_day_of_week > 6
+  =render partial: 'partials/business_lunch'
+/- else
+/  = current_day_of_week
+=render partial: 'partials/how_we_do_it'
+=render partial: 'partials/good_people_say'
+/=render partial: 'partials/good_people_ordered'

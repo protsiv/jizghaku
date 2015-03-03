@@ -1,0 +1,23 @@
+- content_for :admin_layout do
+  .dashboards-wrap.brown-pattern-background
+    .row
+      .columns.large-offset-2
+        ul.breadcrumbs
+          li
+            a Особистий кабінет
+    .row
+      .columns.large-3
+        ul.side-bar.white-board
+          li = link_to 'Головний банер', admin_banners_path
+          li = link_to 'Ресторани', admin_restaurants_path
+          li = link_to 'Категорії', admin_categories_path
+          li = link_to 'Продукти', admin_products_path
+          li = link_to 'Корзини', admin_carts_path
+
+      .columns.large-9
+        .admin-main.white-board
+          .columns
+            =yield
+          .clearfix
+
+= render template: "layouts/application"

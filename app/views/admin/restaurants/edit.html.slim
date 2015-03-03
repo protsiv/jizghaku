@@ -1,0 +1,9 @@
+= render 'form'
+br
+  .row.text-center
+    .columns.large-4.medium-4.small-4
+      = link_to 'Show', [:admin, @restaurant]
+    .columns.large-4.medium-4.small-4
+      = link_to 'Back', admin_restaurants_path
+    .columns.large-4.medium-4.small-4
+      = link_to 'New Restaurant', new_admin_restaurant_path

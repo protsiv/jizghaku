@@ -1,0 +1,74 @@
+#BasketSecondStepModal.reveal-modal data-reveal=""
+  .basket-modal-wrap
+    .modal-header.blue-background-pattern.text-center
+      h2 Куди доставляємо?
+      a.close-reveal-modal
+    .modal-content
+      .row
+        .columns
+          ul
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Що будемо?
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Куди доставляємо?
+            li.passive
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Все вірно?
+            .clearfix
+      form action="/" method="POST"
+        .modal-content
+          .row
+            input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+            .columns.large-6.medium-6
+              .input
+                label for="co-name"
+                  |Ім'я*
+                input#co-name type="text" name="name" placeholder="Володимир" required=""
+              .input
+                label for="co-phone"
+                  |Контактний телефон*
+                input#co-phone type="text" name="phone" placeholder="+38 (XXX) XXX XX XX" required=""
+              .input
+                label for="co-email"
+                  |Електронна скринька
+                input#co-email type="text" name="email" placeholder="foodorder@test.com" required=""
+            .columns.large-6.medium-6
+              .input
+                label for="co-comment"
+                  |Додаткові примітки
+                textarea#co-comment type="text" name="comment" placeholder="erhgedfgdsfgdf"
+          .row
+            .columns.large-6.medium-6
+              .row
+                .columns
+                  a.blue-link Очистити поля форми
+              .row
+                .columns.large-8.large-offset-4.medium-8.medium-offset-4
+                  a.blue-link data-reveal-id="BasketModal" href="#" < Що будемо?
+            .columns.large-6.medium-6
+              p * поля обов’язкові для заповнення
+
+    .modal-footer.text-center
+      .number-order-wrap.box-shadow-restourant
+        .number-order-inner
+          .number-order
+            strong
+              |№
+              br
+              |305
+
+      a href="#" rel="nofollow" Далі...

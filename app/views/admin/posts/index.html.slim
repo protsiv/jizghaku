@@ -1,0 +1,33 @@
+h2 posts
+table.table
+  thead
+  tr
+    th title
+    th description
+    th colspan="2"
+
+
+  tbody
+  - @posts.each do |post|
+    tr
+      /td
+      /  = image_tag product.avatar.url(:thumb)
+      td
+        = post.title
+      td
+        = post.description
+      /<td><%= product.category.name %></td>
+      /<td><%= product.category.restoran.name %></td>
+      td
+        = link_to 'Редагувати', edit_admin_post_path(post), class: 'submit-btn'
+      td
+        = link_to 'Видалити', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'submit-btn'
+
+
+/= will_paginate @products
+br
+
+= link_to 'Додати новий', new_admin_post_path, class: 'back'
+
+
+

@@ -1,0 +1,25 @@
+h3 Банери
+
+table
+  thead
+    tr
+      th Назва
+      th Позиція
+      th Чи опублікова?
+      th
+      th
+      th
+
+  tbody
+    - @banners.each do |banner|
+      tr
+        td = banner.name
+        td = bannner.position
+        td = banner.published
+        td = link_to 'Переглянути', admin_banner_path(banner)
+        td = link_to 'Редагувати', edit_admin_banner_path(banner)
+        td = link_to 'Видалити', admin_banner_path(banner), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Добавити новий', new_admin_banner_path

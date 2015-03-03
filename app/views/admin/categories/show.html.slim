@@ -1,0 +1,24 @@
+
+h2 Категорії
+p
+  strong Name:
+  = @category.name
+p
+  strong Slug:
+  = @category.slug
+
+p
+  strong Category:
+  - if @category.common?
+    = "Спільна"
+  - else
+    = @category.restaurant.try(&:name)
+
+
+.row.text-center
+  .columns.large-4.medium-4.small-4
+    = link_to 'Edit', edit_admin_category_path(@category)
+  .columns.large-4.medium-4.small-4
+    = link_to 'Back', admin_categories_path
+  .columns.large-4.medium-4.small-4
+    = link_to 'New Category', new_admin_category_path

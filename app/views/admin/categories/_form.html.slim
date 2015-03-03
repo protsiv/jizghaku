@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @category] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Назва", input_html: {placeholder: 'Сніданки'}, hint: "Назва категорії"
+    = f.input :slug, label: "Транслітерація", input_html: {placeholder: 'snidanky'}, hint: "Транслітерація"
+    = f.association :restaurant, label: "Ресторан", hint: "Вкажіть для якого ресторану"
+    = f.input :common, label: "Спільна категорія", as: :boolean
+  .form-actions
+    = f.button :submit
