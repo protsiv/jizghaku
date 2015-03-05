@@ -404,6 +404,9 @@ header, footer
           float: left
           height: inherit
           input
+            padding-left: 0
+            padding-right: 0
+            text-align: center
             width: 40px
             height: 40px
             margin: 0 auto
@@ -1493,8 +1496,8 @@ a.blue-link
   width: 40px
   float: left
   .input.input-count
-    width: 40px
-    height: 40px
+    width: 40px !important
+    height: 40px !important
     position: relative
     &:hover
       .input-inner
@@ -1572,6 +1575,7 @@ form
         weight: 300
       color: #FF9E15
       padding-left: 17px
+      margin-bottom: .5rem
     input
       +placeholder(#A7A9AC, rem-calc(14), $font_style: italic !important)
         font-family: "Fira Sans", sans-serif
@@ -1608,6 +1612,9 @@ form
         border-color: #00948F
         color: #00948F
         font-size: rem-calc(16)
+  button
+    &:focus
+      outline: none !important
 
 .bx-viewport
   height: 430px

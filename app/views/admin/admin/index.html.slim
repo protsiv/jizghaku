@@ -1,11 +1,27 @@
+.well-come-window
+  .info-block
+    h4
+      |Вітаємо,
+      = current_user.first_name
+      |&nbsp;
+      = current_user.last_name
+      |!
+    p Ви знаходитесь в особистому кабінеті. Тут ви маєте змогу редагувати особисті дані, переглядати історію покупок, та підписатись (відписатись) на розсилку
 
-h4
-  |Вітаємо,
-  = current_user.first_name
-  |&nbsp;
-  = current_user.last_name
-= link_to 'Вилогуватись', destroy_user_session_path, :method => :delete
+  .info-block
+    b
+      |Контактна інформація |
+      = link_to edit_user_registration_path do
+        = embedded_svg ("user-edit-pen.svg"), class: 'edit'
+    h3
+      = current_user.first_name
+      |&nbsp;
+      = current_user.last_name
+    h3
+      = current_user.email
+    = link_to 'Змінити пароль', edit_user_password_path
 
-h4 Ви увійшли в адмінпанель
-p Ласкаво просимо!
-= link_to 'Змінити пароль', edit_user_registration_path
+
+  = link_to 'Вилогуватись', destroy_user_session_path, :method => :delete
+
+

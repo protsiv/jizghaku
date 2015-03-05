@@ -1,5 +1,6 @@
 class Admin::CartsController < Admin::AdminController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+
+  # before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/carts
   # GET /admin/carts.json

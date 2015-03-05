@@ -4,6 +4,7 @@ table
   thead
     tr
       th Назва
+      th Фотографія
       th Категорія
       /th Баннер
       th
@@ -14,6 +15,7 @@ table
     - @products.each do |product|
       tr
         td = product.name
+        td = image_tag product.image.url(:thumb)
         td = product.category.try(&:name)
         /td = product.index_banner.try(&:name)
         td = link_to 'Переглянути', admin_product_path(product)

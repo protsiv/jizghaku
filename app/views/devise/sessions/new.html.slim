@@ -1,19 +1,36 @@
 .login-window-wrap.brown-pattern-background
   .row
     .columns.large-8.large-centered
-      .modal-window-wrap
+      .modal-window-wrap.admin-window-shadow
         .modal-header.blue-background-pattern.text-center
           h2 Вхід в особистий кабінет
 
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          - if f.object.errors.any?
+            = f.semantic_errors
           .modal-content
-            = f.input :email, autofocus: true, label: "Електронна пошта"
-            = f.input :password, autocomplete: "off", label: "Пароль"
-            - if devise_mapping.rememberable?
-              .field
-                = f.check_box :remember_me
-                = f.label :remember_me
-
+            .columns
+              = f.input :email, autofocus: true, label: "Електронна пошта"
+              = f.input :password, autocomplete: "off", label: "Пароль"
+              /- if devise_mapping.rememberable?
+              /  .field
+              /    = f.check_box :remember_me
+              /    = f.label :remember_me
+            .links-wrap
+              .columns.large-5
+                .omniauth.facebook
+                  - resource_class.omniauth_providers.each do |provider|
+                    = link_to omniauth_authorize_path(resource_name, provider) do
+                      .omniauth-text
+                        |Або, увійдіть через соціальну мережу
+                      .omniauth-ico
+                        = embedded_svg ("ET-Social-facebook.svg")
+                .clearfix
+              .columns.large-3
+                =link_to 'Забули пароль?', new_user_password_path
+              .columns.large-4.text-right
+                =link_to 'Новий користувач?', new_user_registration_path
+              .clearfix
           .modal-footer.text-center
             = f.submit "Увійти"
 

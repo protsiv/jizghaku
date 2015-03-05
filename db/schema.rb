@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303155713) do
+ActiveRecord::Schema.define(version: 20150305100727) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -81,6 +81,28 @@ ActiveRecord::Schema.define(version: 20150303155713) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -101,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150303155713) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "banner_id"
+    t.boolean  "offer_of_the_week"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
@@ -143,8 +166,15 @@ ActiveRecord::Schema.define(version: 20150303155713) do
     t.boolean  "admin"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "name"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.boolean  "subscribe_to"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 

@@ -1,4 +1,6 @@
 class Admin::LineItemsController < Admin::AdminController
+  include CurrentCart
+  before_action :set_cart, only: [:create, :update, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/line_items
@@ -24,7 +26,13 @@ class Admin::LineItemsController < Admin::AdminController
   # POST /admin/line_items
   # POST /admin/line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    product = Product.find(params[:product_id])
+    quantity = params[:quantity]
+    # restaurant = Restaurant.find(params[:restaurant_id])
+
+    @line_item = @cart.line_items.build(product_id: product.id, quantity: quantity)
+
+    # @line_item = LineItem.new(line_item_params)
 
     respond_to do |format|
       if @line_item.save

@@ -1,39 +1,48 @@
-.row
-  .columns.large-8.large-centered
-    h2
-      |Sign up
+.login-window-wrap.registration-window-wrap.brown-pattern-background
+  .row
+    .columns.large-7.large-centered
+      .modal-window-wrap.admin-window-shadow
+        .modal-header.blue-background-pattern.text-center
+          h2 Створити акаунт
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      .field
-        = f.label :first_name
-        br
-        = f.text_field :first_name, autofocus: true
-      .field
-        = f.label :last_name
-        br
-        = f.text_field :last_name
-      .field
-        = f.label :email
-        br
-        = f.email_field :email
 
-      .field
-        = f.label :password
-        - if @validatable
-        em
-          |(
-          = @minimum_password_length
-          |characters minimum)
-        br
-        = f.password_field :password, autocomplete: "off"
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .modal-content
+            .columns
+              = devise_error_messages!
+              h3.title.text-center Особиста інформація
+              = f.input :first_name, autofocus: true, label: "Ім'я", input_html: {placeholder: "Ваше ім'я"}
+              = f.input :last_name, label: "Прізвище", input_html: {placeholder: 'Ваше прізвище'}
+              = f.input :email, label: "Електронна скринька*", input_html: {placeholder: 'foodorder@test.com'}
+              = f.input :subscribe_to, label: "Підписатись на розсилку"
 
-      .field
-        = f.label :password_confirmation
-        br
-        = f.password_field :password_confirmation, autocomplete: "off"
+              = f.input :password, label: "Пароль", hint: false, error_html: { id: 'password_error'}, input_html: {placeholder: "password"}
+              = f.input :password_confirmation, label: "Підтвердити пароль", input_html: {placeholder: "password"}
+              .row
+                .columns.large-6
+                  =link_to "< Повернутись", user_session_path
+                .columns.large-6
+                  p * поля обов’язкові для заповнення
 
-      .actions
-        = f.submit "Sign up"
 
-    = render "devise/shared/links"
+              /.field
+              /  = f.label :password
+              /  - if @validatable
+              /  em
+              /    |(
+              /    = @minimum_password_length
+              /    |characters minimum)
+              /  br
+              /  = f.password_field :password, autocomplete: "off"
+              /
+              /.field
+              /  = f.label :password_confirmation
+              /  br
+              /  = f.password_field :password_confirmation, autocomplete: "off"
+              .clearfix
+            .clearfix
+
+          .modal-footer.text-center
+            = f.submit "Підтвердити"
+
+        /= render "devise/shared/links"

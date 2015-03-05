@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   def index
-    @products = Product.order(created_at: :asc).limit(4)
+    @products_of_week = Product.where(offer_of_the_week: true).order(created_at: :asc).limit(4)
   end
 
   def about

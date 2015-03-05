@@ -1,1 +1,27 @@
-h2 cart
+h2 Корзини
+
+table
+  thead
+    tr
+      th ID
+      /th Фотографія
+      /th Категорія
+      /th Баннер
+      th
+      th
+      th
+
+  tbody
+    - @carts.each do |cart|
+      tr
+        td = cart.id
+        /td = image_tag product.image.url(:thumb)
+        /td = product.category.try(&:name)
+        /td = product.index_banner.try(&:name)
+        td = link_to 'Переглянути', admin_cart_path(cart)
+        td = link_to 'Редагувати', edit_admin_cart_path(cart)
+        td = link_to 'Видалити', admin_cart_path(cart), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+/= link_to 'Добавити новий', new_admin_cart_path

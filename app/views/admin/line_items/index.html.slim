@@ -1,0 +1,32 @@
+h2 Продукти з корзини
+
+table
+  thead
+    tr
+      th ID корзини
+      th ID
+      th Назва продукта
+      th Картинка
+      th Кількість
+      /th Баннер
+      th
+      th
+      th
+
+  tbody
+    - @line_items.each do |line_item|
+      tr
+        td = line_item.cart.id
+        td = line_item.id
+        td = line_item.product.name
+        td = image_tag line_item.product.image.url(:thumb)
+        td = line_item.quantity
+        /td = product.category.try(&:name)
+        /td = product.index_banner.try(&:name)
+/        td = link_to 'Переглянути', admin_product_path(product)
+/        td = link_to 'Редагувати', edit_admin_product_path(product)
+/        td = link_to 'Видалити', admin_product_path(product), data: {:confirm => 'Are you sure?'}, :method => :delete
+/
+/br
+/
+/= link_to 'Добавити новий', new_admin_product_path

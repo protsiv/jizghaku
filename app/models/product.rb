@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :slug, :price, :description, :image, :category, :category_id, :banner_id
+  attr_accessible :name, :slug, :price, :description, :image, :category, :category_id, :banner_id, :offer_of_the_week
   belongs_to :category
   belongs_to :banner
 

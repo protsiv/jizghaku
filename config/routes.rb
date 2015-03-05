@@ -1,30 +1,22 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :line_items
-  end
-
-  namespace :admin do
-    resources :carts
-  end
-
-  namespace :admin do
-    resources :banners
-  end
-
   mount Ckeditor::Engine => '/ckeditor'
 
   # devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   namespace :admin do
     root to: "admin#index"
 
+    resources :banners
     resources :products
     resources :restaurants
     resources :categories
+
+    resources :carts
+    resources :line_items
   end
 
-
+  # match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
