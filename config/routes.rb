@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   # devise_for :admins
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
   namespace :admin do
     root to: "admin#index"
 
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+  get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
   get '/test' => 'main#test_page'
   get '/:url' => 'main#about', as: 'restaurant_about'
   get '/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'

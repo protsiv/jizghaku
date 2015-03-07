@@ -13,14 +13,15 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    #super
+    render :edit, :layout => 'admin'
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  #def update
+    # super
+  #end
 
   # DELETE /resource
   # def destroy

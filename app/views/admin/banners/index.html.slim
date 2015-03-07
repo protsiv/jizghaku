@@ -14,7 +14,7 @@ table
     - @banners.each do |banner|
       tr
         td = banner.name
-        td = bannner.position
+        td = banner.try(:position)
         td = banner.published
         td = link_to 'Переглянути', admin_banner_path(banner)
         td = link_to 'Редагувати', edit_admin_banner_path(banner)

@@ -4,7 +4,7 @@ table
   thead
     tr
       th ID
-      /th Фотографія
+      th User id
       /th Категорія
       /th Баннер
       th
@@ -15,7 +15,7 @@ table
     - @carts.each do |cart|
       tr
         td = cart.id
-        /td = image_tag product.image.url(:thumb)
+        td = cart.user_id
         /td = product.category.try(&:name)
         /td = product.index_banner.try(&:name)
         td = link_to 'Переглянути', admin_cart_path(cart)

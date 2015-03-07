@@ -1,0 +1,15 @@
+h1
+  =current_user.first_name
+  |, id user&nbsp;
+  = current_user.cart.id
+br
+- @carts.each do |c|
+  =c.id
+  br
+  =c.created_at.strftime("%d %m %Y")
+  ul
+    -c.line_items.each_with_index do |item, i|
+      li
+        = i
+        br
+        = item.id

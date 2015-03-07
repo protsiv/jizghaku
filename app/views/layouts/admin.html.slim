@@ -8,6 +8,10 @@
     .row
       .columns.large-3
         ul.side-bar.white-board
+          li = link_to 'Мій профіль', admin_root_path
+          li = link_to 'Історія покупок', purchase_history_path
+
+
           li = link_to 'Головний банер', admin_banners_path
           li = link_to 'Ресторани', admin_restaurants_path
           li = link_to 'Категорії', admin_categories_path

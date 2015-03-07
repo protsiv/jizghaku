@@ -1,58 +1,74 @@
+.well-come-window
+  .row
+    .columns
 
-.row
-  .columns.large-8.large-centered
+      h4 Особиста інформація
+      /= resource_name.to_s.humanize
 
-    h2
-      |Edit
-      = resource_name.to_s.humanize
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        = f.input :first_name,
+                  label: "Ім'я",
+                  autofocus: true,
+                  input_html: {placeholder: "Ім'я"},
+                  hint: "Ім'я"
+        = f.input :last_name,
+                  label: "Прізвище",
+                  input_html: {placeholder: 'Прізвище'},
+                  hint: "Прізвище"
+        = f.input :email,
+                  label: "Електронна скринька",
+                  input_html: {placeholder: 'foodorder@test.com'},
+                  hint: "Електронна скринька"
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = devise_error_messages!
-      .field
-        = f.label :first_name
-        br
-        = f.text_field :first_name, autofocus: true
-      .field
-        = f.label :last_name
-        br
-        = f.text_field :last_name
-      .field
-        = f.label :email
-        br
-        = f.email_field :email
+        h4 Зміна пароля
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+            |Currently waiting confirmation for:
+            = resource.unconfirmed_email
 
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        div
-          |Currently waiting confirmation for:
-          = resource.unconfirmed_email
+        /.field
+        /  = f.label :password
+        /    i
+        /      |(залиште порожнім, якщо ви не хочете, щоб змінити його)
+        /      br
+        /  = f.password_field :password, autocomplete: "off"
+        = f.input :password,
+                  label: "Новий пароль",
+                  autocomplete: "off",
+                  input_html: {placeholder: 'новий пароль'},
+                  hint: "Новий пароль"
 
-      .field
-        = f.label :password
-          i
-            |(leave blank if you don't want to change it)
-            br
-        = f.password_field :password, autocomplete: "off"
+        = f.input :password_confirmation,
+                  label: "Підтвердження пароля",
+                  autocomplete: "off",
+                  input_html: {placeholder: 'підтвердження пароля'},
+                  hint: "Підтвердження пароля"
 
-      .field
-        = f.label :password_confirmation
-        br
-        = f.password_field :password_confirmation, autocomplete: "off"
+        h4 Підтвердження всіх змін
+        /.field
+        /  = f.label :current_password
+        /    i
+        /      |(введіть свій поточний пароль для підтвердження змін)
+        /    br
+        /  = f.password_field :current_password, autocomplete: "off"
+        = f.input :current_password, label: false do
+          = f.input :current_password, label: "Поточний пароль", input_html: {placeholder: '(введіть свій поточний пароль для підтвердження змін)'}, hint: "Поточний пароль"
+          /i
+          /  |(введіть свій поточний пароль для підтвердження змін)
+        .row
+          .columns.large-7
+            = link_to 'Повернутись', admin_root_path
+          .columns.large-5
+            .actions
+              = f.submit "Зберегти зміни"
+      hr
 
-      .field
-        = f.label :current_password
-          i
-            |(we need your current password to confirm your changes)
-          br
-        = f.password_field :current_password, autocomplete: "off"
+      h3
+        |Cancel my account
 
-      .actions
-        = f.submit "Update"
+      p
+        |Unhappy?
+        = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
 
-    h3
-      |Cancel my account
-
-    p
-      |Unhappy?
-      = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-
-    = link_to "Back", :back
+      = link_to "Back", :back

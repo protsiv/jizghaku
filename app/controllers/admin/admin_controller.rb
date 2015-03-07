@@ -4,6 +4,10 @@ class Admin::AdminController < ApplicationController
   layout "admin"
 
   def index
-
   end
+
+  def purchase_history
+    @carts = Cart.where(user_id: current_user.id)
+  end
+
 end
