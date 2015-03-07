@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
       cart
   end
 
+  helper_method :admin?
+
+  def admin?
+    !!current_user.try(:admin?)
+  end
   # def current_cart
   #   @current_cart ||= find_cart
   # end

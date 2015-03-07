@@ -1,6 +1,5 @@
 class Admin::LineItemsController < Admin::AdminController
-  include CurrentCart
-  before_action :set_cart, only: [:create, :update, :destroy]
+  before_filter :authenticate
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/line_items
@@ -30,7 +29,7 @@ class Admin::LineItemsController < Admin::AdminController
     quantity = params[:quantity]
     # restaurant = Restaurant.find(params[:restaurant_id])
 
-    @line_item = @cart.line_items.build(product_id: product.id, quantity: quantity)
+    @line_item = current_cart.line_items.build(product_id: product.id, quantity: quantity)
 
     # @line_item = LineItem.new(line_item_params)
 

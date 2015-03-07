@@ -1,6 +1,6 @@
 class Admin::CartsController < Admin::AdminController
-
-  # before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
+  before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/carts
   # GET /admin/carts.json
@@ -55,7 +55,7 @@ class Admin::CartsController < Admin::AdminController
   # DELETE /admin/carts/1
   # DELETE /admin/carts/1.json
   def destroy
-    @cart.destroy
+    @cart.try(:destroy)
     respond_to do |format|
       format.html { redirect_to admin_carts_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }

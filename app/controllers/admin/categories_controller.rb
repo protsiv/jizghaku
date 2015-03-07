@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::AdminController
+  before_filter :authenticate
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
 
   def index
     @categories = Category.all

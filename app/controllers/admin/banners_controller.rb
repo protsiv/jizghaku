@@ -1,4 +1,5 @@
 class Admin::BannersController < Admin::AdminController
+  before_filter :authenticate
   before_action :set_banner, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/banners

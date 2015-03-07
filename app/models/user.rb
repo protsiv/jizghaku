@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
+  attr_accessible
   has_one :cart
    def current_cart
     if self.cart.nil?
-    self.create_cart(user_id: self.id)
+      self.build_cart
     end
     self.cart
    end
@@ -56,7 +56,11 @@ class User < ActiveRecord::Base
     # Associate the identity with the user if needed
     if identity.user != user
       identity.user = user
-      identity.save!
+      if identity.valid?
+        identity.save!
+      else
+        render inline: "#{identity.inspect}<br/>#{identity.errors.inspect}"
+      end
     end
     user
   end

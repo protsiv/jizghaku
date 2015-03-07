@@ -11,13 +11,14 @@
           li = link_to 'Мій профіль', admin_root_path
           li = link_to 'Історія покупок', purchase_history_path
 
+          - if admin?
+            li = link_to 'Головний банер', admin_banners_path
+            li = link_to 'Ресторани', admin_restaurants_path
+            li = link_to 'Категорії', admin_categories_path
+            li = link_to 'Продукти', admin_products_path
+            li = link_to 'Корзини', admin_carts_path
+            li = link_to 'Продукти з корзини', admin_line_items_path
 
-          li = link_to 'Головний банер', admin_banners_path
-          li = link_to 'Ресторани', admin_restaurants_path
-          li = link_to 'Категорії', admin_categories_path
-          li = link_to 'Продукти', admin_products_path
-          li = link_to 'Корзини', admin_carts_path
-          li = link_to 'Продукти з корзини', admin_line_items_path
 
       .columns.large-9
         .admin-main.white-board

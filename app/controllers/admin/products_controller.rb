@@ -1,4 +1,5 @@
 class Admin::ProductsController < Admin::AdminController
+  before_filter :authenticate
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/products

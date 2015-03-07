@@ -1,4 +1,5 @@
 class Admin::RestaurantsController < Admin::AdminController
+  before_filter :authenticate
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/restaurants

@@ -10,4 +10,10 @@ class Admin::AdminController < ApplicationController
     @carts = Cart.where(user_id: current_user.id)
   end
 
+  def authenticate
+    unless admin?
+      redirect_to root_path
+    end
+  end
+
 end
