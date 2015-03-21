@@ -4,10 +4,18 @@ h1
   = current_user.cart.id
 br
 - @carts.each do |c|
-  =c.id
-  br
-  =c.created_at.strftime("%d %m %Y")
+  strong
+    |Корзина створена &nbsp;
+    =c.created_at.strftime("%d %B %Y %A")
   ul
-    -c.line_items.each_with_index do |item, i|
+    -c.line_items.each_with_index do |item, li|
       li
         = item.id
+        br
+        = item.product.id
+        br
+        = item.product.name
+        br
+        =image_tag item.product.image.url(:thumb)
+        = item.quantity
+        br

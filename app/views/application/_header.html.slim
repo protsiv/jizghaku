@@ -45,7 +45,8 @@
               .count-wrap
                 p
                   |(
-                  span 4
+                  span
+                    =current_cart.line_items.size
                   |)
 =render partial: 'partials/forms/call_order'
 =render partial: 'partials/forms/basket_second_step'
