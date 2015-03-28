@@ -42,7 +42,14 @@ module ApplicationHelper
   def restorans
      restoran = Restaurant.order(position: :asc)
   end
-  # def banner
-  #   banner = Banner.first()
-  # end
+
+  def business_lunch
+    @products_for_monday ||= Product.where(d_monday: true).order(created_at: :asc).limit(2)
+    @products_for_tuesday ||= Product.where(d_tuesday: true).order(created_at: :asc).limit(2)
+    @products_for_wednesday ||= Product.where(d_wednesday: true).order(created_at: :asc).limit(2)
+    @products_for_thursday ||= Product.where(d_thursday: true).order(created_at: :asc).limit(2)
+    @products_for_friday ||= Product.where(d_friday: true).order(created_at: :asc).limit(2)
+
+    # @days_with_business_lunch ||= Product.where()
+  end
 end

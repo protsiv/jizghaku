@@ -106,7 +106,7 @@
                     .name-wrap
                       h2 =p.name
                     .description-wrap
-                      p =p.description
+                      p =raw p.description
                     form action=""
                       .input
                         input type="number" value="1"
@@ -121,12 +121,12 @@
                   .price-wrap.text-center
                     .price
                       strong = p.price.round
-                      p грн
+                      p грн                                                    ˙
                   .information-block
                     .name-wrap
                       h2 =p.name
                     .description-wrap
-                      p =p.description
+                      p =raw p.description
                     form action=""
                       .input
                         input type="number" value="1"

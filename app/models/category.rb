@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :slug, :restaurant_id, :restaurant, :common
+  attr_accessible :name, :slug, :restaurant_id, :restaurant, :common, :position
 
   belongs_to :restaurant
   has_many :products

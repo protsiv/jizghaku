@@ -4,35 +4,136 @@
       .title
         h3 Бізнес-ланч
   .row
+    /.columns
+    /  #business_lunch
+    /    - prod = products(10)
+    /    - if prod && prod.count > 0
+    /      - prod.in_groups_of(2).each_with_index do |prod_group, index|
+    /        - color = cycle(%w(yellow brown yellow-green blue red))
+    /
+    /        .row.business_lunch_item
+    /          - prod_group.each_with_index do |p, i|
+    /            .columns.large-6.medium-6 class="#{'end' if i == prod_group.count-1}"
+    /              .one-product-wrap class="#{color}"
+    /                .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+    /                .information-block-wrap
+    /                  .price-wrap.text-center
+    /                    .price
+    /                      strong = p.price.round
+    /                      p грн
+    /                  .information-block
+    /                    .name-wrap
+    /                      h2 =p.name
+    /                    .description-wrap
+    /                      p =raw p.description
+    /                    form action=""
+    /                      .input
+    /                        input type="number" value="1"
+    /                      button type="submit" name="order-product" value="true" Замовити
+  .row
     .columns
-      #business_lunch
-        - prod = products(10)
-        - if prod && prod.count > 0
-          - prod.in_groups_of(2).each_with_index do |prod_group, index|
-            - color = cycle(%w(yellow brown yellow-green blue red))
-            .row.business_lunch_item
-              - prod_group.each_with_index do |p, i|
-                .columns.large-6.medium-6 class="#{'end' if i == prod_group.count-1}"
-                  .one-product-wrap class="#{color}"
-                    .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
-                    .information-block-wrap
-                      .price-wrap.text-center
-                        .price
-                          strong = p.price.round
-                          p грн
-                      .information-block
-                        .name-wrap
-                          h2 =p.name
-                        .description-wrap
-                          p =p.description
-                        form action=""
-                          .input
-                            input type="number" value="1"
-                          button type="submit" name="order-product" value="true" Замовити
-  /.row
-  /  .columns
-  /    = Date.today.wday
-/if index == 0 then; 'yellow' else if index == 1 then; 'brown' else if index == 2 then; 'yellow-green' else if index == 3 then; 'blue' else if index == 4 then; 'red' end; end; end; end;
+      #business_lunch2
+        - business_lunch
+        .row.business_lunch_item
+          - if @products_for_monday.any?
+            - @products_for_monday.each_with_index do |p, i|
+              .columns.large-6.medium-6
+                .one-product-wrap.yellow
+                  .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+                  .information-block-wrap
+                    .price-wrap.text-center
+                      .price
+                        strong = p.price.round
+                        p грн
+                    .information-block
+                      .name-wrap
+                        h2 =p.name
+                      .description-wrap
+                        p =raw p.description
+                      form action=""
+                        .input
+                          input type="number" value="1"
+                        button type="submit" name="order-product" value="true" Замовити
+        .row.business_lunch_item
+          - if @products_for_tuesday.any?
+            - @products_for_tuesday.each_with_index do |p, i|
+              .columns.large-6.medium-6
+                .one-product-wrap.brown
+                  .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+                  .information-block-wrap
+                    .price-wrap.text-center
+                      .price
+                        strong = p.price.round
+                        p грн
+                    .information-block
+                      .name-wrap
+                        h2 =p.name
+                      .description-wrap
+                        p =raw p.description
+                      form action=""
+                        .input
+                          input type="number" value="1"
+                        button type="submit" name="order-product" value="true" Замовити
+        .row.business_lunch_item
+          - if @products_for_wednesday.any?
+            - @products_for_wednesday.each_with_index do |p, i|
+              .columns.large-6.medium-6
+                .one-product-wrap.yellow-green
+                  .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+                  .information-block-wrap
+                    .price-wrap.text-center
+                      .price
+                        strong = p.price.round
+                        p грн
+                    .information-block
+                      .name-wrap
+                        h2 =p.name
+                      .description-wrap
+                        p =raw p.description
+                      form action=""
+                        .input
+                          input type="number" value="1"
+                        button type="submit" name="order-product" value="true" Замовити
+        .row.business_lunch_item
+          - if @products_for_thursday.any?
+            - @products_for_thursday.each_with_index do |p, i|
+              .columns.large-6.medium-6
+                .one-product-wrap.blue
+                  .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+                  .information-block-wrap
+                    .price-wrap.text-center
+                      .price
+                        strong = p.price.round
+                        p грн
+                    .information-block
+                      .name-wrap
+                        h2 =p.name
+                      .description-wrap
+                        p =raw p.description
+                      form action=""
+                        .input
+                          input type="number" value="1"
+                        button type="submit" name="order-product" value="true" Замовити
+        .row.business_lunch_item
+          - if @products_for_friday.any?
+            - @products_for_friday.each_with_index do |p, i|
+              .columns.large-6.medium-6
+                .one-product-wrap.red
+                  .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
+                  .information-block-wrap
+                    .price-wrap.text-center
+                      .price
+                        strong = p.price.round
+                        p грн
+                    .information-block
+                      .name-wrap
+                        h2 =p.name
+                      .description-wrap
+                        p =raw p.description
+                      form action=""
+                        .input
+                          input type="number" value="1"
+                        button type="submit" name="order-product" value="true" Замовити
 
 
 

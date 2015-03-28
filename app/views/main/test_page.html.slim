@@ -27,3 +27,15 @@
     - banner.products.each do |p|
       = p.name
       hr
+
+.row
+  .columns
+    =current_cart.line_items.size
+.row
+  .columns
+    ul
+      -current_cart.line_items.each do |l|
+        li
+          =l.product.name
+          =l.product.category.restaurant.name
+          =l.quantity
