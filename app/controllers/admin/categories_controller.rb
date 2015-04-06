@@ -57,6 +57,6 @@ class Admin::CategoriesController < Admin::AdminController
     end
 
     def category_params
-      params.require(:category).permit(:name, :slug, :restaurant, :restaurant_id, :common)
+      params.require(:category).permit(:name, :slug, :restaurant, :restaurant_id, :common, :position)
     end
 end
