@@ -1,7 +1,9 @@
 #BasketModal.reveal-modal data-reveal=""
   .basket-modal-wrap
     .modal-header.blue-background-pattern.text-center
-      h2 Що будемо?
+      h2
+        |Що будемо?
+        =current_cart.line_items.size
       a.close-reveal-modal
     .modal-content
       .row
@@ -29,14 +31,20 @@
               .title
                 b Все вірно?
             .clearfix
-      /.row
-      /  .columns
-      /    .test-div
-      /      .input.input-count
-      /        .input-count-up
-      /        .input-count-down
-      /        .input-inner
-      /          input value="1"
+      = current_cart.line_items.size
+      ul
+      - current_cart.line_items.each do |li|
+        .row
+          .columns.large-3
+            = li.product.id
+          .columns.large-3
+            = li.product.name
+          .columns.large-3
+            = li.quantity
+          .columns.large-3
+            /= li.product.category.id
+            = li.product.category.restaurant.name
+
       .one-item
         .row
           .columns.large-4.medium-4

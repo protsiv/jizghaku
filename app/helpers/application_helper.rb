@@ -52,4 +52,7 @@ module ApplicationHelper
 
     # @days_with_business_lunch ||= Product.where()
   end
+  def cart
+    current_cart.line_items
+  end
 end
