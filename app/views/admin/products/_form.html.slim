@@ -3,6 +3,19 @@
   .form-inputs
     = f.input :name, label: "Назва", input_html: {placeholder: ' '}, hint: "Назва продукту"
     .row
+      .columns.large-6.medium-6.small-6
+        = f.input :position, label: "Позиція", input_html: {placeholder: ' '}, hint: "Позиція продукту"
+      .columns.large-6.medium-6.small-6
+        .row
+          .columns
+            p ресторан - 1000
+        .row
+          .columns
+            p категорія - 50
+        .row
+          .columns
+            p продукт - 1
+    .row
       .columns
         = f.input :offer_of_the_week, label: "Пропозиція цижня", as: :boolean
     .row

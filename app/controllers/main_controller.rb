@@ -11,9 +11,9 @@ class MainController < ApplicationController
   def catalog
     @current_restaurant = Restaurant.find_by_slug(params[:restaurant])
     @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
-    @categories = Category.joins(:restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(created_at: :asc)
+    @categories = Category.joins(:restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(created_at: :desc)
     @common_categories = Category.where(common: true).order(created_at: :asc)
-    @products = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(created_at: :asc)
+    @products = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(position: :asc)
     @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
     @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
   end

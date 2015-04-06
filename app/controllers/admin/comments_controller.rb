@@ -17,6 +17,7 @@ class Admin::CommentsController < Admin::AdminController
     @comment = Comment.new
   end
 
+
   # GET /admin/comments/1/edit
   def edit
   end

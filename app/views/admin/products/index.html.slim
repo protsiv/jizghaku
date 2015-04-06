@@ -3,10 +3,11 @@ h3 Продукти
 table
   thead
     tr
+      th Ресторан
+      th Категорія
       th Назва
       th Фотографія
-      th Категорія
-      /th Баннер
+      th Позиція
       th
       th
       th
@@ -14,13 +15,17 @@ table
   tbody
     - @products.each do |product|
       tr
+        td
+          -if product.category
+            = image_tag product.category.restaurant.try(&:logo)
+        td = product.category.try(&:name)
         td = product.name
         td = image_tag product.image.url(:thumb)
-        td = product.category.try(&:name)
-        /td = product.index_banner.try(&:name)
-        td = link_to 'Переглянути', admin_product_path(product)
-        td = link_to 'Редагувати', edit_admin_product_path(product)
-        td = link_to 'Видалити', admin_product_path(product), data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = product.position
+
+        td = link_to 'O', admin_product_path(product)
+        td = link_to '/', edit_admin_product_path(product)
+        td = link_to 'X', admin_product_path(product), data: {:confirm => 'Are you sure?'}, :method => :delete, class: ''
 
 br
 
