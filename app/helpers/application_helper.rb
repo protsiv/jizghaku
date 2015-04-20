@@ -55,4 +55,5 @@ module ApplicationHelper
   def cart
     current_cart.line_items
   end
+
 end

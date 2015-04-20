@@ -8,6 +8,7 @@ table
       th Назва
       th Фотографія
       th Позиція
+      th Бізнес ланч
       th
       th
       th
@@ -22,7 +23,7 @@ table
         td = product.name
         td = image_tag product.image.url(:thumb)
         td = product.position
-
+        td x
         td = link_to 'O', admin_product_path(product)
         td = link_to '/', edit_admin_product_path(product)
         td = link_to 'X', admin_product_path(product), data: {:confirm => 'Are you sure?'}, :method => :delete, class: ''
