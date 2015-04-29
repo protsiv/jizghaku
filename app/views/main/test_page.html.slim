@@ -37,5 +37,24 @@
       -current_cart.line_items.each do |l|
         li
           =l.product.name
-          =l.product.category.restaurant.name
+          - if l.product.category
+            = l.product.category.restaurant.try(&:name)
           =l.quantity
+.row
+  .columns
+    h1 Корзина
+.row
+  .columns
+
+    -if $line_items
+      -$line_items.each do |l|
+        .row
+          .columns.large-4
+            =l.product.name
+          .columns.large-4
+            =l.product.position
+          .columns.large-4
+            - if l.product.category
+              =l.product.category.name
+            - else
+              |Спільна

@@ -22,5 +22,9 @@ class MainController < ApplicationController
   def test_page
     @categories = Category.where(common: true)
     @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
+
+    $line_items = LineItem.where(cart: current_cart.id)
+
+
   end
 end

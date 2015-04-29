@@ -254,6 +254,7 @@ header, footer
       border-radius: 50%
       overflow: hidden
       background: white
+
     .about-restaurant
       padding-top: 15px
       b, p
@@ -1095,9 +1096,14 @@ a.close-fancy-form
       family: "Fira Sans", sans-serif
 
 .restaurant-wrap
+  .restaurant-logo
+    @media #{$small-only}
+      opacity: .3
   .passive
     path, rect, polygon
       fill: #D1D3D4
+    @media #{$small-only}
+      display: none
   .one-product-wrap
     margin-top: 0
     margin-bottom: 1.875rem

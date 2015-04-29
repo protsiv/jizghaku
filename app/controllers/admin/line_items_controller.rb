@@ -30,6 +30,7 @@ class Admin::LineItemsController < Admin::AdminController
     # restaurant = Restaurant.find(params[:restaurant_id])
 
     @existed_item = current_cart.line_items.where(product_id: product.id)
+    added_to_existing = @existed_item.any?
     if @existed_item.count > 0
       @line_item = @existed_item.first
       if @line_item && !@line_item.quantity
@@ -46,7 +47,19 @@ class Admin::LineItemsController < Admin::AdminController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to [:admin, @line_item], notice: 'Line item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @line_item }
+        format.json {
+          str = render_to_string(template: "partials/_one_item_cart.html", locals: {li: @line_item}, layout: false)
+          rez = {}
+
+          if added_to_existing
+            rez[:added_to_existing] = true
+            rez[:quantity] = @line_item.quantity
+          else
+            rez[:item_template] = str
+          end
+          render inline: rez.to_json
+          # render action: 'show', status: :created, location: @line_item
+        }
       else
         format.html { render action: 'new' }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }

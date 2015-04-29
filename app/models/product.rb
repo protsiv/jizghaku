@@ -6,6 +6,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :banner
 
+
+  validates_presence_of :category, :message => "Продукт повинен належати до якоїсь категорії!"
+
   has_many :line_items
 
   has_attached_file :image, styles:{

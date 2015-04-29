@@ -14,4 +14,10 @@ class Category < ActiveRecord::Base
     self.slug = name.parameterize || self.slug == ''
   end
 
+  # def validate_category
+  #    if restaurant.nill
+  #
+  #    end
+  # end
+
 end

@@ -1,0 +1,55 @@
+.one-item data-product-id=li.product.id
+  .row
+    .columns.large-4.medium-4
+      .delete-item
+        /= link_to "Delete", admin_line_item_path(li), { data: { confirm: "Are you sure you wish to delete the product '#{li.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }
+
+        form.delete-product action=admin_line_item_path(li)
+          button type="submit" name="delete-product" value="true"  X
+
+      .basket-item-image.basket-item style="background: url(#{li.product.image.url(:main)})no-repeat center center;"
+    .columns.large-8.medium-8
+      .row
+        .columns
+          b =li.product.name
+          p =truncate_html li.product.description, length: 220
+      .row
+        .columns.large-3.medium-3.small-3
+          - if !li.product.size.blank?
+            b
+              span
+                =li.product.size
+                |&nbsp;л
+
+          - if !li.product.weight.blank?
+            b
+              span
+                =li.product.weight
+                |&nbsp;г
+
+          - if !li.product.diameter.blank?
+            b
+              span
+                |Ø&nbsp;
+                =li.product.diameter
+                |&nbsp;см
+
+        .columns.large-5.medium-5.small-5
+          p
+            .round-input
+              .input.input-count
+                .input-count-up
+                .input-count-down
+                .input-inner
+                  input.one-item-quantity value=li.quantity
+            span  шт, на суму:
+        .columns.large-4.medium-4.small-4
+          strong
+            |109
+            sup
+              |25
+            span
+              |грн
+  .row
+    .columns
+      hr

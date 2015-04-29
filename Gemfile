@@ -72,4 +72,6 @@ gem 'seed_dump'
 
 gem 'activerecord-reset-pk-sequence'
 
+gem "truncate_html"
+
 
