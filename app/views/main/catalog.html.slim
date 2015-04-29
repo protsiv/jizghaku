@@ -27,7 +27,7 @@
       .columns.large-3.medium-3
         a href=restaurant_all_menu_path(r.slug)
           .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
-            = embedded_svg_from_abs  r.logo.path
+            =image_tag r.logo
 
   .row
     .columns.large-3.medium-3
@@ -39,7 +39,7 @@
                 |Все меню &nbsp;
                 sup
                   |(
-                  /span = @products_count
+                  span = @products_count + @products_common.count
                   | )
             -@categories.each do |c|
               - count = c.products.count

@@ -15,7 +15,9 @@ class MainController < ApplicationController
     @common_categories = Category.where(common: true).order(position: :asc)
     @products = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(position: :asc)
     @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
+
     @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
+    # @common_products_count = Products.joins
   end
   def test_page
     @categories = Category.where(common: true)
