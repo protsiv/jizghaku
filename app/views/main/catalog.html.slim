@@ -100,7 +100,7 @@
                 .information-block-wrap
                   .price-wrap.text-center
                     .price
-                      strong = p.price.round
+                      strong = p.price.try(&:round)
                       p грн
                   .information-block
                     .name-wrap
@@ -120,7 +120,7 @@
                 .information-block-wrap
                   .price-wrap.text-center
                     .price
-                      strong = p.price.round
+                      strong = p.price.round.try(&:round)
                       p грн                                                    ˙
                   .information-block
                     .name-wrap
