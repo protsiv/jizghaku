@@ -111,11 +111,15 @@
                     form.order-form action=admin_line_items_path
                       input type="hidden" name="cart_id" value=current_cart.id
                       input type="hidden" name="product_id" value="#{p.id}"
-                      .input
-                        input type="number" name="quantity" value="1"
+                      .round-input
+                        .input.input-count
+                          .ic-button.input-count-up
+                          .ic-button.input-count-down
+                          .input-inner
+                            input type="number" name="quantity" value="1"
 
                       input type="hidden" name="restaurant_id" value="1"
-                      button type="submit" name="order-product" value="true"  Замовити
+                      button type="submit" name="order-product"  Замовити
 
         - if @products_common && @products_common.count > 0
           - @products_common.each_with_index do |p, i|
@@ -138,11 +142,15 @@
                     form.order-form action=admin_line_items_path
                       input type="hidden" name="cart_id" value=current_cart.id
                       input type="hidden" name="product_id" value="#{p.id}"
-                      .input
-                        input type="number" name="quantity" value="1"
+                      .round-input
+                        .input.input-count
+                          .ic-button.input-count-up
+                          .ic-button.input-count-down
+                          .input-inner
+                            input type="number" name="quantity" value="1"
 
                       input type="hidden" name="restaurant_id" value="1"
-                      button type="submit" name="order-product" value="true"  Замовити
+                      button type="submit" name="order-product"  Замовити
 
 
 

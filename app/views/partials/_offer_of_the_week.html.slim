@@ -20,17 +20,14 @@
                 .description-wrap
                   p =raw p.description
                 form.order-form action=admin_line_items_path
-                  /input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
                   input type="hidden" name="cart_id" value=current_cart.id
                   input type="hidden" name="product_id" value="#{p.id}"
-                  .input
-                    input type="number" name="quantity" value="1"
-                  /.round-input
-                  /  .input.input-count
-                  /    .input-count-up
-                  /    .input-count-down
-                  /    .input-inner
-                  /      input type="number" name="quantity" value="1"
+                  .round-input
+                    .input.input-count
+                      .ic-button.input-count-up
+                      .ic-button.input-count-down
+                      .input-inner
+                        input type="number" name="quantity" value="1"
 
                   input type="hidden" name="restaurant_id" value="1"
                   button type="submit" name="order-product"  Замовити

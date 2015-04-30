@@ -56,4 +56,10 @@ module ApplicationHelper
     current_cart.line_items
   end
 
+  def current_restaurant_items(restaurant)
+    @line_items = LineItem
+
+  end
+
+
 end

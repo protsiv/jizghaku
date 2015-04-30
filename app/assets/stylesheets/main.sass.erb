@@ -403,6 +403,14 @@ header, footer
         height: 53px
         background-color: #FF661B
         +single-transition(bottom)
+        .round-input
+          width: 35%
+          margin-top: 6px
+          .input-count
+            margin: 0 auto
+            float: none
+            input
+              margin-top: 0!important
         .input
           width: 35%
           float: left
@@ -1318,21 +1326,30 @@ p
       .delete-item
         height: 24px
         width: 24px
-        display: block
-        background: url('<%=asset_path("Yizhaku-close-button-white.png")%>') no-repeat
-        background-size: 100%
         top: -.8rem !important
         left: 1.875rem
         position: absolute
-        cursor: pointer
-        &:hover
-          /*background: url('<%=asset_path("Yizhaku-close-button.png")%>') no-repeat*/
-          /*background-size: 100%*/
-          -webkit-transform: scale(1.3)
-          -moz-transform:    scale(1.1)
-          -ms-transform:     scale(1.1)
-          -o-transform:      scale(1.1)
-          transform:         scale(1.1)
+        form
+          width: inherit
+          height: inherit
+          button
+            width: inherit
+            height: inherit
+            display: block
+            background-image: asset_url("Yizhaku-close-button-white.png")
+            background-size: 100%
+            background-repeat: no-repeat
+            background-color: transparent
+            margin: 0
+            padding: 0
+
+
+        /*&:hover*/
+          /*-webkit-transform: scale(1.3)*/
+          /*-moz-transform:    scale(1.1)*/
+          /*-ms-transform:     scale(1.1)*/
+          /*-o-transform:      scale(1.1)*/
+          /*transform:         scale(1.1)*/
       b
         font:
           family: "Lobster", cursive
@@ -1537,6 +1554,7 @@ a.blue-link
       height: 40px
       position: absolute
       left: 0
+      z-index: 11
       /*border: 1px solid red*/
       border-radius: 50%
       cursor: pointer

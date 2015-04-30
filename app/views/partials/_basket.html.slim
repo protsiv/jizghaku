@@ -34,6 +34,10 @@
 
       .cart-items-wrap
         - current_cart.line_items.each do |li|
+          -if li.product.category
+          = li.product.category.name
+          -if li.product.category.restaurant
+            =li.product.category.restaurant.name
           =render partial: "partials/one_item_cart", locals: {li: li}
 
 

@@ -53,15 +53,16 @@
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
-                        .input
-                          input type="number" name="quantity" value="1"
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value="1"
 
                         input type="hidden" name="restaurant_id" value="1"
                         button type="submit" name="order-product"  Замовити
-                      /form action=""
-                      /  .input
-                      /    input type="number" value="1"
-                      /  button type="submit" name="order-product" value="true" Замовити
+
         .row.business_lunch_item
           - if @products_for_tuesday.any?
             - @products_for_tuesday.each_with_index do |p, i|
@@ -81,8 +82,12 @@
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
-                        .input
-                          input type="number" name="quantity" value="1"
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value="1"
 
                         input type="hidden" name="restaurant_id" value="1"
                         button type="submit" name="order-product"  Замовити
@@ -106,8 +111,12 @@
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
-                        .input
-                          input type="number" name="quantity" value="1"
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value="1"
 
                         input type="hidden" name="restaurant_id" value="1"
                         button type="submit" name="order-product"  Замовити
@@ -131,8 +140,12 @@
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
-                        .input
-                          input type="number" name="quantity" value="1"
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value="1"
 
                         input type="hidden" name="restaurant_id" value="1"
                         button type="submit" name="order-product"  Замовити
@@ -156,8 +169,12 @@
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
-                        .input
-                          input type="number" name="quantity" value="1"
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value="1"
 
                         input type="hidden" name="restaurant_id" value="1"
                         button type="submit" name="order-product"  Замовити
