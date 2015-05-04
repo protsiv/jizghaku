@@ -14,13 +14,17 @@ $(document).ready ->
     postData = $(this).serializeArray()
     formURL = $(this).attr('action')
 
+    $wrap =$(@).closest('.one-product-wrap')
+    $status_adding = $wrap.find('.price-wrap')
+
     $.ajax
       url: formURL
       dataType: 'json'
       type: "POST"
       data: postData
       beforeSend: ->
-        alert 'begining'
+        $status_adding.addClass('y-sending')
+
       success: (data) ->
         $cart_items_wrap = $('.cart-items-wrap')
         if data.added_to_existing
@@ -30,11 +34,27 @@ $(document).ready ->
           $('.cart-items-wrap').append($item)
           $sum = $sum + 1
 
-
-          alert 'success'
+        setTimeout (->
+          $status_adding.removeClass('y-sending')
+          $status_adding.addClass('y-success')
+        ), 2000
+#        setTimeout (->
+#          $status_adding.removeClass('y-success')
+#        ), 4000
         count = $cart_items_wrap.children().length
         $('.basket-inner .count-wrap span').text(count)
 
+      complete: ->
+
+        setTimeout (->
+          $status_adding.removeClass('y-success')
+        ), 4000
+
+      error: ->
+        setTimeout (->
+          $status_adding.removeClass('y-sending')
+          $status_adding.addClass('y-error')
+        ), 2000
 
     e.preventDefault()
 

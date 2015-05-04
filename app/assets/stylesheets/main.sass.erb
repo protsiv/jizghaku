@@ -455,6 +455,15 @@ header, footer
       -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6)
       box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.6)
       z-index: 10
+      &.y-sending, &.y-success, &.y-error
+        .price
+          display: none
+      &.y-sending
+        background-color: #212844
+      &.y-success
+        background-color: #00948F
+      &.y-error
+        background-color: #EC0044
       .price
         position: relative
         strong
