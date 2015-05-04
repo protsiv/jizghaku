@@ -22,7 +22,7 @@
           - if !li.product.weight.blank?
             b
               span
-                =li.product.weight
+                =li.product.weight.round()
                 |&nbsp;г
 
           - if !li.product.diameter.blank?

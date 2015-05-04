@@ -521,6 +521,7 @@ header, footer
   margin: 0 auto
 .basket-item
   padding-bottom: 66%
+  border: 1px solid #D1D3D4
 @-webkit-keyframes NAME-YOUR-ANIMATION
   from
     top: 0
@@ -1313,6 +1314,9 @@ p
             fill: #D1D3D4
       li:last-of-type
         width: 43%
+        &.passive
+          .title:after
+            background-color: #D1D3D4
         .ico
           width: 78px
           +my_horizontal_align
@@ -1328,10 +1332,13 @@ p
             position: absolute
             left: 0
             top: 13px
-            background-color: #D1D3D4
+            background-color: #FF9E15
     .one-item
       padding-top: 28px
       position: relative
+      &:last-of-type
+        hr
+          display: none
       .delete-item
         height: 24px
         width: 24px
@@ -1427,12 +1434,70 @@ p
         background-color: #D1D3D4
         box-shadow: none
         margin-top: 22px
+  .cart-items-wrap
+    border-bottom: 1px solid #FF9E15
+  .cart-rez-wrap
+    margin-top: 25px
+    margin-bottom: 100px
+    .enter-in-system-from-basket-wrap
+      p
+        color: #939598
+        font:
+          size: rem-calc(14)
+          weight: 300
+          style: italic
+        line-height: rem-calc(18)
+        &.esb-closed
+          span
+            color: #00948F
+            cursor: pointer
+      form
+        display: none
+        position: relative
+        .esb-button-close
+          position: absolute
+          width: 40px 
+          height: 40px 
+          top: 0
+          right: 0
+          background-color: #00948F
+          cursor: pointer
+    .basket-total-price-wrap
+      h4
+        color: #939598
+        font:
+          family: "Fira Sans", sans-serif
+          size: rem-calc(18)
+          weight: 400
+        line-height: rem-calc(21.6)
+        b
+          color: #212844
+          font:
+            family: "Lobster", cursive
+            size: rem-calc(48)
+          sup
+            font:
+              size: 50%
+        sub
+          color: #FF9E15
+          font:
+            family: "Lobster", cursive
+            size: rem-calc(21)
+
   .modal-footer
     height: 59px
     width: 100%
     background-color: #FF661B
     border-top: 1px solid #ffa477
     position: relative
+    .check-validate-status-button
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      background-color: transparent
+      cursor: pointer
     .number-order-wrap
       background-color: #fff
       width: 70px
@@ -1472,7 +1537,65 @@ p
       background: transparent
       padding: 0
       outline: none !important
-
+#BasketFinishStepModal
+  .modal-content
+    h3
+      color: #FF9E15
+      font:
+        size: rem-calc(14)
+        weight: 400
+        family: "Fira Sans", sans-serif
+      line-height: rem-calc(14)
+    .delivery-address-wrap
+      svg
+        width: 25px
+        height: 100%
+      p
+        color: #212844
+        font:
+          size: rem-calc(18)
+          weight: 400
+          family: "Lobster", cursive
+        line-height: rem-calc(14)
+    .your-notes-wrap
+      p
+        color: #808285
+        font:
+          size: rem-calc(14)
+          style: italic
+          weight: 300
+        line-height: rem-calc(18)
+    .ordered-products-wrap
+      border-bottom: 1px solid #FF9E15
+      .ordered-product-one-item-wrap
+        padding-top: 10px
+        padding-bottom: 20px
+        border-bottom: 1px solid #D1D3D4
+        &:last-of-type
+          border-bottom: none
+      b, strong
+        color: #212844
+      b, strong, span
+        font:
+          family: "Lobster", cursive
+      b
+        font:
+          size: rem-calc(18)
+        line-height: rem-calc(21)
+      strong
+        font:
+          size: rem-calc(25)
+          weight: 400
+        line-height: rem-calc(28.8)
+        sup
+          font:
+            size: 50%
+      span
+        color: #FF9E15
+        font:
+          size: rem-calc(14)
+          weight: 400
+        line-height: rem-calc(16.8)
 .checkout-status-wrap
   .basket-ico-status
     width: 26px
@@ -1612,6 +1735,12 @@ form
       color: #FF9E15
       padding-left: 17px
       margin-bottom: .5rem
+      &.error
+        color: #EC0044
+        font:
+          size: rem-calc(14)
+          style: italic
+        line-height: rem-calc(14)
     input
       +placeholder(#A7A9AC, rem-calc(14), $font_style: italic !important)
         font-family: "Fira Sans", sans-serif
@@ -1624,7 +1753,8 @@ form
       color: #58595B
       line-height: rem-calc(18)
       padding: 0 17px
-
+      &.error
+        border: 1px solid #EC0044
       &:valid
         border-color: #58595B
       &:focus

@@ -1,9 +1,71 @@
 
 
 $(document).ready ->
-#  alert "test"
-  #callback handler for form submit
 
+#  =========================
+# validate form for basket
+#  =========================
+  $('#basket-information-form').validate()
+#    onfocusout: (element) ->
+#      if $(element).valid()
+#        $(element).removeClass('input-error').addClass 'input-valid'
+#      return
+#    invalidHandler: (event, validator) ->
+#      $.each validator.errorList, (index, error) ->
+#        $(error.element).addClass 'input-error'
+#        return
+#      return
+#    showErrors: ->
+#      #This function is kept blank so as to hide the default validation messages.
+#      return
+
+#  =========================
+# login form from basket
+#  =========================
+  $('p.esb-closed span').click ->
+    $wrap = $(@).closest('.enter-in-system-from-basket-wrap')
+    $form = $wrap.find('form')
+
+    $form.show()
+    $('p.esb-button').removeClass('esb-closed')
+
+  $('.esb-button-close').click ->
+    $wrap = $(@).closest('.enter-in-system-from-basket-wrap')
+    $form = $wrap.find('form')
+
+    $form.hide()
+    $('p.esb-button').addClass('esb-closed')
+
+  $('#basket-information-form input').keyup ->
+    if $('#basket-information-form').valid()
+      $('.check-validate-status-button').hide()
+#  =========================
+# cart validation got ot finish step
+#  =========================
+
+
+  $('.check-validate-status-button').click ->
+    $wrap = $(@).closest('.basket-modal-wrap')
+    $form = $wrap.find('form')
+
+    $address = $form.find("input[name='street-address']").val()
+    $phone = $form.find("input[name='phone']").val()
+    $email = $form.find("input[name='email']").val()
+
+    if $('#basket-information-form').valid()
+      console.log('validated')
+#    else
+#      alert 'not valid'
+
+
+#    if $address.length > 0 && $phone.length > 0 && $email.length > 0
+#      $(@).hide()
+#    else
+#      alert 'no valid'
+
+#  =========================
+# callback handler for form submit
+#  =========================
   $('form.order-form').submit (e) ->
     $this = $(@)
     $form = $this.closest('form')

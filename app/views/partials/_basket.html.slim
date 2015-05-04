@@ -6,6 +6,7 @@
         =current_cart.line_items.size
       a.close-reveal-modal
     .modal-content
+      - count_products = get_count_products
       .row
         .columns
           ul
@@ -34,12 +35,53 @@
 
       .cart-items-wrap
         - current_cart.line_items.each do |li|
-          -if li.product.category
-            = li.product.category.try(&:name)
-            -if li.product.category.restaurant
-              =li.product.category.restaurant.try(&:name)
+          /-if li.product.category
+          /  = li.product.category.try(&:name)
+          /  -if li.product.category.restaurant
+          /    =li.product.category.restaurant.try(&:name)
           =render partial: "partials/one_item_cart", locals: {li: li}
+      .cart-rez-wrap
+        .row
+          .columns.large-5.medium-5
+            .enter-in-system-from-basket-wrap
+              p Ви моите отримати знижку
+              p.esb-button.esb-closed
+                |Для цього&nbsp;
+                span
+                  |увійдіть в систему
+                |.
+              .row
+                .columns
+                  form
+                    .esb-button-close
+                    .input
+                      label for="esb-email" Електронна скринька:
+                      input#esb-email type="email" placeholder="foodorder@test.com"
+                    .input
+                      label for="esb-password" Пароль:
+                      input#esb-password type="password" placeholder="**********"
+                    .row
+                      .columns.large-6.medium-6
+                        a href=new_user_registration_path Новий користувач
+                      .columns.large-6.medium-6
+                        input.log-out-button type="submit" value="Увійти"
+          .columns.large-7.medium-7
+            .basket-total-price-wrap
+              h4
+                |Всього &nbsp;
+                span
 
+                  -if count_products
+                    = count_products
+                  /|24
+                |&nbsp;товара
+                |&nbsp;на суму:&nbsp;
+                b
+                  |3650
+                  sup
+                    |75
+                sub
+                  |грн
 
       /.one-item
       /  .row
@@ -119,5 +161,6 @@
             strong
               |№
               br
-              |305
+              =current_cart.id
+              /|9999
       a.secondary data-reveal-id="BasketSecondStepModal" href="#" Далі...

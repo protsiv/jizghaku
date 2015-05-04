@@ -29,15 +29,15 @@
               .title
                 b Все вірно?
             .clearfix
-      form action="/" method="POST"
+      form#basket-information-form action="/" method="POST"
         .modal-content
           .row
             input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
             .columns.large-6.medium-6
               .input
                 label for="co-name"
-                  |Ім'я*
-                input#co-name type="text" name="name" placeholder="Володимир" required=""
+                  |Адреса доставки*
+                input#co-name type="text" name="street-address" placeholder="Кульпарківська, 48а/14" required="" minlength="5"
               .input
                 label for="co-phone"
                   |Контактний телефон*
@@ -63,12 +63,13 @@
               p * поля обов’язкові для заповнення
 
     .modal-footer.text-center
+      .check-validate-status-button
       .number-order-wrap.box-shadow-restourant
         .number-order-inner
           .number-order
             strong
               |№
               br
-              |305
+              =current_cart.id
 
-      a href="#" rel="nofollow" Далі...
+      a.secondary data-reveal-id="BasketFinishStepModal" href="#" Далі...

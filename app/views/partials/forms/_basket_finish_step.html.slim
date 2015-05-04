@@ -1,0 +1,120 @@
+#BasketFinishStepModal.reveal-modal data-reveal=""
+  .basket-modal-wrap
+    .modal-header.blue-background-pattern.text-center
+      h2 Все вірно?
+      a.close-reveal-modal
+    .modal-content
+      - count_products = get_count_products
+      .row
+        .columns
+          ul
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Що будемо?
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Куди доставляємо?
+            li
+              .ico-wrap
+                .ico
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+                  = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
+              .title
+                b Все вірно?
+
+            .clearfix
+
+      .row
+        .columns.large-5.medium-5
+          .delivery-address-wrap
+            h3 Адреса доставки:
+            .row
+              .columns.large-2.medium-2
+                =embedded_svg "Yizhaku-location.svg"
+              .columns.large-10.medium-10
+                p Кульпарківська, 48а/14
+            .row
+              .columns.large-2.medium-2
+                =embedded_svg "Yizhaku-phone.svg"
+              .columns.large-10.medium-10
+                p +38 (097) 097-05-05
+            .row
+              .columns.large-2.medium-2
+                =embedded_svg "subscribe-mail.svg"
+              .columns.large-10.medium-10
+                p test.mail@gmail.ru
+
+          h3 Ваші примітки:
+          .your-notes-wrap
+            p
+              |Гармонический интервал, так или иначе, изменяем. Кластерное вибрато, в том числе, использует резкий рок-н-ролл 50-х. Как мы уже знаем, аллегро монотонно имеет контрапункт контрастных фактур. Глиссандирующая ритмоформула фактурна. Очевидно, что разносторонняя пятиступенчатая громкостная пирамида возможна.
+        .columns.large-7.medium-7
+          .ordered-products-wrap
+            h3 Замовлений товар:
+            - current_cart.line_items.each do |li|
+              .ordered-product-one-item-wrap
+                .row
+                  .columns.large-5.medium-5
+                    .basket-item-image.basket-item style="background: url(#{li.product.image.url(:main)})no-repeat center center;"
+                  .columns.large-7.medium-7
+                    .row
+                      .columns
+                        b
+                          = li.product.name
+                    .row
+                      .columns.large-4.medium-4
+                        .round-input
+                          .input.input-count
+                            .ic-button.input-count-up
+                            .ic-button.input-count-down
+                            .input-inner
+                              input type="number" name="quantity" value=li.quantity
+                      .columns.large-8.medium-8
+                        strong
+                          -number = li.product.price
+                          -parts = number.to_s.split(".")
+                          /-result = parts.count > 1 ? parts[1].to_s : 0
+
+                          - r_integer = parts[0]
+                          - r_decimal = parts[1]
+                          = r_integer
+                          sup
+                            = r_decimal
+                          span
+                            |грн
+            .basket-total-price-wrap
+              h4
+                |Всього &nbsp;
+                span
+                  -if count_products
+                    = count_products
+                  /|24
+                |&nbsp;товара
+                |&nbsp;на суму:&nbsp;
+                b
+                  |3650
+                  sup
+                    |75
+                sub
+                  |грн
+    .row
+      .columns.large-offset-2.medium-offset-2
+        a.blue-link data-reveal-id="BasketSecondStepModal" href="#" < Куди доставляємо?
+    .modal-footer.text-center
+      .number-order-wrap.box-shadow-restourant
+        .number-order-inner
+          .number-order
+            strong
+              |№
+              br
+              =current_cart.id
+
+      a href="#" rel="nofollow" Так, беру!
