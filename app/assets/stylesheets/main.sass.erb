@@ -391,10 +391,11 @@ header, footer
       .name-wrap
         height: 65px
         width: 70%
-        padding-left: 10px
+        padding-left: 16px
       .description-wrap
-        padding-left: 10px
+        padding-left: 16px
         position: absolute
+        width: 70%
         top: 65px
       h2, p
         color: #fff
@@ -769,11 +770,65 @@ ul.catalog-sidebar
     background-color: rgba(0, 148, 143, .05)
     padding: 50px 0 65px 0
     .hwd-one-item
-      &:before
+      position: relative
+      overflow: hidden
+      &:after
         display: block
         content: ''
         height: 1px
         width: 500px
+        background-color: #BCBEC0
+        +my_vertical_align()
+          position: absolute
+        left: 50%
+        z-index: -2
+      .hwd-icon-wrap
+        position: relative
+        &:before
+          display: block
+          content: ''
+          width: 16px
+          height: 10px
+          background-image: asset_url('Y-arrow-for-main.jpg')
+          background-size: 100%
+          +my_vertical_align()
+            position: absolute
+          right: 78%
+          z-index: -1
+        &:after
+          display: block
+          content: ''
+          height: 10px
+          width: 10px
+          background-color: #F3FAF9
+          position: absolute
+          +my_vertical_align()
+            position: absolute
+          left: 76%
+          z-index: -1
+
+    .hwd-one-item-wrap
+      &:first-child
+        .hwd-icon-wrap
+          &:before
+            display: none
+      &:last-of-type
+        .hwd-one-item
+          &:after
+            display: none
+      &:nth-child(n+2)
+        .hwd-one-item
+          &:before
+            display: block
+            content: ''
+            height: 1px
+            width: 500px
+            background-color: #BCBEC0
+            +my_vertical_align()
+              position: absolute
+            right: 50%
+            z-index: -1
+
   svg.rouns-vg
     width: 100%
   strong

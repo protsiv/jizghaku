@@ -4,33 +4,6 @@
       .title
         h3 Бізнес-ланч
   .row
-    /.columns
-    /  #business_lunch
-    /    - prod = products(10)
-    /    - if prod && prod.count > 0
-    /      - prod.in_groups_of(2).each_with_index do |prod_group, index|
-    /        - color = cycle(%w(yellow brown yellow-green blue red))
-    /
-    /        .row.business_lunch_item
-    /          - prod_group.each_with_index do |p, i|
-    /            .columns.large-6.medium-6 class="#{'end' if i == prod_group.count-1}"
-    /              .one-product-wrap class="#{color}"
-    /                .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
-    /                .information-block-wrap
-    /                  .price-wrap.text-center
-    /                    .price
-    /                      strong = p.price.round
-    /                      p грн
-    /                  .information-block
-    /                    .name-wrap
-    /                      h2 =p.name
-    /                    .description-wrap
-    /                      p =raw p.description
-    /                    form action=""
-    /                      .input
-    /                        input type="number" value="1"
-    /                      button type="submit" name="order-product" value="true" Замовити
-  .row
     .columns
       #business_lunch2
         - business_lunch
@@ -50,6 +23,23 @@
                         h2 =p.name
                       .description-wrap
                         =raw p.description
+                        p
+                          - if !p.size.blank?
+                            span
+                              =p.size
+                              |&nbsp;мл&nbsp;&nbsp;&nbsp;
+
+                          - if !p.weight.blank?
+                            span
+                              =p.weight.round()
+                              |&nbsp;г&nbsp;&nbsp;&nbsp;
+
+                          - if !p.diameter.blank?
+                            span
+                              |Ø&nbsp;
+                              =p.diameter
+                              |&nbsp;см&nbsp;&nbsp;&nbsp;
+
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
@@ -79,6 +69,22 @@
                         h2 =p.name
                       .description-wrap
                         =raw p.description
+                        p
+                          - if !p.size.blank?
+                            span
+                              =p.size
+                              |&nbsp;мл&nbsp;&nbsp;&nbsp;
+
+                          - if !p.weight.blank?
+                            span
+                              =p.weight.round()
+                              |&nbsp;г&nbsp;&nbsp;&nbsp;
+
+                          - if !p.diameter.blank?
+                            span
+                              |Ø&nbsp;
+                              =p.diameter
+                              |&nbsp;см&nbsp;&nbsp;&nbsp;
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
@@ -108,6 +114,22 @@
                         h2 =p.name
                       .description-wrap
                         =raw p.description
+                        p
+                          - if !p.size.blank?
+                            span
+                              =p.size
+                              |&nbsp;мл&nbsp;&nbsp;&nbsp;
+
+                          - if !p.weight.blank?
+                            span
+                              =p.weight.round()
+                              |&nbsp;г&nbsp;&nbsp;&nbsp;
+
+                          - if !p.diameter.blank?
+                            span
+                              |Ø&nbsp;
+                              =p.diameter
+                              |&nbsp;см&nbsp;&nbsp;&nbsp;
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
@@ -137,6 +159,22 @@
                         h2 =p.name
                       .description-wrap
                         =raw p.description
+                        p
+                          - if !p.size.blank?
+                            span
+                              =p.size
+                              |&nbsp;мл&nbsp;&nbsp;&nbsp;
+
+                          - if !p.weight.blank?
+                            span
+                              =p.weight.round()
+                              |&nbsp;г&nbsp;&nbsp;&nbsp;
+
+                          - if !p.diameter.blank?
+                            span
+                              |Ø&nbsp;
+                              =p.diameter
+                              |&nbsp;см&nbsp;&nbsp;&nbsp;
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"
@@ -166,6 +204,22 @@
                         h2 =p.name
                       .description-wrap
                         =raw p.description
+                        p
+                          - if !p.size.blank?
+                            span
+                              =p.size
+                              |&nbsp;мл&nbsp;&nbsp;&nbsp;
+
+                          - if !p.weight.blank?
+                            span
+                              =p.weight.round()
+                              |&nbsp;г&nbsp;&nbsp;&nbsp;
+
+                          - if !p.diameter.blank?
+                            span
+                              |Ø&nbsp;
+                              =p.diameter
+                              |&nbsp;см&nbsp;&nbsp;&nbsp;
                       form.order-form action=admin_line_items_path
                         input type="hidden" name="cart_id" value=current_cart.id
                         input type="hidden" name="product_id" value="#{p.id}"

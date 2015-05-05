@@ -5,10 +5,13 @@
         h3 Як ми це робимо?
   .how-we-do-it
     .row.text-center
-      .columns.large-3.medium-3.small-3.hwd-one-item
+      .columns.large-3.medium-3.small-3.hwd-one-item-wrap
         .row
-          .columns
-            = embedded_svg ("how-we-do-section-1.svg"), class: 'round-svg'
+          .hwd-one-item
+            .columns
+              .hwd-icon-wrap
+                = embedded_svg ("how-we-do-section-1.svg"), class: 'round-svg'
+            .clearfix
         .row
           .columns
             strong.text-yellow-green
@@ -17,10 +20,13 @@
               |замовляєте
             p.hide-for-small-only
               span На сайті або через оператора.
-      .columns.large-3.medium-3.small-3.hwd-one-item
+      .columns.large-3.medium-3.small-3.hwd-one-item-wrap
         .row
-          .columns
-            = embedded_svg ("how-we-do-section-2.svg"), class: 'round-svg'
+          .hwd-one-item
+            .columns
+              .hwd-icon-wrap
+                = embedded_svg ("how-we-do-section-2.svg"), class: 'round-svg'
+            .clearfix
         .row
           .columns
             strong.text-red
@@ -29,10 +35,13 @@
               |готуємо
             p.hide-for-small-only
               span Швидко, смачно та зі свіжих продуктів.
-      .columns.large-3.medium-3.small-3.hwd-one-item
+      .columns.large-3.medium-3.small-3.hwd-one-item-wrap
         .row
-          .columns
-            = embedded_svg ("how-we-do-section-3.svg"), class: 'round-svg'
+          .hwd-one-item
+            .columns
+              .hwd-icon-wrap
+                = embedded_svg ("how-we-do-section-3.svg"), class: 'round-svg'
+            .clearfix
         .row
           .columns
             strong.text-blue
@@ -41,10 +50,13 @@
               |привозимо
             p.hide-for-small-only
               span Швидко, по місту, в термосумках!
-      .columns.large-3.medium-3.small-3.hwd-one-item
+      .columns.large-3.medium-3.small-3.hwd-one-item-wrap
         .row
-          .columns
-            = embedded_svg ("how-we-do-section-4.svg"), class: 'round-svg'
+          .hwd-one-item
+            .columns
+              .hwd-icon-wrap
+                = embedded_svg ("how-we-do-section-4.svg"), class: 'round-svg'
+            .clearfix
         .row
           .columns
             strong.text-green-blue
