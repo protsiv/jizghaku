@@ -39,28 +39,28 @@
         .row
           .columns.large-5.medium-5
             .enter-in-system-from-basket-wrap
-              p Ви моите отримати знижку
-              p.esb-button.esb-closed
-                |Для цього&nbsp;
-                span
-                  |увійдіть в систему
-                |.
-              .row
-                .columns
-                  form
-                    .esb-button-close
-                      =embedded_svg "Yizhaku-cross.svg"
-                    .input
-                      label for="esb-email" Електронна скринька:
-                      input#esb-email type="email" placeholder="foodorder@test.com"
-                    .input
-                      label for="esb-password" Пароль:
-                      input#esb-password type="password" placeholder="**********"
-                    .row
-                      .columns.large-6.medium-6
-                        a href=new_user_registration_path Новий користувач
-                      .columns.large-6.medium-6
-                        input.log-out-button type="submit" value="Увійти"
+              p Для нарахування бонусних балів повідомте оператору номер своєї карти ЇЖА.КИ.
+              /p.esb-button.esb-closed
+              /  |Для цього&nbsp;
+              /  span
+              /    |увійдіть в систему
+              /  |.
+              /.row
+              /  .columns
+              /    form
+              /      .esb-button-close
+              /        =embedded_svg "Yizhaku-cross.svg"
+              /      .input
+              /        label for="esb-email" Електронна скринька:
+              /        input#esb-email type="email" placeholder="foodorder@test.com"
+              /      .input
+              /        label for="esb-password" Пароль:
+              /        input#esb-password type="password" placeholder="**********"
+              /      .row
+              /        .columns.large-6.medium-6
+              /          a href=new_user_registration_path Новий користувач
+              /        .columns.large-6.medium-6
+              /          input.log-out-button type="submit" value="Увійти"
           .columns.large-7.medium-7
             .basket-total-price-wrap
               h4
@@ -71,10 +71,13 @@
                     = count_products
                 |&nbsp;товара
                 |&nbsp;на суму:&nbsp;
+                -total_price = get_total_price
+                -parts_price = total_price.to_s.split(".")
+
                 b
-                  |3650
+                  =parts_price[0]
                   sup
-                    |75
+                    =parts_price[1]
                 sub
                   |грн
 

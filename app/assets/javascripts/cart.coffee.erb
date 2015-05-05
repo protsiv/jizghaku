@@ -70,6 +70,7 @@ $(document).ready ->
     $this = $(@)
     $form = $this.closest('form')
     product_id = +$form.find('[name=product_id]').val()
+    quantity = +$form.find('[name=quantity]').val()
 #    $sum = Number.parseInt($('.basket-inner .count-wrap span').text())
     $sum = +$('.basket-inner .count-wrap span').text()
 
@@ -94,7 +95,7 @@ $(document).ready ->
         else
           $item = data['item_template']
           $('.cart-items-wrap').append($item)
-          $sum = $sum + 1
+          $sum = $sum + quantity
 
         setTimeout (->
           $status_adding.removeClass('y-sending')

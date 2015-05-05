@@ -1502,8 +1502,15 @@ p
             top: 13px
             background-color: #FF9E15
     .one-item
-      padding-top: 28px
+      padding-bottom: 28px
       position: relative
+      .round-input
+        .input-inner
+          -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=0, Color=#000000)"
+          -moz-box-shadow: none
+          -webkit-box-shadow: none
+          box-shadow: none
+          filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color=#000000)
       &:last-of-type
         hr
           display: none
@@ -1604,6 +1611,7 @@ p
         margin-top: 22px
   .cart-items-wrap
     border-bottom: 1px solid #FF9E15
+    padding-top: 30px
   .cart-rez-wrap
     margin-top: 25px
     margin-bottom: 100px

@@ -72,59 +72,15 @@ module ApplicationHelper
     return quantity
   end
 
-  def get_total_price(current_cart)
+  def get_total_price
     if current_cart && current_cart.line_items.count > 0
       sum = 0
-      product_pack_sum = 0
-      current_cart.line_items.each do |item|
-        if item && item.product_pack_id
-          product_pack = ProductPack.where(id: item.product_pack_id).first
-          product_pack_percent = product_pack.percent/100.to_f
-          tablecloth = Product.where(id: item.p_product_id).first
-          if tablecloth && tablecloth.promotion_price
-            tablecloth_price = tablecloth.promotion_price
-          elsif tablecloth
-            tablecloth_price = tablecloth.price
-          end
-          decor = Decor.where(id: item.p_decor_id).first
-          if decor && decor.new_price
-            decor_price = decor.new_price
-          elsif decor
-            decor_price = decor.price
-          end
-          drink_set = DrinkSet.where(id: item.p_drink_set_id).first
-          if drink_set && drink_set.new_price
-            drink_set_price = drink_set.new_price
-          elsif drink_set
-            drink_set_price = drink_set.price
-          end
 
-          if tablecloth && decor && drink_set
-            product_pack_sum = tablecloth_price + decor_price + drink_set_price
-            product_pack_sum = product_pack_sum - (tablecloth_price + decor_price + drink_set_price)*product_pack_percent
-          end
-          sum = product_pack_sum + sum
+      current_cart.line_items.each do |item|
         #  sum tablecloth
-        elsif item && item.product_id
-          if item.product.promotion_price && item.product.promotion_price > 0
-            sum = sum + item.product.promotion_price * item.quantity
-          else
-            sum = sum + item.product.price * item.quantity
-          end
-        #   sum decors
-        elsif item && item.decor_id
-          if item.decor.new_price && item.decor.new_price > 0
-            sum = sum + item.decor.new_price * item.decor_quantity
-          else
-            sum = sum + item.decor.price * item.decor_quantity
-          end
-        #   sum drink sets
-        elsif item && item.drink_set_id
-          if item.drink_set.new_price && item.drink_set.new_price > 0
-            sum = sum + item.drink_set.new_price * item.drink_set_quantity
-          else
-            sum = sum + item.drink_set.price * item.drink_set_quantity
-          end
+        if item && item.product_id
+          product = Product.where(id: item.product_id).first
+          sum = sum + item.product.price * item.quantity
         end
 
       end

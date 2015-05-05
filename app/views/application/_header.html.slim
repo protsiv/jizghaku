@@ -27,7 +27,6 @@
             a +38 (097) 097-05-05
           .clearfix
           a data-reveal-id="CallOrderModal" href="#" замовити дзвінок
-          /a.fancy_form href="#call-order" data-fancybox-group="call-order" rel="call-order"  замовити дзвінок
     .columns.small-1.show-for-small-only
 
     .columns.large-2.large-offset-1.medium-3.small-5
@@ -46,7 +45,7 @@
                 p
                   |(
                   span
-                    =current_cart.line_items.size
+                    =get_count_products
                   |)
           =render partial: 'partials/basket'
 =render partial: 'partials/forms/call_order'

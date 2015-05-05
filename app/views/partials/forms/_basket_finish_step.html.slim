@@ -99,10 +99,13 @@
                   /|24
                 |&nbsp;товара
                 |&nbsp;на суму:&nbsp;
+                -total_price = get_total_price
+                -parts_price = total_price.to_s.split(".")
+
                 b
-                  |3650
+                  =parts_price[0]
                   sup
-                    |75
+                    =parts_price[1]
                 sub
                   |грн
     .row
