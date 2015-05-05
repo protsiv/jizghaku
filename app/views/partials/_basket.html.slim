@@ -3,7 +3,6 @@
     .modal-header.blue-background-pattern.text-center
       h2
         |Що будемо?
-        =current_cart.line_items.size
       a.close-reveal-modal
     .modal-content
       - count_products = get_count_products
@@ -54,6 +53,7 @@
                 .columns
                   form
                     .esb-button-close
+                      =embedded_svg "Yizhaku-cross.svg"
                     .input
                       label for="esb-email" Електронна скринька:
                       input#esb-email type="email" placeholder="foodorder@test.com"

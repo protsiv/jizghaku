@@ -18,7 +18,7 @@
                 .name-wrap
                   h2 =p.name
                 .description-wrap
-                  p =raw p.description
+                  =raw p.description
                 form.order-form action=admin_line_items_path
                   input type="hidden" name="cart_id" value=current_cart.id
                   input type="hidden" name="product_id" value="#{p.id}"
