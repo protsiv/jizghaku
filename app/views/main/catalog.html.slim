@@ -16,21 +16,15 @@
               li
                 a =c.name
 
-      /li.current
-      /  a href="#" Cloning
+
 -restaurant = Restaurant.order(created_at: :asc)
 .restaurant-wrap class="#{if params[:restaurant] == 'bruno' then 'brown' else if params[:restaurant] == 'baba-franya' then 'blue' else if params[:restaurant] == 'barbarus' then 'yellow-green' end end }"
   .row
     .columns.large-3.medium-3
-      = raw @current_restaurant.about
-    -restorans.each_with_index do |r, i|
-      .columns.large-3.medium-3
-        a href=restaurant_all_menu_path(r.slug)
-          .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
-            =image_tag r.logo
-
-  .row
-    .columns.large-3.medium-3
+      .row
+        .columns
+          .r-about-restaurant-wrap
+            = raw @current_restaurant.about
       .row
         .columns
           ul.catalog-sidebar
@@ -90,6 +84,12 @@
               a.link-about-restaurant.right href=restaurant_about_path(@current_restaurant.slug)
                 |Детальніше
     .columns.large-9.medium-9
+      .row
+        -restorans.each_with_index do |r, i|
+          .columns.large-4
+            a href=restaurant_all_menu_path(r.slug)
+              .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
+                =image_tag r.logo
       .row.filters_container
         - if @products && @products.count > 0
           - @products.each_with_index do |p, i|

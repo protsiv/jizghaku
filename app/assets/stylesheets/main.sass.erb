@@ -654,18 +654,28 @@ ul
       transition: max-height 1s ease
 
 .about-contact-info-wrap
+  padding-top: 10px
   svg
     width: 25px
     height: 25px
+  a
+    display: block
+    margin-bottom: 10px
   p
     font:
       family: "Fira Sans", sans-serif
       size: rem-calc(16)
-      weight: 300
+      weight: 400
     line-height: rem-calc(21)
     color: #6D6E71
   .contacts-wrap
     p, a
+
+    p
+      font:
+        size: rem-calc(14)
+        weight: 400
+      line-height: rem-calc(16.8)
   h4
     font:
       family: "Fira Sans", sans-serif
@@ -1240,10 +1250,42 @@ a.close-fancy-form
       family: "Fira Sans", sans-serif
 
 .restaurant-wrap
+  .r-about-restaurant-wrap
+    padding-top: 93px
+    b
+      font:
+        size: rem-calc(18)
+        weight: 400
+      line-height: rem-calc(26)
+    p
+      font:
+        size: rem-calc(12)
+        weight: 400
+      line-height: rem-calc(14.4)
+  &.brown
+    .r-about-restaurant-wrap
+      b, p
+        color: #6B3F22
+  &.blue
+    .r-about-restaurant-wrap
+      b, p
+        color: #00948F
+  &.yellow-green
+    .r-about-restaurant-wrap
+      b, p
+        color: #BBB21E
+
   .restaurant-logo
     @media #{$small-only}
       opacity: .3
   .passive
+    img
+      filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+ */
+      filter: gray /* IE6-9 */
+      -webkit-filter: grayscale(100%) /* Chrome 19+ & Safari 6+ */
+      -webkit-transition: all .6s ease /* Fade to color for Chrome and Safari */
+      -webkit-backface-visibility: hidden /* Fix for transition flickering */
+      opacity: .2
     path, rect, polygon
       fill: #D1D3D4
     @media #{$small-only}
