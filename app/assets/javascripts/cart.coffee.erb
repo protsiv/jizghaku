@@ -70,9 +70,13 @@ $(document).ready ->
     $this = $(@)
     $form = $this.closest('form')
     product_id = +$form.find('[name=product_id]').val()
+
     quantity = +$form.find('[name=quantity]').val()
+#    alert 'quantity'+quantity
 #    $sum = Number.parseInt($('.basket-inner .count-wrap span').text())
     $sum = +$('.basket-inner .count-wrap span').text()
+    $total_price = +$this.find('.basket-total-price-wrap h4 b').text()
+    console.log('total_price'+$total_price)
 
     postData = $(this).serializeArray()
     formURL = $(this).attr('action')
@@ -101,11 +105,11 @@ $(document).ready ->
           $status_adding.removeClass('y-sending')
           $status_adding.addClass('y-success')
         ), 2000
-#        setTimeout (->
-#          $status_adding.removeClass('y-success')
-#        ), 4000
         count = $cart_items_wrap.children().length
-        $('.basket-inner .count-wrap span').text(count)
+        $sum = $sum + quantity
+        $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text($sum)
+        $('.basket-total-price-wrap h4 b').text()
+#        $('.basket-total-price-wrap h4 span').text()
 
       complete: ->
 
@@ -128,12 +132,35 @@ $(document).ready ->
     $item = $(@).closest('.one-item')
 
     $.ajax
-      url: formURL
+      url: "#{formURL}.json"
       type: 'delete'
       dataType: 'json'
       beforeSend: ->
-        alert 'begin deleting...'
+#        alert 'begin deleting...'
       success: ->
-        alert 'succesfull!'
+#        alert 'succesfull!'
         $item.remove()
       e.preventDefault()
+# ==================================
+# counter for cart
+# ==================================
+  $('.cart-items-wrap .one-item .ic-button').click ->
+    if $(@).hasClass('input-count-up')
+      console.log('up')
+    else if $(@).hasClass('input-count-down')
+      console.log('down')
+
+#  $('div.basket-wrap > a').click (e) ->
+#
+#    # render content
+#
+#
+#    # Button which will activate our modal
+#    $('#BasketModal').foundation('reveal', 'open')
+##    .reveal
+##      animation: 'fade'
+##      animationspeed: 600
+##      closeonbackgroundclick: true
+##      dismissmodalclass: 'close'
+
+

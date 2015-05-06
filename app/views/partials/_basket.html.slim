@@ -39,7 +39,7 @@
         .row
           .columns.large-5.medium-5
             .enter-in-system-from-basket-wrap
-              p Для нарахування бонусних балів повідомте оператору номер своєї карти ЇЖА.КИ.
+              /p Для нарахування бонусних балів повідомте оператору номер своєї карти ЇЖА.КИ.
               /p.esb-button.esb-closed
               /  |Для цього&nbsp;
               /  span
@@ -69,7 +69,7 @@
 
                   -if count_products
                     = count_products
-                |&nbsp;товара
+                /|&nbsp;товара
                 |&nbsp;на суму:&nbsp;
                 -total_price = get_total_price
                 -parts_price = total_price.to_s.split(".")
