@@ -41,7 +41,7 @@
               .input
                 label for="co-phone"
                   |Контактний телефон*
-                input#co-phone type="text" name="phone" placeholder="+38 (XXX) XXX XX XX" required=""
+                input#co-phone type="text" name="phone" placeholder="+38 (XXX) XXX XX XX" required=""  minlength="10" maxlength="11"
               .input
                 label for="co-card-code"
                   |код клубної карти “Їжа.ків”
@@ -55,7 +55,8 @@
             .columns.large-6.medium-6
               .row
                 .columns
-                  a.blue-link Очистити поля форми
+                  a.blue-link.clear-form Очистити поля форми
+
               .row
                 .columns.large-8.large-offset-4.medium-8.medium-offset-4
                   a.blue-link data-reveal-id="BasketModal" href="#" < Що будемо?

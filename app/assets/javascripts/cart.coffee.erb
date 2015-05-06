@@ -141,14 +141,48 @@ $(document).ready ->
 #        alert 'succesfull!'
         $item.remove()
       e.preventDefault()
+
+
 # ==================================
 # counter for cart
 # ==================================
   $('.cart-items-wrap .one-item .ic-button').click ->
+    $this = $(@)
+    $wrap = $this.closest('.basket-modal-wrap')
+    total_count = +$wrap.find('.basket-total-price-wrap h4 span').text()
+
+    $total_price_i = $('.basket-total-price-wrap h4 b')
+    $total_price_d = $('.basket-total-price-wrap h4 b sup')
+
+    $item_wrap = $this.closest('.one-item')
+    $items_price_i = $item_wrap.find('.cart-item-price-wrap strong')
+    $items_price_d = $item_wrap.find('.cart-item-price-wrap strong sup')
+
+    one_item_price = $item_wrap.attr "data-product-price"
+    quantity = +$item_wrap.find('[name=quantity]').val()
+
     if $(@).hasClass('input-count-up')
+      quantity++
+      console.log(quantity)
+      console.log(one_item_price)
+      one_item_price = one_item_price * quantity
+      console.log(one_item_price)
+      $items_price_i.html(one_item_price+"<span>грн</span>")
+      $('.basket-total-price-wrap h4 span').text(total_count+1)
       console.log('up')
+
     else if $(@).hasClass('input-count-down')
-      console.log('down')
+      if $item_wrap.find('[name=quantity]').val()>1
+        $('.basket-total-price-wrap h4 span').text(total_count-1)
+        console.log('down')
+
+# ===========================================
+# clear form
+# ===========================================
+  $('a.clear-form').click ->
+    $(@).closest('form').find("input, textarea").val("")
+
+
 
 #  $('div.basket-wrap > a').click (e) ->
 #
