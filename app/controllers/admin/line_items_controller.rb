@@ -70,8 +70,12 @@ class Admin::LineItemsController < Admin::AdminController
   # PATCH/PUT /admin/line_items/1
   # PATCH/PUT /admin/line_items/1.json
   def update
+    product_id = params[:product_id]
+    quantity = params[:quantity]
+    @line_item = LineItem.where(product_id: params["product_id"]).first
+    # render inline: "#{@line_item.inspect}"
     respond_to do |format|
-      if @line_item.update(line_item_params)
+      if @line_item && @line_item.update(params)
         format.html { redirect_to [:admin, @line_item], notice: 'Line item was successfully updated.' }
         format.json { head :no_content }
       else
@@ -96,6 +100,8 @@ class Admin::LineItemsController < Admin::AdminController
     def set_line_item
       @line_item = LineItem.find(params[:id])
     end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params

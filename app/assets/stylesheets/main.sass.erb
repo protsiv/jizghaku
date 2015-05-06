@@ -1072,7 +1072,32 @@ ul.catalog-sidebar
         margin-top: 8px
         padding-left: 15px
         background: #fff !important
-        +placeholder(#A7A9AC , rem-calc(14))
+        &::-webkit-input-placeholder
+          color: #A7A9AC
+          font:
+            size: rem-calc(11)
+            style: italic
+            weight: 200
+        &:-moz-placeholder  /* Firefox 18- */
+          color: #A7A9AC
+          font:
+            size: rem-calc(11)
+            style: italic
+            weight: 200
+
+        &::-moz-placeholder   /* Firefox 19+ */
+          color: #A7A9AC
+          font:
+            size: rem-calc(11)
+            style: italic
+            weight: 200
+
+        &:-ms-input-placeholder
+          color: #A7A9AC
+          font:
+            size: rem-calc(11)
+            style: italic
+            weight: 200
     .input-sent
       width: 20%
       position: relative
@@ -1435,6 +1460,15 @@ p
   .modal-content
     min-height: 100px
     background: #fff
+    .input
+      position: relative
+      label
+        &.error
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          background-color: #fff
     ul
       li
         width: 28.5%
@@ -1854,6 +1888,9 @@ a.blue-link
     family: "Fira Sans", sans-serif
     size: rem-calc(14)
     weight: 300
+  &.clear-form
+    margin-bottom: 40px
+    display: block
 .round-input
   width: 40px
   float: left
@@ -1920,7 +1957,7 @@ input, textarea
 
 #BasketSecondStepModal
   textarea
-    min-height: 180px
+    min-height: 196px
 
 
 #CallOrderModal

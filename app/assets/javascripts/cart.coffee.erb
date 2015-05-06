@@ -146,7 +146,7 @@ $(document).ready ->
 # ==================================
 # counter for cart
 # ==================================
-  $('.cart-items-wrap .one-item .ic-button').click ->
+  $('.cart-items-wrap').on 'click', '.one-item .ic-button', ->
     $this = $(@)
     $wrap = $this.closest('.basket-modal-wrap')
     total_count = +$wrap.find('.basket-total-price-wrap h4 span').text()
@@ -155,26 +155,63 @@ $(document).ready ->
     $total_price_d = $('.basket-total-price-wrap h4 b sup')
 
     $item_wrap = $this.closest('.one-item')
+    product_id = $item_wrap.attr('data-product-id')
     $items_price_i = $item_wrap.find('.cart-item-price-wrap strong')
     $items_price_d = $item_wrap.find('.cart-item-price-wrap strong sup')
 
     one_item_price = $item_wrap.attr "data-product-price"
     quantity = +$item_wrap.find('[name=quantity]').val()
 
+    $form = $item_wrap.find('form')
+    formURL = $form.attr('action')
+    DataToSend = new Object()
+
     if $(@).hasClass('input-count-up')
       quantity++
-      console.log(quantity)
-      console.log(one_item_price)
+
       one_item_price = one_item_price * quantity
-      console.log(one_item_price)
       $items_price_i.html(one_item_price+"<span>грн</span>")
       $('.basket-total-price-wrap h4 span').text(total_count+1)
-      console.log('up')
+
+#      console.log('up')
+
+
+      DataToSend =
+        product_id: product_id
+        quantity: quantity
+      $.ajax
+        url: "#{formURL}.json"
+        type: 'PATCH'
+        dataType: 'json'
+        data: DataToSend
+        beforeSend: ->
+#          alert 'begin update...'
+        success: ->
+#          alert 'succesfull!'
+
 
     else if $(@).hasClass('input-count-down')
       if $item_wrap.find('[name=quantity]').val()>1
+        quantity--
+
+        one_item_price = one_item_price * quantity
+        $items_price_i.html(one_item_price+"<span>грн</span>")
         $('.basket-total-price-wrap h4 span').text(total_count-1)
-        console.log('down')
+
+#        console.log('down')
+
+        DataToSend =
+          product_id: product_id
+          quantity: quantity
+        $.ajax
+          url: "#{formURL}.json"
+          type: 'PATCH'
+          dataType: 'json'
+          data: DataToSend
+          beforeSend: ->
+#            alert 'begin update...'
+          success: ->
+#            alert 'succesfull!'
 
 # ===========================================
 # clear form
