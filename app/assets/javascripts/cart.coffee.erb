@@ -37,8 +37,27 @@ $(document).ready ->
     $('p.esb-button').addClass('esb-closed')
 
   $('#basket-information-form input').keyup ->
+
     if $('#basket-information-form').valid()
       $('.check-validate-status-button').hide()
+
+# ==========================
+# cart go to finish step
+# ==========================
+  $('a.cart-go-to-finish-step').click ->
+    $wrap = $(@).closest('.basket-modal-wrap')
+    address = $wrap.find('input#co-name').val()
+    phone = $wrap.find('input#co-phone').val()
+    card_code = $wrap.find('input#co-card-code').val()
+    comment = $wrap.find('textarea#co-comment').val()
+
+    console.log('address: '+address,' - ', 'phone: '+phone, ' - ', 'comment: '+comment)
+
+    $('#BasketFinishStepModal p.da-address').text(address)
+    $('#BasketFinishStepModal p.da-phone').text(phone)
+    $('#BasketFinishStepModal p.da-code').text(card_code)
+    $('#BasketFinishStepModal p.da-comment').text(comment)
+
 #  =========================
 # cart validation got ot finish step
 #  =========================

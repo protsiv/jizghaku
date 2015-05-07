@@ -106,7 +106,25 @@
                     .name-wrap
                       h2 =p.name
                     .description-wrap
-                      p =raw p.description
+                      =raw p.description
+                      - if !p.size.blank?
+                        p
+                          span
+                            =p.size
+                            |&nbsp;л
+
+                      - if !p.weight.blank?
+                        p
+                          span
+                            =p.weight.round()
+                            |&nbsp;г
+
+                      - if !p.diameter.blank?
+                        p
+                          span
+                            |Ø&nbsp;
+                            =p.diameter
+                            |&nbsp;см
 
                     form.order-form action=admin_line_items_path
                       input type="hidden" name="cart_id" value=current_cart.id
@@ -136,8 +154,25 @@
                     .name-wrap
                       h2 =p.name
                     .description-wrap
-                      p =raw p.description
+                      =raw p.description
+                      - if !p.size.blank?
+                        p
+                          span
+                            =p.size
+                            |&nbsp;л
 
+                      - if !p.weight.blank?
+                        p
+                          span
+                            =p.weight.round()
+                            |&nbsp;г
+
+                      - if !p.diameter.blank?
+                        p
+                          span
+                            |Ø&nbsp;
+                            =p.diameter
+                            |&nbsp;см
 
                     form.order-form action=admin_line_items_path
                       input type="hidden" name="cart_id" value=current_cart.id
