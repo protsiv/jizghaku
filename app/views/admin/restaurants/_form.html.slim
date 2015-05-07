@@ -1,6 +1,7 @@
-= simple_form_for [:admin, @restaurant] do |f|
+= simple_form_for [:admin, @restaurant], html: { multipart: true } do |f|
   = f.error_notification
   .form-inputs
+    /= file_field_tag('item_attached_assets_asset', multiple: true, name: "restaurant[attached_assets_attributes][][asset]")
     = f.input :name, label: "Назва", input_html: {placeholder: 'Етно-паб «Баба-Франя»'}, hint: "Назва ресторан"
     = f.input :slug, label: "Транслітерація", input_html: {placeholder: 'baba-frania'}, hint: "Транслітерація"
     = f.input :logo, as: :image_preview, label: "Логотип", hint: "Логотип"

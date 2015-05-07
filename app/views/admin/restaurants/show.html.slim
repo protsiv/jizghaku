@@ -1,4 +1,12 @@
 h2 Ресторани
+div
+  -if @restaurant.attached_assets
+    h2 has
+    -@restaurant.attached_assets.each do |p|
+      =image_tag p.asset.url(:large)
+    /= @restaurant.attached_assets.count
+  -else
+    h2 empty
 p
   strong Name:
   = @restaurant.name

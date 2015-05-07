@@ -95,7 +95,6 @@ $(document).ready ->
 #    $sum = Number.parseInt($('.basket-inner .count-wrap span').text())
     $sum = +$('.basket-inner .count-wrap span').text()
     $total_price = +$this.find('.basket-total-price-wrap h4 b').text()
-    console.log('total_price'+$total_price)
 
     postData = $(this).serializeArray()
     formURL = $(this).attr('action')
@@ -118,7 +117,7 @@ $(document).ready ->
         else
           $item = data['item_template']
           $('.cart-items-wrap').append($item)
-          $sum = $sum + quantity
+
 
         setTimeout (->
           $status_adding.removeClass('y-sending')
