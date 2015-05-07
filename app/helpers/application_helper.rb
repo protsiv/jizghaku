@@ -89,4 +89,9 @@ module ApplicationHelper
       0
     end
   end
+
+  def about_restaurant(current_restaurant)
+    @a_restaurant = Restaurant.where(slug: current_restaurant)
+    @a_common_restaurant = Restaurant.where.not(id: @a_restaurant).order(created_at: :asc)
+  end
 end

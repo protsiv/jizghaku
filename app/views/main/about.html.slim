@@ -5,9 +5,36 @@
         a =@current_restaurant.name
         - if @restaurants && @restaurants.count > 0
         ul.breadcrumbs-drop
+          li.current-restaurant
+            a =@current_restaurant.name
           - @restaurants.each do |r|
             li
               a =r.name
+
+      li.has-drop
+        a
+          |Про&nbsp;
+          =@current_restaurant.name
+        ul.breadcrumbs-drop
+          li.current-restaurant
+            a
+              |Про&nbsp;
+              =@current_restaurant.name
+          - @restaurants.each do |r|
+            li
+              a href=restaurant_about_path(r.slug)
+                |Про&nbsp;
+                =r.name
+
+        /a =@current_restaurant.name
+        /- if @restaurants && @restaurants.count > 0
+        /ul.breadcrumbs-drop
+        /  li.current-restaurant
+        /    a =@current_restaurant.name
+        /  - @restaurants.each do |r|
+        /    li
+        /      a =r.name
+
 -color_class = ''
 -if @current_restaurant.slug == 'bruno'
   -color_class = 'brown'
