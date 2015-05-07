@@ -637,6 +637,7 @@ ul
       ul
         height: auto
         border: 1px solid
+        padding: 6px
   li
     a
       font:
@@ -647,16 +648,67 @@ ul
       line-height: rem-calc(20)
 
   li.has-drop
+    position: relative
+    padding-right: 10px
+    &:after
+      display: block
+      content: ''
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 5px 2.5px 0 2.5px
+      border-color: #211844 transparent transparent transparent
+      position: absolute
+      top: 8px
+      right: 0
+
     ul.breadcrumbs-drop
-      width: 160px
       background: #fff
       border: none
       z-index: 1
-      left: 18px
+      left: 9px
+      top: -3px
       -webkit-transition: max-height 1s ease
       -moz-transition: max-height 1s ease
       -o-transition: max-height 1s ease
       transition: max-height 1s ease
+
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=0, Color=#000000)" /*IE 8*/
+      -moz-box-shadow: 0 0 2px rgba(0,0,0,0.6) /*FF 3.5+*/
+      -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.6) /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+      box-shadow: 0 0 2px rgba(0,0,0,0.6) /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+      filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color=#000000)  /*IE 5.5-7*/
+
+      /*display: none*/
+      li
+        a
+          font:
+            size: rem-calc(14)
+            weight: 400
+          line-height: rem-calc(21)
+          text-decoration: none
+          white-space: nowrap
+        &.current-restaurant
+          margin-bottom: 4px
+          position: relative
+          display: inline-block
+          padding-right: 10px
+          &:after
+            display: block
+            content: ''
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 2.5px 5px 2.5px
+            border-color: transparent transparent #ff671b transparent
+            position: absolute
+            top: 11px
+            right: 0
+          a
+            color: #FF661B
+        &:hover
+          a
+            color: #FF661B
 
 .about-contact-info-wrap
   padding-top: 10px

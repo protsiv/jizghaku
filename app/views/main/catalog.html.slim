@@ -5,16 +5,19 @@
         a =@current_restaurant.name
         - if @restaurants && @restaurants.count > 0
         ul.breadcrumbs-drop
+          li.current-restaurant
+            a =@current_restaurant.name
           - @restaurants.each do |r|
             li
-              a =r.name
-      li.has-drop
-        a href="#" Все меню
-        - if @categories && @categories.count > 0
-          ul.breadcrumbs-drop
-            - @categories.each do |c|
-              li
-                a =c.name
+              a href=restaurant_all_menu_path(r.slug)
+                =r.name
+      /li.has-drop
+      /  a href="#" Все меню
+      /  - if @categories && @categories.count > 0
+      /    ul.breadcrumbs-drop
+      /      - @categories.each do |c|
+      /        li
+      /          a =c.name
 
 
 -restaurant = Restaurant.order(created_at: :asc)
