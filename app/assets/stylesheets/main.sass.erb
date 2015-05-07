@@ -783,6 +783,15 @@ ul.catalog-sidebar
       border-bottom: 1px solid #fff
       a, sup, span
         color: #fff
+    ul
+      li
+        width: 32.33%
+        display: inline-block
+  @media #{$small-only}
+    overflow: hidden
+    height: 59px
+    &:hover
+      height: auto
 .active-all
   background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat
   background-size: 100%

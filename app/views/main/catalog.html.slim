@@ -38,6 +38,18 @@
                   |(
                   span = @products_count + @products_common.count
                   | )
+            li.show-for-small-only
+              ul
+                li
+                  a
+                    |Bruno
+                li
+                  a
+                    |Baba Frania
+                li
+                  a
+                    |Barbarys
+
             -@categories.each do |c|
               - count = c.products.count
               li.filter data-filter=".#{c.slug}"
@@ -89,7 +101,7 @@
     .columns.large-9.medium-9
       .row
         -restorans.each_with_index do |r, i|
-          .columns.large-4
+          .columns.large-4.medium-4
             a href=restaurant_all_menu_path(r.slug)
               .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
                 =image_tag r.logo
