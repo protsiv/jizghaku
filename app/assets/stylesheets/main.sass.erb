@@ -94,6 +94,8 @@ header, footer
     position: relative
     float: left
     margin-right: 10px
+    @media (min-width : 0em) and (max-width : 425px)
+      margin-right: 0
     .login-inner
       width: inherit
       height: 25px
@@ -862,6 +864,8 @@ ul.catalog-sidebar
           display: none
       .hwd-icon-wrap
         position: relative
+        svg
+          width: 100%
         &:before
           display: block
           content: ''
@@ -916,6 +920,17 @@ ul.catalog-sidebar
       weight: 400 !important
     line-height: rem-calc(27)
     margin-bottom: 0
+    @media (min-width : 760px) and (max-width : 890px)
+      font:
+        size: rem-calc(24)
+    @media (min-width : 670px) and (max-width : 760px)
+      font:
+        size: rem-calc(21)
+    @media (min-width : 585px) and (max-width : 670px)
+      font:
+        size: rem-calc(18)
+    @media (min-width : 0) and (max-width : 585px)
+      display: none
   p
     font:
       family: "Fira Sans", sans-serif
@@ -959,6 +974,10 @@ ul.catalog-sidebar
         height: 30px
         margin: 0 60px
         position: relative
+        @media (min-width : 460px) and (max-width : 815px)
+          margin: 0 25px
+        @media (min-width : 0px) and (max-width : 460px)
+          margin: 0 15px
         span
           width: 100% !important
           height: 100% !important
@@ -1368,9 +1387,9 @@ a.close-fancy-form
       b, p
         color: #BBB21E
 
-  .restaurant-logo
+  /*.restaurant-logo*/
     @media #{$small-only}
-      opacity: .3
+      /*opacity: .3*/
   .passive
     img
       filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale") /* Firefox 10+ */
