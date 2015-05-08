@@ -10,7 +10,11 @@
           .one-product-wrap
             .bi style="background: url('#{p.image.url(:main)}')no-repeat center center;"
             .information-block-wrap
-              .price-wrap.text-center
+              -success = ''
+              -current_cart.line_items.each do |item|
+                - if item.product_id == p.id
+                  - success = 'y-success'
+              .price-wrap.text-center class=success
                 .price
                   strong = p.price.round
                   p грн
