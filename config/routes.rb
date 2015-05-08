@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'get_total_price' => 'main#get_total_price'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   # devise_for :admins
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
     resources :banners
     resources :products
     resources :restaurants
+    # resources :reastaurant_images
     resources :categories
 
     resources :carts
@@ -23,11 +26,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
   get '/test' => 'main#test_page'
   get '/:url' => 'main#about', as: 'restaurant_about'
   get '/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'
   get '/:restaurant/:catalog' => 'main#catalog', as: 'restaurant_catalog'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
