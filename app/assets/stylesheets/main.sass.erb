@@ -792,12 +792,13 @@ ul.catalog-sidebar
     height: 59px
     &:hover
       height: auto
-.active-all
+.active-all, .catalog-sidebar-mobile-header
   background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat
   background-size: 100%
   border-color: FF661B
   a, sup, span
     color: #fff !important
+
 .brown
   ul.catalog-sidebar
     border-color: #6B3F22
@@ -1383,6 +1384,10 @@ a.close-fancy-form
         size: rem-calc(12)
         weight: 400
       line-height: rem-calc(14.4)
+    b, p
+      @media #{$small-only}
+        text-align: center
+        display: inherit
   &.brown
     .r-about-restaurant-wrap
       b, p
@@ -1658,6 +1663,11 @@ p
             color: #D1D3D4
           path
             fill: #D1D3D4
+        &.passive-prev-step
+          path
+            fill: #A7A9AC
+          b
+            color: #A7A9AC
       li:last-of-type
         width: 43%
         &.passive

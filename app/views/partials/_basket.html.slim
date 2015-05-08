@@ -63,23 +63,9 @@
               /          input.log-out-button type="submit" value="Увійти"
           .columns.large-7.medium-7.right
             .basket-total-price-wrap
-              h4
-                |Всього &nbsp;
-                span
+              /-temp = 5
+              /=render partial: "partials/get_total_price", locals: { var: temp }
 
-                  -if count_products
-                    = count_products
-                /|&nbsp;товара
-                |&nbsp;на суму:&nbsp;
-                -total_price = get_total_price
-                -parts_price = total_price.to_s.split(".")
-
-                b
-                  =parts_price[0]
-                  sup
-                    =parts_price[1]
-                sub
-                  |грн
 
     .modal-footer.text-center
       .number-order-wrap.box-shadow-restourant

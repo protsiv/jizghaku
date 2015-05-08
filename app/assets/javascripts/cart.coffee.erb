@@ -1,7 +1,5 @@
-
-
 $(document).ready ->
-
+  $.getScript('/get_total_price')
 #  =========================
 # validate form for basket
 #  =========================
@@ -118,7 +116,7 @@ $(document).ready ->
           $item = data['item_template']
           $('.cart-items-wrap').append($item)
 
-
+        $.getScript('/get_total_price')
         setTimeout (->
           $status_adding.removeClass('y-sending')
           $status_adding.addClass('y-success')
@@ -154,9 +152,9 @@ $(document).ready ->
       type: 'delete'
       dataType: 'json'
       beforeSend: ->
-#        alert 'begin deleting...'
+        alert 'begin deleting...'
       success: ->
-#        alert 'succesfull!'
+        alert 'succesfull!'
         $item.remove()
       e.preventDefault()
 

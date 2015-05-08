@@ -8,13 +8,13 @@
       .row
         .columns
           ul
-            li
+            li.passive-prev-step
               .ico-wrap
                 .ico
                   = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
               .title
                 b Що будемо?
-            li
+            li.passive-prev-step
               .ico-wrap
                 .ico
                   = embedded_svg "Yizhku-yizhak mini icon-color.svg", class: 'basket-ico-status'
@@ -94,23 +94,23 @@
                             |грн
           .cart-rez-wrap
             .basket-total-price-wrap
-              h4
-                |Всього &nbsp;
-                span
-                  -if count_products
-                    = count_products
-                  /|24
-                |&nbsp;товара
-                |&nbsp;на суму:&nbsp;
-                -total_price = get_total_price
-                -parts_price = total_price.to_s.split(".")
-
-                b
-                  =parts_price[0]
-                  sup
-                    =parts_price[1]
-                sub
-                  |грн
+              /h4
+              /  |Всього &nbsp;
+              /  span
+              /    -if count_products
+              /      = count_products
+              /    /|24
+              /  |&nbsp;товара
+              /  |&nbsp;на суму:&nbsp;
+              /  -total_price = get_total_price
+              /  -parts_price = total_price.to_s.split(".")
+              /
+              /  b
+              /    =parts_price[0]
+              /    sup
+              /      =parts_price[1]
+              /  sub
+              /    |грн
     .row
       .columns.large-offset-2.medium-offset-2
         a.blue-link data-reveal-id="BasketSecondStepModal" href="#" < Куди доставляємо?

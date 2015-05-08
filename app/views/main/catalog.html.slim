@@ -1,5 +1,5 @@
 .row
-  .columns.large-offset-2
+  .columns.large-offset-2.medium-offset-2.small-offset-3
     ul.breadcrumbs
       li.has-drop
         a =@current_restaurant.name
@@ -31,7 +31,7 @@
       .row
         .columns
           ul.catalog-sidebar
-            li.filter.active-all data-filter="all"
+            li.catalog-sidebar-mobile-header.show-for-small-only
               a
                 |Все меню &nbsp;
                 sup
@@ -49,7 +49,13 @@
                 li
                   a
                     |Barbarys
-
+            li.filter.active-all data-filter="all"
+              a
+                |Все меню &nbsp;
+                sup
+                  |(
+                  span = @products_count + @products_common.count
+                  | )
             -@categories.each do |c|
               - count = c.products.count
               li.filter data-filter=".#{c.slug}"
