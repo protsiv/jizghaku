@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+  post '/mcsubscribe/subscribe' => 'mcsubscribe#subscribe'
 
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
   get '/test' => 'main#test_page'
