@@ -67,3 +67,13 @@
         .ic-button.input-count-down
         .input-inner
           input type="number" name="quantity" value="1"
+
+.row
+  .columns
+    h3 Add a New Member
+    p Please enter your email address to subscribe to our newsletter.
+    = form_tag('/mcsubscribe/subscribe', method: "post", id: "mcsubscribe", remote: "true") do
+      = email_field(:email, :address, {id: "email", placeholder: "email address"})
+      = submit_tag("Subscribe")
+
+    div id="response" Response Will be displayed here

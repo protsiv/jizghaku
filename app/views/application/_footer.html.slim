@@ -2,12 +2,26 @@
   .subscription-wrap
     .row
       .columns.large-6.medium-6
-        p Хочете отримувати гарячі пропозиції?
+        /p Please enter your email address to subscribe to our newsletter.
+        /= form_tag('/mcsubscribe/subscribe', method: "post", id: "mcsubscribe", remote: "true") do
+        /  = email_field(:email, :address, {id: "email", placeholder: "email address"})
+        /  = submit_tag("Subscribe")
+        /
+        /div id="response" Response Will be displayed here
+        div id="response"
+          |Хочете отримувати гарячі пропозиції?
       .columns.large-6.medium-6
-        .input.left
-          input placeholder="введіть свою електронну скриньку"
-        .input-sent.left  data-button-name="Так!" data-second-name="точно"
-          button
+        = form_tag('/mcsubscribe/subscribe', method: "post", id: "mcsubscribe", remote: "true") do
+          .input.left
+            = email_field(:email, :address, {id: "email", placeholder: "введіть свою електронну скриньку"})
+          .input-sent.left  data-button-name="Так!" data-second-name="точно"
+            .input-sent-bkg
+              = submit_tag(" ")
+
+        /.input.left
+        /  input placeholder="введіть свою електронну скриньку"
+        /.input-sent.left  data-button-name="Так!" data-second-name="точно"
+        /  button
 
   .footer-bottom.blue-background-pattern
     .row

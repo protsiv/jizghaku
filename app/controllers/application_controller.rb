@@ -1,12 +1,20 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-
+  require 'mailchimp'
 
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  protect_from_forgery with: :exception
+
+  before_action :setup_mcapi
+
+  def setup_mcapi
+    @mc = Mailchimp::API.new('ff4a284ef0048280317dd235ef86cad0-us10')
+    @list_id = "290c70f684"
+  end
 
   protected
       def configure_permitted_parameters

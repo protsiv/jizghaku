@@ -1151,7 +1151,7 @@ ul.catalog-sidebar
     height: 60px
     @media (min-width : 0em) and (max-width : 48.75em)
       height: auto
-    p
+    p, #response
       font:
         family: "Lobster", cursive
         size: rem-calc(26)
@@ -1198,17 +1198,29 @@ ul.catalog-sidebar
       width: 20%
       position: relative
       height: 60px
-      button
+      .input-sent-bkg
         width: 100px
         height: 100px
         border-radius: 50%
-        background-color: #FF9E15
-        position: absolute
+        background-color: #FF9E15 !important
+        position: relative
         left: -10px
         top: -20px
-        -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6)
-        -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6)
-        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6)
+      button, input[type="submit"]
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        z-index: 11
+        display: block
+        width: 100%
+        cursor: pointer
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6) !important
+        -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6) !important
+        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.6) !important
+        border: none !important
+        border-radius: 50%
       &:before
         display: block
         content: attr(data-button-name)

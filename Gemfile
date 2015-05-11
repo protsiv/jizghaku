@@ -74,4 +74,8 @@ gem 'activerecord-reset-pk-sequence'
 
 gem "truncate_html"
 
+# gem 'render_anywhere', :require => false
+
+gem 'mailchimp-api', require: 'mailchimp'
+
 
