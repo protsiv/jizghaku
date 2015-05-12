@@ -23,11 +23,11 @@ class Restaurant < ActiveRecord::Base
 
   has_many :categories
 
-  has_many :attached_assets, :as => :attachable
-  accepts_nested_attributes_for :attached_assets, :allow_destroy => true
-
-
-  attr_accessible :attached_assets_attributes
+  # has_many :attached_assets, :as => :attachable
+  # accepts_nested_attributes_for :attached_assets, :allow_destroy => true
+  #
+  #
+  # attr_accessible :attached_assets_attributes
 
   before_save :set_position
   protected
