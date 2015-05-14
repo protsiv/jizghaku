@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   before_action :setup_mcapi
 
   def setup_mcapi
-    @mc = Mailchimp::API.new('ff4a284ef0048280317dd235ef86cad0-us10')
-    @list_id = "290c70f684"
+    @mc = Mailchimp::API.new('2ab6d1de4beea81db13ddcc17e288317-us10')
+    @list_id = "00beded4fe"
   end
 
   protected
