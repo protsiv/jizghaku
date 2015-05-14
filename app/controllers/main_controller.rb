@@ -18,6 +18,20 @@ class MainController < ApplicationController
 
     @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
   end
+
+  def terms_of_use
+
+  end
+
+  def order_product
+    address = params[:address]
+    phone = params[:phone]
+    card = params[:card]
+    comment = params[:comment]
+
+    CustomizedForm.order_product_data(address, phone, card, comment).deliver
+  end
+
   def test_page
     @categories = Category.where(common: true)
     @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)

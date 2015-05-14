@@ -160,6 +160,23 @@ $(document).ready ->
 
 
 # ==================================
+# order product
+# ==================================
+  $('form.order-product').submit (e) ->
+
+    formURL = $(@).attr('action')
+
+    $.ajax
+      url: formURL
+      type: 'POST'
+      beforeSend: ->
+        alert 'begin ordered'
+      success: ->
+        alert 'succesfull!'
+      e.preventDefault()
+
+
+# ==================================
 # counter for cart
 # ==================================
   $('.cart-items-wrap').on 'click', '.one-item .ic-button', ->
