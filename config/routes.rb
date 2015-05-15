@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :mail_lists
+  end
+
   get 'get_total_price' => 'main#get_total_price'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   root 'main#index'
   post '/mcsubscribe/subscribe' => 'mcsubscribe#subscribe'
   post '/order_product' => 'main#order_product'
+  post '/call_order' => 'main#call_order'
 
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
   get '/test' => 'main#test_page'

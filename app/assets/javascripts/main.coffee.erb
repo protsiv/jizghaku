@@ -74,6 +74,25 @@ $(document).ready ->
 #    closeonbackgroundclick: true
 #    dismissmodalclass: 'close-reveal-modal'
 
+# ==================================
+# call order
+# ==================================
+  $('form.call-order-form').submit (e) ->
+
+    formURL = $(@).attr('action')
+    postData = $(this).serializeArray()
+
+    $.ajax
+      url: formURL
+      type: 'POST'
+      data: postData
+      beforeSend: ->
+        alert 'begin ordered'
+      success: ->
+        $('#CallOrderedSuccess').foundation('reveal', 'open')
+      e.preventDefault()
+
+
 #  init bx slider for main banner
   $(".bxslider").bxSlider()
 

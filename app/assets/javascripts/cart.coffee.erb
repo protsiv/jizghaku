@@ -89,8 +89,6 @@ $(document).ready ->
     product_id = +$form.find('[name=product_id]').val()
 
     quantity = +$form.find('[name=quantity]').val()
-#    alert 'quantity'+quantity
-#    $sum = Number.parseInt($('.basket-inner .count-wrap span').text())
     $sum = +$('.basket-inner .count-wrap span').text()
     $total_price = +$this.find('.basket-total-price-wrap h4 b').text()
 
@@ -129,9 +127,9 @@ $(document).ready ->
 
       complete: ->
 
-        setTimeout (->
-          $status_adding.removeClass('y-success')
-        ), 4000
+#        setTimeout (->
+#          $status_adding.removeClass('y-success')
+#        ), 4000
 
       error: ->
         setTimeout (->
@@ -165,14 +163,16 @@ $(document).ready ->
   $('form.order-product').submit (e) ->
 
     formURL = $(@).attr('action')
+    postData = $(this).serializeArray()
 
     $.ajax
       url: formURL
       type: 'POST'
+      data: postData
       beforeSend: ->
         alert 'begin ordered'
       success: ->
-        alert 'succesfull!'
+        $('#BasketOrderedSuccess').foundation('reveal', 'open')
       e.preventDefault()
 
 

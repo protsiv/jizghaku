@@ -1,1 +1,10 @@
-<h1>test</h1>
+<h4>Замовлення номер: <%= @current_cart.id%></h4>
+<p>Адрес доставки: <%= @address%></p>
+<p>Номер телефону: <%= @phone%></p>
+<p>Номер картки "Їжа.ки": <%= @card%></p>
+<p>Коментар: <%= @comment%></p>
+<% @current_cart.line_items.each do |item|%>
+  <h3>
+    <%= item.product.name%>
+  </h3>
+<% end%>

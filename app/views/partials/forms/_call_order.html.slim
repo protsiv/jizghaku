@@ -4,15 +4,15 @@
     .modal-header.blue-background-pattern.text-center
       h2 Замовити дзвінок
       a.close-reveal-modal
-    form action="/" method="POST"
+    form.call-order-form action=call_order_path
       .modal-content
         .row
-          input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+          /input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
           .columns.large-6.medium-6
             .input
               label for="co-name"
                 |Ім'я*
-              input#co-name type="text" name="name" required=""
+              input#co-name type="text" name="fname" required=""
             .input
               label for="co-phone"
                 |Контактний телефон*

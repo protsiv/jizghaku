@@ -1,0 +1,25 @@
+h3 Електронні скриньки
+
+table
+  thead
+    tr
+      th Замовити дзвінок
+      th Замовити продукт
+
+      th
+      th
+      th
+
+  tbody
+    - @mail_lists.each do |mail_list|
+      tr
+        td = mail_list.call_order
+        td = mail_list.order_product
+
+        td = link_to 'O', admin_mail_list_path(mail_list)
+        td = link_to '/', edit_admin_mail_list_path(mail_list)
+        td = link_to 'X', admin_mail_list_path(mail_list), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Добавити новий', new_admin_mail_list_path

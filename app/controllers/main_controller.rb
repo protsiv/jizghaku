@@ -29,7 +29,17 @@ class MainController < ApplicationController
     card = params[:card]
     comment = params[:comment]
 
-    CustomizedForm.order_product_data(address, phone, card, comment).deliver
+    CustomizedForm.order_product_data(address, phone, card, comment, current_cart).deliver
+    render nothing: true
+  end
+
+  def call_order
+    fname = params[:fname]
+    phone = params[:phone]
+    comment = params[:comment]
+
+    CustomizedForm.data_from_call_order(fname, phone, comment)
+    render nothing: true
   end
 
   def test_page

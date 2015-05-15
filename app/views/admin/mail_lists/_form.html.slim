@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @mail_list], html: { multipart: true } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :call_order, label: "Замовити дзвінок", input_html: {placeholder: 'email@mail.com'}, hint: "Замовити дзвінок"
+    = f.input :order_product, label: "Замовити продукт", input_html: {placeholder: 'email@mail.com'}, hint: "Замовити продукт"
+  .form-actions
+    = f.button :submit

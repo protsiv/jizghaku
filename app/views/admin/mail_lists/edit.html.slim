@@ -1,0 +1,9 @@
+= render 'form'
+br
+  .row.text-center
+    .columns.large-4.medium-4.small-4
+      = link_to 'Переглянути', [:admin, @mail_list]
+    .columns.large-4.medium-4.small-4
+      = link_to 'Назад', admin_mail_lists_path
+    .columns.large-4.medium-4.small-4
+      = link_to 'Новий список електронних скриньок', new_admin_mail_list_path

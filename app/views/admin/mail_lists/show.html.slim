@@ -1,0 +1,16 @@
+h2 Електронні скриньки
+
+p
+  strong Замовити дзвінок:
+  = @mail_list.call_order
+p
+  strong Замовити продукт:
+  = @mail_list.order_product
+
+.row.text-center
+  .columns.large-4.medium-4.small-4
+    = link_to 'Редагувати', edit_admin_mail_list_path(@mail_list)
+  .columns.large-4.medium-4.small-4
+    = link_to 'Назад', admin_mail_lists_path
+  .columns.large-4.medium-4.small-4
+    = link_to 'Новий список електронних скриньок', new_admin_mail_list_path
