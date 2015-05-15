@@ -1,0 +1,27 @@
+h3 Добрі люди кажуть
+
+table
+  thead
+    tr
+      th Назва:
+      th Аватар:
+      th Відгук:
+
+      th
+      th
+      th
+
+  tbody
+    - @reviews.each do |review|
+      tr
+        td = review.name
+        td = image_tag review.image.url(:avatar)
+        td = raw review.description
+
+        td = link_to 'O', admin_review_path(review)
+        td = link_to '/', edit_admin_review_path(review)
+        td = link_to 'X', admin_review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete, class: ''
+
+br
+
+= link_to 'Добавити новий', new_admin_review_path

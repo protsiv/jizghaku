@@ -4,43 +4,19 @@
       .title
         h3 Добрі люди кажуть
   .row.text-center
-    .columns.large-2.medium-2.small-3.gps-header.active
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-01.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
-    .columns.large-2.medium-2.small-3.gps-header
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-2.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
-    .columns.large-2.medium-2.small-3.gps-header
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-01.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
-    .columns.large-2.medium-2.small-3.gps-header
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-2.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
-    .columns.large-2.medium-2.small-3.gps-header.hide-for-small-only
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-01.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
-    .columns.large-2.medium-2.small-3.gps-header.hide-for-small-only
-      .pictures-wrap
-        .pbi style="background: url('#{asset_path("ps-2.jpg")}')no-repeat center center;"
-      h4 Валентина Іванова
+    -if @reviews && @reviews.any?
+      -@reviews.each_with_index do |r, i|
+        - h = { a: "5", b: "8"}
+        .columns.large-2.medium-2.small-3.gps-header class=("end" if @reviews.count-1 == i) *(h) class=("active" if i == 0)
+          .pictures-wrap
+            .pbi style="background: url('#{r.image.url(:avatar)}')no-repeat center center;"
+          h4 =r.name
+
   .row.text-center
     .columns.large-2.large-centered.medium-2.medium-centered
       b data-content='“'
   .row.text-center
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab.active
-      p 1 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab
-      p 2 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab
-      p 3 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab
-      p 4 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab
-      p 5 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
-    .columns.large-8.large-centered.medium-8.medium-centered.gps-tab
-      p 6 Спасибі за піцу! Спасибі за швидку доставку. Дуже смачно. Тісто помірно тонке, смачне. Начинка свіжа і досить багато))
+    -if @reviews && @reviews.any?
+      -@reviews.each_with_index do |r, i|
+        .columns.large-8.large-centered.medium-8.medium-centered.gps-tab  class=("active" if i == 0)
+          =raw r.description

@@ -1,0 +1,15 @@
+= simple_form_for [:admin, @review] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Прізвище Ім'я:", input_html: {placeholder: ' '}, hint: "Прізвище Ім'я:"
+    = f.input :image, as: :image_preview, label: "Аватарка", hint: "Аватарка"
+    = f.input :description, label: "Опис", input_html: {placeholder: ' '}, hint: "Опис" do
+      .ckEditor
+        = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
+    .row
+      .columns.large-6.medium-6
+        = f.input :published, as: :boolean, label: "Опублікувати?", checked_value: true, unchecked_value: false
+      .columns.large-6.medium-6
+        = f.input :position, label: "Позиція", hint: "Позиція"
+  .form-actions
+    = f.button :submit

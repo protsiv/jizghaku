@@ -615,13 +615,14 @@ header, footer
   /*-o-animation:      NAME-YOUR-ANIMATION 5s infinite /* Opera 12+ */
   /*animation:         NAME-YOUR-ANIMATION 5s infinite *//* IE 10+, Fx 29+ */
 
-
+.no-padding-left
+  padding-left: 0 !important
 ul
   margin-left: 0 !important
   li
     list-style: none
 .breadcrumbs
-  margin-top: 25px
+  margin-top: 14px
   border: none
   background: transparent
   overflow: visible
@@ -644,7 +645,7 @@ ul
       ul
         height: auto
         border: 1px solid
-        padding: 6px
+        padding: 6px 15px 15px 15px
   li
     a
       font:
@@ -685,7 +686,6 @@ ul
       -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.6) /*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
       box-shadow: 0 0 2px rgba(0,0,0,0.6) /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
       filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color=#000000)  /*IE 5.5-7*/
-
       /*display: none*/
       li
         a
@@ -721,6 +721,8 @@ ul
 
 .about-contact-info-wrap
   padding-top: 10px
+  h4
+    font-weight: 500 !important
   svg
     width: 25px
     height: 25px
@@ -730,9 +732,9 @@ ul
   p
     font:
       family: "Fira Sans", sans-serif
-      size: rem-calc(16)
-      weight: 400
-    line-height: rem-calc(21)
+      size: rem-calc(12)
+      weight: 300
+    line-height: 1.125rem
     color: #6D6E71
   .contacts-wrap
     p, a
@@ -1412,12 +1414,36 @@ a.close-fancy-form
       family: "Fira Sans", sans-serif
 
 .restaurant-wrap
+  &.catalog-wrap
+    .one-product-wrap
+      .price-wrap
+        .price
+          strong
+            margin-top: 6px
+          p
+            top: 23px
+            left: 17px
+      .information-block
+        .description-wrap
+          .description-inner
+            height: 51px
+            overflow: hidden
+            p
+              line-height: 1.1rem
+              margin-bottom: 0
+
+    ul.catalog-sidebar
+      li
+        a
+          sup
+            font:
+              size: 70%
   .r-about-restaurant-wrap
     padding-top: 93px
     b
       font:
         size: rem-calc(18)
-        weight: 400
+        weight: 500
       line-height: rem-calc(26)
     p
       font:
@@ -1512,16 +1538,22 @@ p
 .about-restaurant-wrap
   padding-top: 25px
   padding-bottom: 65px
+  .image-wrap
+    padding-bottom: 35px
   aside
     .link-to-catalog-wrap
       padding: 1.6rem 0
       a.link-to-catalog
         margin-left: 2.1rem
+    h4
+      font-size: 1rem
+      margin-bottom: 2px
     p
       font:
         family: "Lobster", cursive
-        size: rem-calc(24)
+        size: 1.35rem
         weight: 400 !important
+      letter-spacing: 1px
       span
         font:
           size: rem-calc(18)

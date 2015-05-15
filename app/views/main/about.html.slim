@@ -1,5 +1,5 @@
 .row
-  .columns.large-offset-2
+  .columns.large-offset-2.medium-offset-2.no-padding-left
     ul.breadcrumbs
       li.has-drop
         a =@current_restaurant.name
@@ -26,15 +26,6 @@
                 |Про&nbsp;
                 =r.name
 
-        /a =@current_restaurant.name
-        /- if @restaurants && @restaurants.count > 0
-        /ul.breadcrumbs-drop
-        /  li.current-restaurant
-        /    a =@current_restaurant.name
-        /  - @restaurants.each do |r|
-        /    li
-        /      a =r.name
-
 -color_class = ''
 -if @current_restaurant.slug == 'bruno'
   -color_class = 'brown'
@@ -46,7 +37,8 @@
 .about-restaurant-wrap class="#{color_class}"
   .row
     .columns.large-8.medium-8
-      =image_tag @current_restaurant.main_image.url(:large)
+      .image-wrap
+        =image_tag @current_restaurant.main_image.url(:large)
       h2 = @current_restaurant.name
       =raw @current_restaurant.description
     .columns.large-4.medium-4

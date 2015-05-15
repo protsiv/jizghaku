@@ -2,6 +2,8 @@ class MainController < ApplicationController
 
   def index
     @products_of_week = Product.where(offer_of_the_week: true).order(created_at: :asc).limit(4)
+
+    @reviews = Review.order(position: :asc).where(published: true).limit(6)
   end
 
   def about

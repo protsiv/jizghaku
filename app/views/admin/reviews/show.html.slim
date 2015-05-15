@@ -1,0 +1,18 @@
+h2 Добрі люди кажуть
+p
+  strong Ім'я:
+  = @review.name
+p
+  strong Текст відгуку:
+  = raw @review.description
+p
+  strong Аватар:
+  = image_tag @review.image.url(:avatar)
+
+.row.text-center
+  .columns.large-4.medium-4.small-4
+    = link_to 'Редагувати', edit_admin_review_path(@review)
+  .columns.large-4.medium-4.small-4
+    = link_to 'Назад', admin_reviews_path
+  .columns.large-4.medium-4.small-4
+    = link_to 'Новий відгук', new_admin_review_path
