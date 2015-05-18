@@ -1645,6 +1645,10 @@ p
       outline: none !important
 
 .basket-modal-wrap
+  .round-input
+    position: relative
+    top: -8px
+    margin-right: 8px
   .fs-info-block-wrap
     h3
       margin-bottom: 13px
@@ -1821,23 +1825,15 @@ p
             background-color: transparent
             margin: 0
             padding: 0
+            border-radius: 50%
 
+            -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#000000)"
+            -moz-box-shadow: 0 0 1px rgba(0,0,0,0.6)
+            -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.6)
+            box-shadow: 0 0 1px rgba(0,0,0,0.6)
+            filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color=#000000)
 
-        /*&:hover*/
-          /*-webkit-transform: scale(1.3)*/
-          /*-moz-transform:    scale(1.1)*/
-          /*-ms-transform:     scale(1.1)*/
-          /*-o-transform:      scale(1.1)*/
-          /*transform:         scale(1.1)*/
       b
-        font:
-          family: "Lobster", cursive
-          size: rem-calc(21)
-          weight: 400 !important
-        color: #212844
-        line-height: rem-calc(25.2)
-        margin-bottom: rem-calc(13)
-        display: inline-block
         span
           line-height: rem-calc(25.2)
           font:
@@ -1845,13 +1841,31 @@ p
             size: rem-calc(21)
             weight: 300
           color: #939598
-      p
-        line-height: rem-calc(18)
-        font:
-          family: "Fira Sans", sans-serif
-          size: rem-calc(14)
-          weight: 300
-        color: #939598
+      .cart-item-price-wrap
+        height: 26px
+        position: relative
+        strong
+          position: absolute
+          top: -16px
+      .oi-about-wrap
+        margin-bottom: 1.5rem
+        b
+          font:
+            family: "Lobster", cursive
+            size: rem-calc(21)
+            weight: 400 !important
+          color: #212844
+          line-height: rem-calc(25.2)
+          margin-bottom: rem-calc(13)
+          display: inline-block
+        p
+          line-height: rem-calc(18)
+          font:
+            family: "Fira Sans", sans-serif
+            size: rem-calc(14)
+            weight: 300
+          color: #939598
+          margin-bottom: .5rem
         span.round
           width: 40px
           height: 40px

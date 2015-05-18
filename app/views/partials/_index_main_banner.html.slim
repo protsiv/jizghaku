@@ -4,36 +4,36 @@
     - banner = Banner.first()
     .row
       .columns.large-10.large-centered
-        ul#index-products-banner.bxslider
-          - restorans.each do |r|
-            -if r.slug == 'barbarus'
-              - restoran_color = 'yellow-green'
-
-            -elsif r.slug == 'baba-franya'
-              - restoran_color = 'blue'
-
-            -elsif r.slug == 'bruno'
-              - restoran_color = 'brown'
-
-            - r.categories.each do |c|
-          -banner.products.each_with_index  do |p, i|
-            - restoran_color = ""
-            li
-              .one-product-wrap class="#{restoran_color}"
-                .bi style="background: url('#{p.image.url(:large)}')no-repeat center center;"
-                .information-block-wrap
-                  .price-wrap.text-center
-                    .price
-                      strong = p.price.round
-                      p грн
-                  .information-block
-                    .row
-                      .columns.large-8.medium-8.small-8.end
-                        .name-wrap
-                          h2 =p.name
-                        .description-wrap
-                          p =raw p.description
-                    form action=""
-                      .input
-                        input type="number" value="1"
-                      button type="submit" name="order-product" value="true" Замовити
+        /ul#index-products-banner.bxslider
+        /  - restorans.each do |r|
+        /    -if r.slug == 'barbarus'
+        /      - restoran_color = 'yellow-green'
+        /
+        /    -elsif r.slug == 'baba-franya'
+        /      - restoran_color = 'blue'
+        /
+        /    -elsif r.slug == 'bruno'
+        /      - restoran_color = 'brown'
+        /
+        /    - r.categories.each do |c|
+        /  -banner.products.each_with_index  do |p, i|
+        /    - restoran_color = ""
+        /    li
+        /      .one-product-wrap class="#{restoran_color}"
+        /        .bi style="background: url('#{p.image.url(:large)}')no-repeat center center;"
+        /        .information-block-wrap
+        /          .price-wrap.text-center
+        /            .price
+        /              strong = p.price.round
+        /              p грн
+        /          .information-block
+        /            .row
+        /              .columns.large-8.medium-8.small-8.end
+        /                .name-wrap
+        /                  h2 =p.name
+        /                .description-wrap
+        /                  p =raw p.description
+        /            form action=""
+        /              .input
+        /                input type="number" value="1"
+        /              button type="submit" name="order-product" value="true" Замовити
