@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+  get 'omniauth_callbacks/facebook'
+  end
+
+  namespace :users do
+  get 'omniauth_callbacks/vkontakte'
+  end
+
   namespace :admin do
     resources :reviews
   end
@@ -13,7 +21,13 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   # devise_for :admins
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
+  # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  # match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
   namespace :admin do
     root to: "admin#index"
 

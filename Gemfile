@@ -54,6 +54,7 @@ gem 'rails-admin-scaffold'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 
 gem 'simple_form'
