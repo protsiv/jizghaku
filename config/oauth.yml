@@ -1,0 +1,18 @@
+development: &defaults
+  :vkontakte:
+    :app_id: 4922477
+    :app_secret: 9XViM7a8EWH4GH2xerp2
+    :app_permissions: "notify,wall,offline"
+  :facebook:
+    :app_id: 849830535062555
+    :app_secret: 49c4a8f9e3d0ad623325a39614f987a3
+    :app_permissions: "notify,wall,offline"
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

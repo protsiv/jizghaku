@@ -8,13 +8,6 @@ Rails.application.routes.draw do
   get 'omniauth_callbacks/vkontakte'
   end
 
-  namespace :admin do
-    resources :reviews
-  end
-
-  namespace :admin do
-    resources :mail_lists
-  end
 
   get 'get_total_price' => 'main#get_total_price'
 
@@ -39,6 +32,9 @@ Rails.application.routes.draw do
 
     resources :carts
     resources :line_items
+
+    resources :reviews
+    resources :mail_lists
   end
 
   # match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
