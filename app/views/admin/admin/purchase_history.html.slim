@@ -1,7 +1,7 @@
 - @carts.each_with_index do |c, i|
   - total_quantity = 0
   - total_price = 0
-  .dashboard-one-order-wrap class=("last-item" if @carts.count-1 == i) class=("expand" if @carts.count-1 == i)
+  .dashboard-one-order-wrap class=("last-item" if @carts.count-1 == i)
     .doo-head.text-center
       strong
         =c.finish.strftime("%d %B %Y")
