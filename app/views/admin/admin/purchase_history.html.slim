@@ -1,21 +1,58 @@
-h1
-  =current_user.first_name
-  |, id user&nbsp;
-  = current_user.cart.id
-br
-- @carts.each do |c|
-  strong
-    |Корзина створена &nbsp;
-    =c.created_at.strftime("%d %B %Y %A")
-  ul
-    -c.line_items.each_with_index do |item, li|
-      li
-        = item.id
-        br
-        = item.product.id
-        br
-        = item.product.name
-        br
-        =image_tag item.product.image.url(:thumb)
-        = item.quantity
-        br
+- @carts.each_with_index do |c, i|
+  .dashboard-one-order-wrap class=("last-item" if @carts.count-1 == i) class=("expand" if @carts.count-1 == i)
+    .doo-head.text-center
+      strong
+        =c.finish.strftime("%d %B %Y")
+      .doo-arrow
+        .doo-arrow-inner
+    ul.doo-content
+      .columns
+        li.cart-id
+          .number-order-wrap.box-shadow-restourant
+            .number-order-inner
+              .number-order
+                strong
+                  |№
+                  br
+                  =c.id
+
+        -c.line_items.each_with_index do |item, li|
+          li.dol-one-item
+            .row
+              .columns.large-4.medium-4
+                .basket-item-image.basket-item style="background: url(#{item.product.image.url(:thumb)})no-repeat center center;"
+              .columns.large-8.medium-8
+                b
+                  = item.product.name
+                .row
+                  .columns.large-6.medium-6.small-6
+                    p
+                      span
+                        = item.quantity
+                        |ШТ.
+                  .columns.large-6.medium-6.small-6
+                    strong.right
+                      -number = item.product.price
+                      -parts = number.to_s.split(".")
+                      /-result = parts.count > 1 ? parts[1].to_s : 0
+
+                      - r_integer = parts[0]
+                      - r_decimal = parts[1]
+                      = r_integer
+                      sup
+                        = r_decimal
+                      span
+                        |грн
+        .row
+          .columns.large-7.medium-7.right
+            .basket-total-price-wrap
+              h4
+                |Всього &nbsp;
+                span
+                  |5
+                  |&nbsp;на суму:&nbsp;
+                b
+                  |270.0
+                  sup
+                  sub грн
+      .clearfix

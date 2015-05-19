@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   attr_accessible
-  has_one :cart
+  has_many :carts
    def current_cart
-    if self.cart.nil?
+    if self.carts.length == 0 || self.carts.last.finished_at
       self.build_cart
     end
-    self.cart
+    self.carts.last
    end
 
   attr_accessible :email, :password, :password_confirmation

@@ -25,15 +25,35 @@ class ApplicationController < ActionController::Base
   helper_method :current_cart
 
   def current_cart
-    if current_user.present?
-     current_user.current_cart
-    else
-      Cart.find(session[:cart_id])
+    @_current_cart ||= nil
+
+    if @_current_cart
+      return @_current_cart
     end
-    rescue ActiveRecord::RecordNotFound
+
+    c = Cart.where(id: session[:cart_id]).first
+    if c && c.finished_at?
       cart = Cart.create
       session[:cart_id] = cart.id
-      cart
+      c = cart
+    end
+
+    if c.nil? && current_user.present?
+      c = current_user.current_cart
+    end
+
+    if c.nil?
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      c = cart
+    end
+
+    @_current_cart = c
+    if @_current_cart.user_id.blank? && current_user
+      @_current_cart.user = current_user
+      @_current_cart.save
+    end
+    @_current_cart
   end
 
   helper_method :admin?

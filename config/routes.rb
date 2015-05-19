@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :ordered_lists
+  end
+
   namespace :users do
   get 'omniauth_callbacks/facebook'
   end

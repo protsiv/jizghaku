@@ -4,18 +4,6 @@ $(document).ready ->
 # validate form for basket
 #  =========================
   $('#basket-information-form').validate()
-#    onfocusout: (element) ->
-#      if $(element).valid()
-#        $(element).removeClass('input-error').addClass 'input-valid'
-#      return
-#    invalidHandler: (event, validator) ->
-#      $.each validator.errorList, (index, error) ->
-#        $(error.element).addClass 'input-error'
-#        return
-#      return
-#    showErrors: ->
-#      #This function is kept blank so as to hide the default validation messages.
-#      return
 
 #  =========================
 # login form from basket
@@ -56,6 +44,11 @@ $(document).ready ->
     $('#BasketFinishStepModal p.da-code').text(card_code)
     $('#BasketFinishStepModal p.da-comment').text(comment)
 
+    $('form.order-product').find('[name="address"]').val(address)
+    $('form.order-product').find('[name="phone"]').val(phone)
+    $('form.order-product').find('[name="card"]').val(card_code)
+    $('form.order-product').find('[name="comment"]').val(comment)
+
 #  =========================
 # cart validation got ot finish step
 #  =========================
@@ -71,14 +64,6 @@ $(document).ready ->
 
     if $('#basket-information-form').valid()
       console.log('validated')
-#    else
-#      alert 'not valid'
-
-
-#    if $address.length > 0 && $phone.length > 0 && $email.length > 0
-#      $(@).hide()
-#    else
-#      alert 'no valid'
 
 #  =========================
 # callback handler for form submit
@@ -231,8 +216,6 @@ $(document).ready ->
         $items_price_i.html(one_item_price+"<span>грн</span>")
         $('.basket-total-price-wrap h4 span').text(total_count-1)
 
-#        console.log('down')
-
         DataToSend =
           product_id: product_id
           quantity: quantity
@@ -252,19 +235,5 @@ $(document).ready ->
   $('a.clear-form').click ->
     $(@).closest('form').find("input, textarea").val("")
 
-
-
-#  $('div.basket-wrap > a').click (e) ->
-#
-#    # render content
-#
-#
-#    # Button which will activate our modal
-#    $('#BasketModal').foundation('reveal', 'open')
-##    .reveal
-##      animation: 'fade'
-##      animationspeed: 600
-##      closeonbackgroundclick: true
-##      dismissmodalclass: 'close'
 
 

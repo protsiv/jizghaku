@@ -13,10 +13,6 @@ MyTabs = ($this, container, tabHeader, tabBody) ->
   $this.addClass(' active')
   $body_tabs_li.removeClass('active')
   $body_tabs_li.eq(current_position).addClass(' active')
-  #  $head_tabs_li.children().removeClass('active')
-  #  $this.children().first().addClass('active')
-#  $body_tabs_li.removeClass('active').addClass('hide')
-#  $body_tabs_li.eq(current_position).addClass('active').removeClass('hide')
 
 $(document).ready ->
 
@@ -74,6 +70,24 @@ $(document).ready ->
 #    closeonbackgroundclick: true
 #    dismissmodalclass: 'close-reveal-modal'
 
+
+# ==================================
+# dashboard order product history
+# ==================================
+  $('.doo-head').click ->
+    $('.dashboard-one-order-wrap').removeClass('expand')
+#    $('.dashboard-one-order-wrap ul').hide()
+    wrap = $(@).closest('.dashboard-one-order-wrap')
+    if wrap.hasClass('expand')
+      wrap.removeClass('expand')
+#      wrap.find('ul').hide()
+    else
+      wrap.addClass('expand')
+#      wrap.find('ul').show()
+
+
+
+
 # ==================================
 # call order
 # ==================================
@@ -86,6 +100,7 @@ $(document).ready ->
       url: formURL
       type: 'POST'
       data: postData
+      dataType: 'html'
       beforeSend: ->
         alert 'begin ordered'
       success: ->

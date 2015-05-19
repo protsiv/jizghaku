@@ -249,7 +249,130 @@ header, footer
       top: 0
       width: 26%
 
+.dashboard-one-order-wrap
+  .doo-head
+    height: 52px
+    border:
+      left: 1px solid #212844
+      top: 1px solid #212844
+      right: 1px solid #212844
+    position: relative
+    background-image: asset_url('yigaky-pattern-green-10.png')
+    cursor: pointer
+    strong
+      line-height: rem-calc(52)
+      color: #212844
+      text-transform: uppercase
+      font:
+        size: rem-calc(18)
+        family: "Lobster", cursive
+    .doo-arrow
+      width: 25px
+      height: 12px
+      /*border: 1px solid #212844*/
+      right: 20px
+      +my_vertical_align()
+        position: absolute
+      .doo-arrow-inner
+        position: relative
+        width: 100%
+        height: 100%
+        &:before, &:after
+          width: 15px
+          height: 1px
+          display: block
+          content: ''
+          background-color: #212844
+          position: absolute
+          top: 5px
 
+        &:before
+          +rotate(45deg)
+          left: 0
+        &:after
+          +rotate(-45deg)
+          right: 0
+
+    &:hover
+      strong
+        color: #FF661B
+      .doo-arrow-inner
+        &:before, &:after
+          background-color: #FF661B
+  &.expand
+    .doo-head
+      background: asset_url("pattern-white-15.png") #212844 repeat 0 0
+      strong
+        color: #fff
+      .doo-arrow-inner
+        &:before, &:after
+          background-color: #fff
+        &:before
+          +rotate(-45deg)
+          left: 0
+        &:after
+          +rotate(45deg)
+          right: 0
+    ul
+      display: block !important
+
+  ul.doo-content
+    display: none
+    li
+      &.cart-id
+        height: 100px
+        width: 100%
+        overflow: hidden
+        padding-top: 15px
+        position: relative
+        .number-order-wrap
+          +my_horizontal_align()
+            position: absolute
+          .number-order-inner
+            &:before, &:after
+              display: block
+              content: ''
+              position: absolute
+              width: 2000px
+              height: 1px
+              background-color: #FF9E15
+              top: 35px
+            &:before
+              left: 90px
+            &:after
+              right: 90px
+      &.dol-one-item
+        border-bottom: 1px solid #D1D3D4
+        padding:
+          top: 14px
+          bottom: 19px
+        b
+          font-family: "Lobster", cursive
+          font-size: 1.3125rem
+          /*font-weight: 400 !important;*/
+          color: #212844
+          line-height: 1.575rem
+          margin-bottom: 0.8125rem
+          display: inline-block
+        strong
+          font-family: "Lobster", cursive
+          font-size: 2.25rem
+          font-weight: 400 !important
+          color: #212844
+          line-height: 2.6875rem
+          sup
+            font-size: 50%
+            font-weight: 400
+          span
+            font-family: "Lobster", cursive
+            font-size: 0.875rem
+            font-weight: 400 !important
+            color: #FF9E15
+            line-height: 1.05rem
+
+  &.last-item
+    .doo-head
+      border-bottom: 1px solid #212844
 .selector_restaurants_wrap
   height: 175px
   background-color: #FF661B
@@ -1644,6 +1767,11 @@ p
       padding: 0
       outline: none !important
 
+.links-wrap
+  .omniauth
+    a:last-of-type
+      display: none !important
+
 .basket-modal-wrap
   .round-input
     position: relative
@@ -1972,27 +2100,9 @@ p
       background-color: transparent
       cursor: pointer
     .number-order-wrap
-      background-color: #fff
-      width: 70px
-      height: 70px
-      border-radius: 50%
       position: absolute
       left: 1.375rem
       top: -35px
-      .number-order-inner
-        position: relative
-        width: 100%
-        height: 100%
-        .number-order
-          +my_center_align
-            position: absolute
-          strong
-            font:
-              family: "Lobster", cursive
-              size: rem-calc(21)
-              weight: 400 !important
-            color: #FF9E15
-            line-height: rem-calc(21)
     a, button
       display: inline-block
       width: 100%
@@ -2010,6 +2120,27 @@ p
       background: transparent
       padding: 0
       outline: none !important
+
+.number-order-wrap
+  background-color: #fff
+  width: 70px
+  height: 70px
+  border-radius: 50%
+  .number-order-inner
+    position: relative
+    width: 100%
+    height: 100%
+    .number-order
+      +my_center_align
+        position: absolute
+      strong
+        font:
+          family: "Lobster", cursive
+          size: rem-calc(21)
+          weight: 400 !important
+        color: #FF9E15
+        line-height: rem-calc(21)
+
 form
   input[type=submit]
     cursor: pointer

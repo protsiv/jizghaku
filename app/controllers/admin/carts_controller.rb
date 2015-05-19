@@ -41,6 +41,10 @@ class Admin::CartsController < Admin::AdminController
   # PATCH/PUT /admin/carts/1
   # PATCH/PUT /admin/carts/1.json
   def update
+    # _cart_params = cart_params
+    # if current_user && current_cart.user_id.blank?
+    #   _cart_params[:user_id] = current_user.id
+    # end
     respond_to do |format|
       if @cart.update(cart_params)
         format.html { redirect_to [:admin, @cart], notice: 'Cart was successfully updated.' }
@@ -65,11 +69,12 @@ class Admin::CartsController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      #@cart = Cart.find(params[:id])
+      @cart = current_cart
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:user_id, :order_number, :status)
+      params.require(:cart).permit(:user_id, :order_number, :status, :finished_at)
     end
 end

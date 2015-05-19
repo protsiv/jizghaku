@@ -2,14 +2,9 @@ class MainController < ApplicationController
 
   def index
     @products_of_week = Product.where(offer_of_the_week: true).order(created_at: :asc).limit(4)
-
     @reviews = Review.order(position: :asc).where(published: true).limit(6)
   end
 
-  def about
-    @current_restaurant = Restaurant.find_by_slug(params[:url])
-    @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
-  end
   def catalog
     @current_restaurant = Restaurant.find_by_slug(params[:restaurant])
     @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
@@ -19,6 +14,11 @@ class MainController < ApplicationController
     @products_common = Product.joins(:category).where(categories: {common: true}).order(position: :asc)
 
     @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
+  end
+
+  def about
+    @current_restaurant = Restaurant.find_by_slug(params[:url])
+    @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
   end
 
   def terms_of_use
@@ -31,7 +31,10 @@ class MainController < ApplicationController
     card = params[:card]
     comment = params[:comment]
 
+
     CustomizedForm.order_product_data(address, phone, card, comment, current_cart).deliver
+    current_cart.finish
+    current_cart.save
     render nothing: true
   end
 
@@ -41,7 +44,7 @@ class MainController < ApplicationController
     comment = params[:comment]
 
     CustomizedForm.data_from_call_order(fname, phone, comment)
-    render nothing: true
+    # render nothing: true
   end
 
   def test_page
@@ -49,7 +52,6 @@ class MainController < ApplicationController
     @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
 
     $line_items = LineItem.where(cart: current_cart.id)
-
   end
 
   def line_items
