@@ -1,4 +1,6 @@
 - @carts.each_with_index do |c, i|
+  - total_quantity = 0
+  - total_price = 0
   .dashboard-one-order-wrap class=("last-item" if @carts.count-1 == i) class=("expand" if @carts.count-1 == i)
     .doo-head.text-center
       strong
@@ -17,6 +19,10 @@
                   =c.id
 
         -c.line_items.each_with_index do |item, li|
+          - total_quantity += item.quantity
+          - if item && item.product_id
+            - product = Product.where(id: item.product_id).first
+            - total_price = total_price + item.product.price * item.quantity
           li.dol-one-item
             .row
               .columns.large-4.medium-4
@@ -45,14 +51,14 @@
                         |грн
         .row
           .columns.large-7.medium-7.right
-            .basket-total-price-wrap
-              h4
+            .dol-total-price-wrap
+              p
                 |Всього &nbsp;
                 span
-                  |5
+                  = total_quantity
                   |&nbsp;на суму:&nbsp;
                 b
-                  |270.0
+                  = total_price
                   sup
                   sub грн
       .clearfix

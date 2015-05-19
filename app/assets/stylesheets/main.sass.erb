@@ -369,6 +369,15 @@ header, footer
             font-weight: 400 !important
             color: #FF9E15
             line-height: 1.05rem
+    .dol-total-price-wrap
+      p
+        color: #939598
+        span
+        b
+          color: #212844
+          sup
+          sub
+            color: #FF9E15
 
   &.last-item
     .doo-head
@@ -2103,6 +2112,7 @@ p
       position: absolute
       left: 1.375rem
       top: -35px
+      z-index: 12
     a, button
       display: inline-block
       width: 100%
@@ -2146,6 +2156,27 @@ form
     cursor: pointer
 #BasketFinishStepModal
   .modal-content
+    position: relative
+    .order-products-status-wrap
+      position: absolute
+      background-color: rgba(255, 255, 255, .8)
+      left: 0
+      top: 0
+      right: 0
+      bottom: -25px
+      z-index: 11
+      display: none
+      &:before
+        display: block
+        content: ''
+        width: 110px
+        height: 110px
+        background-image: asset_url('717.GIF')
+        background-size: 60%
+        background-repeat: no-repeat
+        background-position: center
+        +my_center_align()
+          position: absolute
     h3
       color: #FF9E15
       font:

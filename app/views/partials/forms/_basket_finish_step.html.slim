@@ -4,6 +4,8 @@
       h2 Все вірно?
       a.close-reveal-modal
     .modal-content
+      .order-products-status-wrap
+
       - count_products = get_count_products
       .row
         .columns
@@ -99,7 +101,7 @@
               |№
               br
               =current_cart.id
-      form.order-product action="order_product"
+      form.order-product action=order_product_path
         input type="hidden" name="address" value=""
         input type="hidden" name="phone" value=""
         input type="hidden" name="card" value=""

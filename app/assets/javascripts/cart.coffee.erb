@@ -155,8 +155,9 @@ $(document).ready ->
       type: 'POST'
       data: postData
       beforeSend: ->
-        alert 'begin ordered'
+        $('.order-products-status-wrap').show()
       success: ->
+        $('.order-products-status-wrap').hide()
         $('#BasketOrderedSuccess').foundation('reveal', 'open')
       e.preventDefault()
 
