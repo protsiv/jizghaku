@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :ordered_lists
-  end
-
   namespace :users do
   get 'omniauth_callbacks/facebook'
   end
-
   namespace :users do
   get 'omniauth_callbacks/vkontakte'
   end
@@ -39,9 +34,9 @@ Rails.application.routes.draw do
 
     resources :reviews
     resources :mail_lists
-  end
 
-  # match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+    resources :ordered_lists
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
