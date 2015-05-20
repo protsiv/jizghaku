@@ -173,15 +173,30 @@ header, footer
     bottom: 0
     position: absolute
     overflow: hidden
-    padding-top: 50px
+    /*padding-top: 50px*/
+  .bx-viewport
+    height: 666px !important
   ul#index-products-banner
-    height: 480px
+    height: 666px
     /*margin-top: 50px*/
     li
       background-color: #00948F
       position: relative
-      /*height: 430px*/
+      height: 100%
       list-style: none
+      .bi, .about-banner-wrap
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+      .bi
+        padding-bottom: 0
+      .about-banner-wrap
+        b
+          color: #FF9E15
+        p
+          color: #fff
       .one-product-wrap
         padding-bottom: 0
         height: 100%

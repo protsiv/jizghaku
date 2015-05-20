@@ -1,10 +1,20 @@
 .index-main-banner-wrap.blue-background-pattern
   .index-main-banner
-    - restorans = Restaurant.order(created_at: :asc)
-    - banner = Banner.first()
-    .row
-      .columns.large-10.large-centered
-        /ul#index-products-banner.bxslider
+    /- restorans = Restaurant.order(created_at: :asc)
+    /- banner = Banner.first()
+    /.row
+    /  .columns.large-10.large-centered
+    ul#index-products-banner.bxslider
+      li
+        .bi style="background: url('#{asset_path("banner-1-layer1.jpg")}')no-repeat center center;"
+        .bi style="background: url('#{asset_path("banner-1-layer2.png")}')no-repeat center center;"
+        .bi style="background: url('#{asset_path("banner-1-layer3.png")}')no-repeat center center;"
+        .bi style="background: url('#{asset_path("banner-1-layer4.png")}')no-repeat center center;"
+        .about-banner-wrap
+          .row
+            .columns.large-5.medium-5.right
+              b Приєднуйтесь до клубу <<Їжаків>> та отримуйте клубну картку
+              p Нагадуємо, що карточка дає можливість накопичувати бали
         /  - restorans.each do |r|
         /    -if r.slug == 'barbarus'
         /      - restoran_color = 'yellow-green'
