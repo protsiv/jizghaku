@@ -42,4 +42,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+  ENV["FACEBOOK_CONSUMER_KEY"] = "849830535062555"
+  ENV["FACEBOOK_CONSUMER_SECRET"] = "49c4a8f9e3d0ad623325a39614f987a3"
+
 end

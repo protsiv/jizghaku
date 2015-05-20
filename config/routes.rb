@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   # devise_for :admins
   # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :path_names => {sign_in: "login", sign_out: "logout"},
+                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
@@ -48,6 +49,7 @@ Rails.application.routes.draw do
   post '/call_order' => 'main#call_order'
 
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
+  get '/admin/users' => 'admin/admin#users_list', as: 'users_list'
   get '/test' => 'main#test_page'
   get '/term-of-used' => 'main#terms_of_use'
   get '/:url' => 'main#about', as: 'restaurant_about'

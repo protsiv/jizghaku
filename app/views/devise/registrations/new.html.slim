@@ -15,9 +15,9 @@
               = f.input :last_name, label: "Прізвище", input_html: {placeholder: 'Ваше прізвище'}
               = f.input :email, label: "Електронна скринька*", input_html: {placeholder: 'foodorder@test.com'}
               = f.input :subscribe_to, label: "Підписатись на розсилку"
-
-              = f.input :password, label: "Пароль", hint: false, error_html: { id: 'password_error'}, input_html: {placeholder: "password"}
-              = f.input :password_confirmation, label: "Підтвердити пароль", input_html: {placeholder: "password"}
+              - if f.object.password_required?
+                = f.input :password, label: "Пароль", hint: false, error_html: { id: 'password_error'}, input_html: {placeholder: "password"}
+                = f.input :password_confirmation, label: "Підтвердити пароль", input_html: {placeholder: "password"}
               .row
                 .columns.large-6
                   =link_to "< Повернутись", user_session_path

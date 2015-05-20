@@ -1,0 +1,37 @@
+/.row
+/  .columns
+/
+/    - if @users.any?
+/      ul
+/        - @users.each do |u|
+/          li
+/            = u.id
+/            = u.name
+/            br
+/            = u.email
+/            br
+/            = u.admin
+h3 Користувачі
+table
+  thead
+    tr
+      th id
+      th email
+      th admin
+      th
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.email
+        td = user.admin
+        /td = link_to 'Переглянути', admin_restaurant_path(restaurant)
+        /td = link_to 'Редагувати', edit_admin_restaurant_path(restaurant)
+        /td = link_to 'Видалити', admin_restaurant_path(restaurant), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+/= link_to 'Добавити новий', new_admin_restaurant_path

@@ -14,8 +14,9 @@ Devise.setup do |config|
 
   # OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
   # OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
-  require "omniauth-facebook"
-  config.omniauth :facebook, "849830535062555", "49c4a8f9e3d0ad623325a39614f987a3"
+  # require "omniauth-facebook"
+  # config.omniauth :facebook, "849830535062555", "49c4a8f9e3d0ad623325a39614f987a3"
+  config.omniauth :facebook, ENV["FACEBOOK_CONSUMER_KEY"], ENV["FACEBOOK_CONSUMER_SECRET"]
   config.omniauth :vkontakte, "4922477", "9XViM7a8EWH4GH2xerp2"
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

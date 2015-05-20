@@ -20,7 +20,7 @@
               .columns.large-5
                 .omniauth.facebook
                   - resource_class.omniauth_providers.each do |provider|
-                    = link_to omniauth_authorize_path(resource_name, provider) do
+                    = link_to user_omniauth_authorize_path(provider) do
                       .omniauth-text
                         |Або, увійдіть через соціальну мережу
                       .omniauth-ico

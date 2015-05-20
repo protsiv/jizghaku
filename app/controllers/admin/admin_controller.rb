@@ -12,6 +12,10 @@ class Admin::AdminController < ApplicationController
     @carts = Cart.where(user_id: current_user.id)
   end
 
+  def users_list
+    @users = User.order(created_at: :asc    )
+  end
+
   def authenticate
     unless admin?
       redirect_to root_path
