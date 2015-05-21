@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "admin#index"
 
-    resources :banners
+    resources :main_banners
     resources :products
     resources :restaurants
     # resources :reastaurant_images

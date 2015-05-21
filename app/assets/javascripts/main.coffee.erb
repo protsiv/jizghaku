@@ -14,7 +14,13 @@ MyTabs = ($this, container, tabHeader, tabBody) ->
   $body_tabs_li.removeClass('active')
   $body_tabs_li.eq(current_position).addClass(' active')
 
+
+
+
+
+
 $(document).ready ->
+
 
   $('.round-input .ic-button').click ->
     $wrap = $(@).closest('.round-input')
@@ -108,8 +114,20 @@ $(document).ready ->
       e.preventDefault()
 
 
+# ==================================
 #  init bx slider for main banner
-  $(".bxslider").bxSlider()
+# ==================================
+  $(".bxslider").bxSlider
+    auto: true
+    pause: 6000
+    speed: 1000
+    mode: 'fade'
+    onSliderLoad: ->
+      $('#scene').parallax()
+      $('#scene1').parallax()
+      $('#scene2').parallax()
+      $('#scene3').parallax()
+
 
 # init buisness launch carousel
   owl1 = $("#business_lunch")

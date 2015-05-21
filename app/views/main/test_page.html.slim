@@ -97,3 +97,36 @@
       - if !user_signed_in?
         li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
         li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
+
+.row
+  .columns
+section.container.clearfix
+  ul#scene.scene
+    li.layer data-depth="0.00"
+      .background
+        =image_tag asset_path("banner-1-layer1.jpg")
+
+    li.layer data-depth="0.60"
+      .kurama
+        =image_tag asset_path("banner-1-layer2.png")
+
+    li.layer data-depth="0.40" data-invert-y="false"
+      .landscape
+        =image_tag asset_path("banner-1-layer3.png")
+
+    li.layer data-depth="0.60"
+      .grass
+        =image_tag asset_path("banner-1-layer4.png")
+    /
+    /li.layer data-depth="1.20"
+    /  .obito
+    /    img src="images/obito.png"
+    /
+    /
+    /li.layer data-depth="1.00"
+    /  .minato
+    /    img src="images/minato.png"
+    /
+    /li.layer data-depth="2.30"
+    /  .leaves
+    /    img src="images/leaves.png"

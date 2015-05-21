@@ -79,4 +79,6 @@ gem "truncate_html"
 
 gem 'mailchimp-api', require: 'mailchimp'
 
+gem 'parallax-rails'
+
 

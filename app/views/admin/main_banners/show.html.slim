@@ -1,0 +1,18 @@
+h2 Банер на головну сторінку
+p
+  strong Назва:
+  = @main_banner.name
+p
+  strong Опис банера:
+  = raw @main_banner.description
+p
+  strong Фон банера:
+  = image_tag @main_banner.layer_background.url(:large)
+
+.row.text-center
+  .columns.large-4.medium-4.small-4
+    = link_to 'Редагувати', edit_admin_main_banner_path(@main_banner)
+  .columns.large-4.medium-4.small-4
+    = link_to 'Назад', admin_main_banners_path
+  .columns.large-4.medium-4.small-4
+    = link_to 'Новий банер', new_admin_main_banner_path

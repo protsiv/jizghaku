@@ -1,0 +1,27 @@
+h3 Банер на головну сторінку
+
+table
+  thead
+    tr
+      th Назва:
+      th Порядковий номер:
+      th Чи опублікований:
+
+      th
+      th
+      th
+
+  tbody
+    - @main_banners.each do |main_banner|
+      tr
+        td = main_banner.name
+        td = main_banner.position
+        td = main_banner.published
+
+        td = link_to 'O', admin_main_banner_path(main_banner)
+        td = link_to '/', edit_admin_main_banner_path(main_banner)
+        td = link_to 'X', admin_main_banner_path(main_banner), data: {:confirm => 'Are you sure?'}, :method => :delete, class: ''
+
+br
+
+= link_to 'Добавити новий', new_admin_main_banner_path

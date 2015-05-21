@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Gudea:400,400italic,700);
+
+* {margin:0; padding:0;}
+
+body {font-family:'Gudea', Arial, Helvetica, sans-serif; font-size:12px; background:#e6e6e6;}
+a {text-decoration:none;}
+
+#header {width:100%; background:#34495E; border-bottom:3px solid #0B292D;}
+.topNav {background:#253749; width:100%; border-bottom:1px solid #0B292D;}
+.topNav a {display:block; padding:5px 10px; color:#FFF;}
+.topNav a:hover {background:#2B445E; transition:background 0.5s ease}
+
+.headingContainer {width:1024px; margin:50px auto; }
+.heading {color:#FFF; text-align:center;}
+.heading h1 {margin-bottom:10px;}
+.heading a {color:#00BFFF;}
+.heading P {font-size:14px; margin-bottom:20px;}
+
+.download {display:block;}
+.btn {margin:0 auto; display:block; padding:10px 30px; border:2px solid #0B292D; font-weight:bold; color:#00BFFF; width:150px; text-align:center; background:#1C3044;}
+.btn:hover {background:#00BFFF; color:#FFF; transition:background 0.5s ease-in-out;}
+
+.clearfix:before, .clearfix:after {content: " "; display: table;}  
+.clearfix:after {clear:both;}  
+.clearfix {*zoom:1;}  
+
+.pull-left {float:left;}
+.pull-right {float:right;}
+
+.container {width:1024px; height:768px; overflow:hidden; position:relative; margin:50px auto; border:10px solid #0B292D; background:#000;}
+.background {background:url(../images/huge_bg.jpg); width:1024px; height:768px; }
+
+.layer div {position:absolute;}
+.kurama{top:-100px; left:-150px;}
+.minato{top:330px; left:250px;}
+.obito{top:520px; left:550px;}
+.landscape{top:500px; left:-250px;}
+.grass{top:700px; left:-250px;} 
+.leaves{top:350px; left:0px;}

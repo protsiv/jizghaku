@@ -1,20 +1,43 @@
 .index-main-banner-wrap.blue-background-pattern
   .index-main-banner
-    /- restorans = Restaurant.order(created_at: :asc)
-    /- banner = Banner.first()
-    /.row
-    /  .columns.large-10.large-centered
-    ul#index-products-banner.bxslider
-      li
-        .bi style="background: url('#{asset_path("banner-1-layer1.jpg")}')no-repeat center center;"
-        .bi style="background: url('#{asset_path("banner-1-layer2.png")}')no-repeat center center;"
-        .bi style="background: url('#{asset_path("banner-1-layer3.png")}')no-repeat center center;"
-        .bi style="background: url('#{asset_path("banner-1-layer4.png")}')no-repeat center center;"
-        .about-banner-wrap
-          .row
-            .columns.large-5.medium-5.right
-              b Приєднуйтесь до клубу <<Їжаків>> та отримуйте клубну картку
-              p Нагадуємо, що карточка дає можливість накопичувати бали
+    -if @main_banners.any?
+      ul#index-products-banner.bxslider
+        - @main_banners.each_with_index do |main_banner, index|
+          li
+            /.bi#background-scene style="background: url('#{main_banner.layer_background.url(:large)}')no-repeat center center;"
+            /
+            /.bi#layer-one style="background: url('#{main_banner.layer_1.url(:large)}')no-repeat center center;"
+            /
+            /.bi#layer-two style="background: url('#{main_banner.layer_2.url(:large)}')no-repeat center center;"
+            /
+            /.bi#layer-three style="background: url('#{main_banner.layer_3.url(:large)}')no-repeat center center;"
+            .scene id=("scene#{index+1}")
+              .layer data-depth="0.00"
+                .background
+                  .bi#background-scene style="background: url('#{main_banner.layer_background.url(:large)}')no-repeat center center;"
+                  /=image_tag asset_path("banner-1-layer1.jpg")
+
+              .layer data-depth="0.60"
+                .kurama
+                  /=image_tag asset_path("banner-1-layer2.png")
+                  =image_tag main_banner.layer_1.url(:large)
+
+              .layer data-depth="0.40" data-invert-y="false"
+                .landscape
+                  /=image_tag asset_path("banner-1-layer3.png")
+                  =image_tag main_banner.layer_2.url(:large)
+
+              .layer data-depth="0.60"
+                .grass
+                  /=image_tag asset_path("banner-1-layer4.png")
+                  =image_tag main_banner.layer_3.url(:large)
+            .about-banner-wrap
+              .row
+                .columns.large-5.medium-5.right
+                  .ab-title
+                    = raw main_banner.title
+                  .ab-description
+                    = raw main_banner.description
         /  - restorans.each do |r|
         /    -if r.slug == 'barbarus'
         /      - restoran_color = 'yellow-green'

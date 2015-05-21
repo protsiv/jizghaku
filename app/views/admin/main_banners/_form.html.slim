@@ -1,0 +1,25 @@
+= simple_form_for [:admin, @main_banner] do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name, label: "Назва:", input_html: {placeholder: ' '}, hint: "Назва:"
+
+    = f.input :layer_background, as: :image_preview, label: "Фон банера:", hint: "Фон банера:"
+    = f.input :layer_1, as: :image_preview, label: "Перший шар", hint: "Перший шар"
+    = f.input :layer_2, as: :image_preview, label: "Другий шар", hint: "Другий шар"
+    = f.input :layer_3, as: :image_preview, label: "Третій шар", hint: "Третій шар"
+
+    = f.input :title, label: "Заголовок", input_html: {placeholder: ' '}, hint: "Заголовок" do
+      .ckEditor
+        = f.cktext_area :title, :input_html => {:toolbar => 'Full' }
+
+    = f.input :description, label: "Опис", input_html: {placeholder: ' '}, hint: "Опис" do
+      .ckEditor
+        = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
+
+    .row
+      .columns.large-6.medium-6
+        = f.input :published, as: :boolean, label: "Опублікувати?", checked_value: true, unchecked_value: false
+      .columns.large-6.medium-6
+        = f.input :position, label: "Порядковий номер", hint: "Порядковий номер"
+  .form-actions
+    = f.button :submit

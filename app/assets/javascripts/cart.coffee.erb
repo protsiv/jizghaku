@@ -103,7 +103,7 @@ $(document).ready ->
         setTimeout (->
           $status_adding.removeClass('y-sending')
           $status_adding.addClass('y-success')
-        ), 2000
+        ), 1000
         count = $cart_items_wrap.children().length
         $sum = $sum + quantity
         $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text($sum)
