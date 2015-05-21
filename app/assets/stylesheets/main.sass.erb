@@ -8,11 +8,13 @@
 
 body
   height: 0px
+  overflow: auto !important
   &#body
     height: auto
-    overflow: scroll !important
 
 
+
+$banner-height: 666px
 
 .header-wrap
   height: 90px
@@ -152,7 +154,7 @@ body
 .blue-background-pattern
   background: url('<%=asset_path("pattern-white-15.png")%>') #212844 repeat 0 0
 .index-main-banner-wrap
-  height: 666px
+  height: $banner-height
   width: 100%
   position: relative
   .index-main-banner
@@ -165,10 +167,10 @@ body
     overflow: hidden
     /*padding-top: 50px*/
   .bx-viewport
-    height: 666px !important
+    height: $banner-height !important
     background-color: transparent !important
   ul#index-products-banner
-    height: 666px
+    height: $banner-height
     /*margin-top: 50px*/
     li
       background-color: #00948F
@@ -181,6 +183,7 @@ body
         overflow: hidden
         .layer
           height: 100%
+          width: 100%
       .bi, .about-banner-wrap
         position: absolute
         left: 0
@@ -190,6 +193,24 @@ body
       .bi
         padding-bottom: 0
       .about-banner-wrap
+        .ab-inner
+          height: $banner-height
+          position: relative
+          .ab
+            +my_vertical_align(30%)
+              position: absolute
+        .ab-title
+          font:
+            family: "Lobster", cursive !important
+            size: 2.2rem
+          line-height: 2.6rem
+          letter-spacing: 2px
+        b, p, span, strong, h1, h2, h3
+          font:
+            family: inherit
+            size: inherit
+          line-height: inherit
+          letter-spacing: inherit
         b
           color: #FF9E15
         p

@@ -13,31 +13,36 @@
             /.bi#layer-three style="background: url('#{main_banner.layer_3.url(:large)}')no-repeat center center;"
             .scene id=("scene#{index+1}")
               .layer data-depth="0.00"
-                .background
-                  .bi#background-scene style="background: url('#{main_banner.layer_background.url(:large)}')no-repeat center center;"
+                .bi-wrap.background
+                  .bi style="background: url('#{main_banner.layer_background.url(:large)}')no-repeat center center;"
                   /=image_tag asset_path("banner-1-layer1.jpg")
 
               .layer data-depth="0.60"
-                .kurama
+                .bi-wrap.kurama
                   /=image_tag asset_path("banner-1-layer2.png")
-                  =image_tag main_banner.layer_1.url(:large)
+                  .bi style="background: url('#{main_banner.layer_1.url(:large)}')no-repeat center center;"
+                  /=image_tag main_banner.layer_1.url(:large)
 
               .layer data-depth="0.40" data-invert-y="false"
-                .landscape
+                .bi-wrap.landscape
                   /=image_tag asset_path("banner-1-layer3.png")
-                  =image_tag main_banner.layer_2.url(:large)
+                  .bi style="background: url('#{main_banner.layer_2.url(:large)}')no-repeat center center;"
+                  /=image_tag main_banner.layer_2.url(:large)
 
-              .layer data-depth="0.60"
-                .grass
+              .layer data-depth="0.80"
+                .bi-wrap.grass
                   /=image_tag asset_path("banner-1-layer4.png")
-                  =image_tag main_banner.layer_3.url(:large)
+                  .bi style="background: url('#{main_banner.layer_3.url(:large)}')no-repeat center center;"
+                  /=image_tag main_banner.layer_3.url(:large)
             .about-banner-wrap
               .row
-                .columns.large-5.medium-5.right
-                  .ab-title
-                    = raw main_banner.title
-                  .ab-description
-                    = raw main_banner.description
+                .columns.large-6.medium-6.right
+                  .ab-inner
+                    .ab
+                      .ab-title
+                        = raw main_banner.title
+                      .ab-description
+                        = raw main_banner.description
         /  - restorans.each do |r|
         /    -if r.slug == 'barbarus'
         /      - restoran_color = 'yellow-green'
