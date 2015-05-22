@@ -81,7 +81,7 @@ class MainController < ApplicationController
     phone = params[:phone]
     comment = params[:comment]
 
-    CustomizedForm.data_from_call_order(fname, phone, comment)
+    CustomizedForm.data_from_call_order(fname, phone, comment).deliver
     # render nothing: true
   end
 
@@ -99,9 +99,14 @@ class MainController < ApplicationController
   def get_total_price
     @quantity = 0
     @summ = 0
+
     line_items.each do |item|
       @summ += item.product.price * item.quantity
       @quantity += item.quantity
+
+      parts = @summ.to_s.split(".")
+      @r_integer = parts[0]
+      @r_decimal = parts[1]
     end
 
     respond_to do |format|

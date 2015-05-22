@@ -3,8 +3,27 @@
 <p>Номер телефону: <%= @phone%></p>
 <p>Номер картки "Їжа.ки": <%= @card%></p>
 <p>Коментар: <%= @comment%></p>
-<% @current_cart.line_items.each do |item|%>
-  <h3>
-    <%= item.product.name%>
-  </h3>
+<table>
+  <thead>
+  <tr>
+    <th>
+      Назва:
+    </th>
+    <th>
+      Кількість:
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @current_cart.line_items.each do |item|%>
+      <tr>
+        <td>
+          <%= item.product.name%>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+      </tr>
 <% end%>
+</tbody>
+</table>

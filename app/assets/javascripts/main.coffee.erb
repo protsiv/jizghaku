@@ -21,7 +21,9 @@ MyTabs = ($this, container, tabHeader, tabBody) ->
 
 $(document).ready ->
 
-
+# ==================================
+# init round counter
+# ==================================
   $('.round-input .ic-button').click ->
     $wrap = $(@).closest('.round-input')
     $input = $wrap.find('[name=quantity]')
@@ -30,15 +32,16 @@ $(document).ready ->
     if $(@).hasClass('input-count-up')
       $input_val++
       $input.val($input_val)
-#      alert 'up'+$input_val
     else if $(@).hasClass('input-count-down')
 
       $input_val--
       if $input_val >= 1
         $input.val($input_val)
-#      alert 'down'+$input_val
 
+
+# ==================================
 # binder for checkbox group
+# ==================================
   $('input:checkbox').on 'click', ->
     # in the handler, 'this' refers to the box clicked on
     $box = $(this)
@@ -55,7 +58,9 @@ $(document).ready ->
     return
 
 
+# ==================================
 #  init mixit up filters
+# ==================================
   $('.filters_container').mixItUp
     load:
       filter: '.all'
@@ -82,14 +87,11 @@ $(document).ready ->
 # ==================================
   $('.doo-head').click ->
     $('.dashboard-one-order-wrap').removeClass('expand')
-#    $('.dashboard-one-order-wrap ul').hide()
     wrap = $(@).closest('.dashboard-one-order-wrap')
     if wrap.hasClass('expand')
       wrap.removeClass('expand')
-#      wrap.find('ul').hide()
     else
       wrap.addClass('expand')
-#      wrap.find('ul').show()
 
 
 
@@ -115,21 +117,34 @@ $(document).ready ->
 
 
 # ==================================
+#  init test parralax scene
+# ==================================
+  $('#scene').parallax()
+
+# ==================================
 #  init bx slider for main banner
 # ==================================
   $(".bxslider").bxSlider
 #    auto: true
-    pause: 6000
-    speed: 1000
+#    pause: 6000
+#    speed: 1000
     mode: 'fade'
     onSliderLoad: ->
-      $('#scene').parallax()
+      $(".ab-description").fadeIn("slow")
+#      $('.ab-description').addClass('slideInUp')
       $('#scene1').parallax()
       $('#scene2').parallax()
       $('#scene3').parallax()
+#    onSlideBefore: ->
+#      alert 'before'
+    onSlideAfter: ->
+#      alert 'after'
+      $('.ab-description').addClass('slideInUp')
 
 
+# ==================================
 # init buisness launch carousel
+# ==================================
   owl1 = $("#business_lunch")
   owl1.owlCarousel
     loop:false,
@@ -161,7 +176,10 @@ $(document).ready ->
   currentDay = t - 1
   $("#business_lunch").trigger 'owl.jumpTo', currentDay
 
+
+# ==================================
 # init buisness launch carousel
+# ==================================
   owl2 = $("#business_lunch2")
   owl2.owlCarousel
     loop:false,
@@ -193,18 +211,27 @@ $(document).ready ->
   currentDay = t - 1
   $("#business_lunch2").trigger 'owl.jumpTo', currentDay
 
+
+# ==================================
 #  init good peaple say tabs
+# ==================================
   $('.gps-header').click ->
     MyTabs $(this), '.good-people-say-wrap', '.gps-header', '.gps-tab'
 
+
+# ==================================
 # click event to scroll to top
+# ==================================
   $(".scrollToTop").click ->
     $("html, body").animate
       scrollTop: 0
     , 800
     false
 
+
+# ==================================
 #  slowing notice
+# ==================================
   $notification = $('#notification')
   setTimeout (->
     $notification.fadeOut 'slow'

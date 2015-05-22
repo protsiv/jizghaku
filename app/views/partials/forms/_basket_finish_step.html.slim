@@ -37,27 +37,28 @@
       .row
         .columns.large-5.medium-5
           .delivery-address-wrap.fs-info-block-wrap
-            h3 Адреса доставки:
-            .row
-              .columns.large-2.medium-2
-                =embedded_svg "Yizhaku-location.svg"
-              .columns.large-10.medium-10
-                p.da-address Кульпарківська, 48а/14
-            .row
-              .columns.large-2.medium-2
-                =embedded_svg "Yizhaku-phone.svg"
-              .columns.large-10.medium-10
-                p.da-phone +38 (097) 097-05-05
-            .row
-              .columns.large-2.medium-2
-                =embedded_svg "Yizhaku-card.svg"
-              .columns.large-10.medium-10
-                p.da-code 26-2167-10-107007
-
-          h3 Ваші примітки:
-          .your-notes-wrap
-            p.da-comment
-              |Гармонический интервал, так или иначе, изменяем. Кластерное вибрато, в том числе, использует резкий рок-н-ролл 50-х. Как мы уже знаем, аллегро монотонно имеет контрапункт контрастных фактур. Глиссандирующая ритмоформула фактурна. Очевидно, что разносторонняя пятиступенчатая громкостная пирамида возможна.
+            .delivery-address-inner
+              h3 Адреса доставки:
+              .row.da-one-wrap
+                .columns.large-2.medium-2
+                  =embedded_svg "Yizhaku-location.svg"
+                .columns.large-10.medium-10
+                  p.da-address Кульпарківська, 48а/14
+              .row.da-one-wrap
+                .columns.large-2.medium-2
+                  =embedded_svg "Yizhaku-phone.svg"
+                .columns.large-10.medium-10
+                  p.da-phone +38 (097) 097-05-05
+              .row.da-one-wrap
+                .columns.large-2.medium-2
+                  =embedded_svg "Yizhaku-card.svg"
+                .columns.large-10.medium-10
+                  p.da-code 26-2167-10-107007
+            .delivery-address-inner
+              h3 Ваші примітки:
+              .your-notes-wrap
+                p.da-comment
+                  |Гармонический интервал, так или иначе, изменяем. Кластерное вибрато, в том числе, использует резкий рок-н-ролл 50-х. Как мы уже знаем, аллегро монотонно имеет контрапункт контрастных фактур. Глиссандирующая ритмоформула фактурна. Очевидно, что разносторонняя пятиступенчатая громкостная пирамида возможна.
         .columns.large-7.medium-7
           .ordered-products-wrap.fs-info-block-wrap
             h3 Замовлений товар:
@@ -72,10 +73,10 @@
                         b
                           = li.product.name
                     .row.fs-counts-wrap
-                      .columns.large-4.medium-4
+                      .columns.large-6.medium-6
                         .fs-quantity
                           =li.quantity
-                      .columns.large-8.medium-8
+                      .columns.large-6.medium-6
                         strong
                           -number = li.product.price
                           -parts = number.to_s.split(".")
@@ -85,14 +86,15 @@
                           - r_decimal = parts[1]
                           = r_integer
                           sup
+                            |&nbsp;
                             = r_decimal
                           span
                             |грн
           .cart-rez-wrap
             .basket-total-price-wrap
     .row
-      .columns.large-offset-2.medium-offset-2
-        a.blue-link data-reveal-id="BasketSecondStepModal" href="#" < Куди доставляємо?
+      .columns.large-offset-2.medium-offset-2.no-padding-left
+        a.blue-link.forward-step-link data-reveal-id="BasketSecondStepModal" href="#" < Куди доставляємо?
     .modal-footer.text-center
       .number-order-wrap.box-shadow-restourant
         .number-order-inner

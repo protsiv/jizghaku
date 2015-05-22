@@ -36,7 +36,7 @@
             a href=admin_root_path
               = embedded_svg ("user-icon.svg")
         .basket-wrap
-          a data-reveal-id="BasketModal" href="#"
+          a data-reveal-id=("BasketModal" if get_count_products > 0)
             .basket-inner
               .basket
                 .animate-basket

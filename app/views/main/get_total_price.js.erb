@@ -1,2 +1,2 @@
 
-$(".basket-total-price-wrap").html("<%= escape_javascript(render partial: 'partials/get_total_price', locals: { var: @summ, quantity: @quantity }) %>");
+$(".basket-total-price-wrap").html("<%= escape_javascript(render partial: 'partials/get_total_price', locals: { var_integer: @r_integer, var_decimal: @r_decimal, quantity: @quantity }) %>");

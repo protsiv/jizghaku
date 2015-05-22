@@ -80,6 +80,7 @@ gem "truncate_html"
 gem 'mailchimp-api', require: 'mailchimp'
 
 gem 'parallax-rails'
+# gem "animate-rails"
 
 gem 'google-analytics-rails'
 
