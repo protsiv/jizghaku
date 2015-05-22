@@ -2,12 +2,6 @@
   .subscription-wrap
     .row
       .columns.large-6.medium-6
-        /p Please enter your email address to subscribe to our newsletter.
-        /= form_tag('/mcsubscribe/subscribe', method: "post", id: "mcsubscribe", remote: "true") do
-        /  = email_field(:email, :address, {id: "email", placeholder: "email address"})
-        /  = submit_tag("Subscribe")
-        /
-        /div id="response" Response Will be displayed here
         div id="response"
           |Хочете отримувати гарячі пропозиції?
       .columns.large-6.medium-6
@@ -18,10 +12,6 @@
             .input-sent-bkg
               = submit_tag(" ")
 
-        /.input.left
-        /  input placeholder="введіть свою електронну скриньку"
-        /.input-sent.left  data-button-name="Так!" data-second-name="точно"
-        /  button
 
   .footer-bottom.blue-background-pattern
     .row
@@ -36,9 +26,8 @@
       .columns.large-4.medium-4
         h3 Контакти
         b
-          a +38 (097) 097-05-05
-        p ТоВ “Їжаки”
-        p вул. Львівська, 16, м. Стрий
+          a href="tel:+380970970505" rel="nofollow"
+            |+38 (097) 097-05-05
     .row
       .columns.large-4.medium-4
         .row.fl-to-restaurant-wrap
