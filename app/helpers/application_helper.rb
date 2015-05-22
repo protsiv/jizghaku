@@ -94,4 +94,5 @@ module ApplicationHelper
     @a_restaurant = Restaurant.where(slug: current_restaurant)
     @a_common_restaurant = Restaurant.where.not(id: @a_restaurant).order(created_at: :asc)
   end
+
 end

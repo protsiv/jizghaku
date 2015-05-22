@@ -5,6 +5,10 @@ class MainController < ApplicationController
     @reviews = Review.order(position: :asc).where(published: true).limit(6)
 
     @main_banners = MainBanner.where(published: true).order(position: :asc).limit(3)
+
+    @_seo_title = 'Головна'
+    @_seo_description = 'Головна вторінка Їжа.КИ'
+    @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
   end
 
   def catalog
@@ -16,15 +20,47 @@ class MainController < ApplicationController
     @products_common = Product.joins(:category).where(categories: {common: true}).order(position: :asc)
 
     @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
+
+    if @current_restaurant.slug == 'bruno'
+      @_seo_title = 'Каталог їжі. Ресторан Бруно'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    elsif @current_restaurant.slug == 'baba-franya'
+      @_seo_title = 'Каталог їжі. Ресторан Баба Франя'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    elsif @current_restaurant.slug == 'barbarus'
+      @_seo_title = 'Каталог їжі. Ресторан Барбарис'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    end
+
   end
 
   def about
     @current_restaurant = Restaurant.find_by_slug(params[:url])
     @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
+
+    if @current_restaurant.slug == 'bruno'
+      @_seo_title = 'Про ресторан Бруно'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    elsif @current_restaurant.slug == 'baba-franya'
+      @_seo_title = 'Про ресторан Баба Франя'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    elsif @current_restaurant.slug == 'barbarus'
+      @_seo_title = 'Про ресторан Барбарис'
+      @_seo_description = 'Каталог їжі'
+      @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
+    end
   end
 
   def terms_of_use
 
+    @_seo_title = 'Правила користування'
+    @_seo_description = 'Сторінка правила користування'
+    @_seo_keywords = 'Доставка їжі, напої, суші, смачні суші'
   end
 
   def order_product

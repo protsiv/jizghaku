@@ -48,4 +48,7 @@ Rails.application.configure do
   # replace this with your development tracker code
   GA.tracker = "UA-63240701-1"
 
+  # connection file
+  # APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
+
 end

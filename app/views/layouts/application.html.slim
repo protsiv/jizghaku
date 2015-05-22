@@ -4,8 +4,12 @@ html lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
+    X-Robots-Tag: noindex  #Stop Google from indexing
     title
-      = content_for?(:title) ? yield(:title) : "foundation-rails"
+      = content_for?(:@_seo_title) ? yield(:@_seo_title) :@_seo_title
+
+    meta name="description" content= yield(:description)
+    meta name="keywords" content= yield(:keywords)
 
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
