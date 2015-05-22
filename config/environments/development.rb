@@ -45,4 +45,7 @@ Rails.application.configure do
   ENV["FACEBOOK_CONSUMER_KEY"] = "849830535062555"
   ENV["FACEBOOK_CONSUMER_SECRET"] = "49c4a8f9e3d0ad623325a39614f987a3"
 
+  # replace this with your development tracker code
+  GA.tracker = "UA-63240701-1"
+
 end

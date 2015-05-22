@@ -81,4 +81,6 @@ gem 'mailchimp-api', require: 'mailchimp'
 
 gem 'parallax-rails'
 
+gem 'google-analytics-rails'
+
 
