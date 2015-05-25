@@ -104,10 +104,11 @@ class MainController < ApplicationController
       @summ += item.product.price * item.quantity
       @quantity += item.quantity
 
-      parts = @summ.to_s.split(".")
-      @r_integer = parts[0]
-      @r_decimal = parts[1]
     end
+
+    parts = @summ.to_s.split(".")
+    @r_integer = parts[0]
+    @r_decimal = parts[1]
 
     respond_to do |format|
       format.js

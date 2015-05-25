@@ -17,7 +17,7 @@
             p продукт - 1
     .row
       .columns
-        = f.input :offer_of_the_week, label: "Пропозиція цижня", as: :boolean
+        = f.input :offer_of_the_week, label: "Пропозиція тиждня", as: :boolean
     .row
       .columns
         .form-fields-group
@@ -36,7 +36,7 @@
               = f.input :d_friday, label: "П'ятниця", as: :boolean
 
     = f.input :image, as: :image_preview, label: "Зображення", hint: "Зображення"
-    = f.input :slug, label: "Ссилка", input_html: {placeholder: ''}, hint: "Ссилка"
+    = f.input :slug, label: "URL", input_html: {placeholder: ''}, hint: "URL"
     = f.input :price, label: "Ціна", input_html: {placeholder: ''}, hint: "Ціна"
     .row
       .columns.large-3.medium-6.small-6
@@ -52,6 +52,6 @@
       .ckEditor
         = f.cktext_area :description, :input_html => {:toolbar => 'Full' }
     = f.association :category, :label_method => lambda { |cat| "#{cat.restaurant.try{|r| "#{r.name} > "}} #{cat.name}" }, label: "Категорія", hint: "Виберіть категорію:"
-    = f.association :banner
+    /= f.association :banner
   .form-actions
     = f.button :submit

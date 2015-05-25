@@ -37,34 +37,8 @@
           =render partial: "partials/one_item_cart", locals: {li: li}
       .cart-rez-wrap
         .row
-          /.columns.large-5.medium-5
-          /  .enter-in-system-from-basket-wrap
-              /p Для нарахування бонусних балів повідомте оператору номер своєї карти ЇЖА.КИ.
-              /p.esb-button.esb-closed
-              /  |Для цього&nbsp;
-              /  span
-              /    |увійдіть в систему
-              /  |.
-              /.row
-              /  .columns
-              /    form
-              /      .esb-button-close
-              /        =embedded_svg "Yizhaku-cross.svg"
-              /      .input
-              /        label for="esb-email" Електронна скринька:
-              /        input#esb-email type="email" placeholder="foodorder@test.com"
-              /      .input
-              /        label for="esb-password" Пароль:
-              /        input#esb-password type="password" placeholder="**********"
-              /      .row
-              /        .columns.large-6.medium-6
-              /          a href=new_user_registration_path Новий користувач
-              /        .columns.large-6.medium-6
-              /          input.log-out-button type="submit" value="Увійти"
           .columns.large-7.medium-7.right
             .basket-total-price-wrap
-              /-temp = 5
-              /=render partial: "partials/get_total_price", locals: { var: temp }
 
 
     .modal-footer.text-center

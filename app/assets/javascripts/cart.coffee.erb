@@ -1,9 +1,31 @@
 $(document).ready ->
-  $.getScript('/get_total_price')
 #  =========================
 # validate form for basket
 #  =========================
   $('#basket-information-form').validate()
+
+  $('input#co_name').rules 'add',
+    required: true
+    minlength: 2
+    messages:
+      required: 'Введіть адресу доставки'
+      minlength: "Введіть адресу доставки"
+
+  $('input#co_phone').rules 'add',
+    required: true
+    minlength: 10
+    maxlength: 11
+    messages:
+      required: 'Ввведіть номер телефону'
+      minlength: 'Ввведіть номер телефону'
+      maxlength: 'Ввведіть номер телефону'
+
+
+#  =========================
+# load total price
+#  =========================
+  $.getScript('/get_total_price')
+
 
 #  =========================
 # login form from basket
