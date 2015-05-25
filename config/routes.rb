@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
 
 
-  get 'get_total_price' => 'main#get_total_price'
+  get '/get_total_price' => 'main#get_total_price'
+  get '/get_ordered_list' => 'main#get_ordered_items_list'
 
   mount Ckeditor::Engine => '/ckeditor'
 
