@@ -145,8 +145,8 @@ $(document).ready ->
 
     e.preventDefault()
 
-  $('.cart-items-wrap').on 'submit', 'form.delete-product', (e) ->
-#  $('form.delete-product').submit (e) ->
+#  $('.cart-items-wrap').on 'submit', 'form.delete-product', (e) ->
+  $('form.delete-product').submit (e) ->
 
     formURL = $(@).attr('action')
 
