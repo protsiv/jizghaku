@@ -22,6 +22,14 @@ MyTabs = ($this, container, tabHeader, tabBody) ->
 $(document).ready ->
 
 # ==================================
+# init disabled
+# ==================================
+  $('.basket-wrap').on 'click', 'a.link-to-calling-cart', ->
+    if $('a.link-to-calling-cart .count-wrap span').text() == '0'
+      false
+
+
+# ==================================
 # init round counter
 # ==================================
   $('.round-input .ic-button').click ->

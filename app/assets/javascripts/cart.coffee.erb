@@ -71,11 +71,10 @@ $(document).ready ->
     $('form.order-product').find('[name="card"]').val(card_code)
     $('form.order-product').find('[name="comment"]').val(comment)
 
+
 #  =========================
 # cart validation got ot finish step
 #  =========================
-
-
   $('.check-validate-status-button').click ->
     $wrap = $(@).closest('.basket-modal-wrap')
     $form = $wrap.find('form')
@@ -86,6 +85,7 @@ $(document).ready ->
 
     if $('#basket-information-form').valid()
       console.log('validated')
+
 
 #  =========================
 # callback handler for form submit
@@ -130,7 +130,6 @@ $(document).ready ->
         $sum = $sum + quantity
         $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text($sum)
         $('.basket-total-price-wrap h4 b').text()
-#        $('.basket-total-price-wrap h4 span').text()
 
       complete: ->
 
@@ -146,11 +145,13 @@ $(document).ready ->
 
     e.preventDefault()
 
-  $('form.delete-product').submit (e) ->
+  $('.cart-items-wrap').on 'submit', 'form.delete-product', (e) ->
+#  $('form.delete-product').submit (e) ->
 
     formURL = $(@).attr('action')
 
     $item = $(@).closest('.one-item')
+    _this = $(@)
 
     $.ajax
       url: "#{formURL}.json"
@@ -162,6 +163,8 @@ $(document).ready ->
         setTimeout (->
           $item.remove()
         ), 500
+        count_products = _this.closest('.cart-items-wrap').find('.one-item').length - 1
+        $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text(count_products)
 
       e.preventDefault()
 
