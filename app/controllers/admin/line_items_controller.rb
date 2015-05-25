@@ -90,7 +90,8 @@ class Admin::LineItemsController < Admin::AdminController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to admin_line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { head :no_content }
+      # format.html { redirect_to admin_line_items_url, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
