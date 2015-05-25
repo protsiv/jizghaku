@@ -145,10 +145,12 @@ $(document).ready ->
 
     e.preventDefault()
 
+
+#  =========================
+# delete item from cart
+#  =========================
   $('.cart-items-wrap').on 'submit', 'form.delete-product', (e) ->
-
     formURL = $(@).attr('action')
-
     $item = $(@).closest('.one-item')
     _this = $(@)
 
@@ -158,14 +160,18 @@ $(document).ready ->
       dataType: 'json'
       beforeSend: ->
         $item.addClass('slideOutLeft')
-        alert "before"
       success: ->
         setTimeout (->
           $item.remove()
         ), 500
         count_products = _this.closest('.cart-items-wrap').find('.one-item').length - 1
         $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text(count_products)
-        alert "success"
+        $.getScript('/get_total_price')
+
+        if count_products == 0
+          $('#BasketModal').foundation('reveal', 'close')
+
+
       e.preventDefault()
 
 
