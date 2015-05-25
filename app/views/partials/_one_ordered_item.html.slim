@@ -1,0 +1,28 @@
+- current_cart.line_items.each do |li|
+  .ordered-product-one-item-wrap
+    .row
+      .columns.large-5.medium-5
+        .basket-item-image.basket-item style="background: url(#{li.product.image.url(:main)})no-repeat center center;"
+      .columns.large-7.medium-7
+        .row
+          .columns
+            b
+              = li.product.name
+        .row.fs-counts-wrap
+          .columns.large-6.medium-6
+            .fs-quantity
+              =li.quantity
+          .columns.large-6.medium-6
+            strong
+              -number = li.product.price
+              -parts = number.to_s.split(".")
+              /-result = parts.count > 1 ? parts[1].to_s : 0
+
+              - r_integer = parts[0]
+              - r_decimal = parts[1]
+              = r_integer
+              sup
+                |&nbsp;
+                = r_decimal
+              span
+                |грн

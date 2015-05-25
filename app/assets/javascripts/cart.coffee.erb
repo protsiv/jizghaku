@@ -26,6 +26,7 @@ $(document).ready ->
 #  =========================
   $.getScript('/get_total_price')
 
+  $.getScript('/get_ordered_list')
 
 #  =========================
 # login form from basket
@@ -122,6 +123,7 @@ $(document).ready ->
           $('.cart-items-wrap').append($item)
 
         $.getScript('/get_total_price')
+        $.getScript('/get_ordered_list')
         setTimeout (->
           $status_adding.removeClass('y-sending')
           $status_adding.addClass('y-success')
@@ -170,7 +172,7 @@ $(document).ready ->
 
         if count_products == 0
           $('#BasketModal').foundation('reveal', 'close')
-
+        $.getScript('/get_ordered_list')
 
       e.preventDefault()
 

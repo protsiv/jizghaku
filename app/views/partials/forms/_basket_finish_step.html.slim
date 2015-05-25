@@ -62,8 +62,7 @@
         .columns.large-7.medium-7
           .ordered-products-wrap.fs-info-block-wrap
             h3 Замовлений товар:
-            - current_cart.line_items.each do |li|
-              =render partial: "partials/one_item_cart", locals: {li: li}
+            .ordered-product-items-wrap
             /- current_cart.line_items.each do |li|
             /  .ordered-product-one-item-wrap
             /    .row
@@ -91,7 +90,7 @@
             /                |&nbsp;
             /                = r_decimal
             /              span
-            /                |грн
+            /                |грн  |грн          |грн
           .cart-rez-wrap
             .basket-total-price-wrap
     .row

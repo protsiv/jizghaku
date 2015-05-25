@@ -114,4 +114,11 @@ class MainController < ApplicationController
       format.js
     end
   end
+
+  def get_ordered_items_list
+    @current_line_items = current_cart.line_items
+    respond_to do |format|
+       format.js
+     end
+  end
 end
