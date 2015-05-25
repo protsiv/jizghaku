@@ -5,7 +5,7 @@ class Cart < ActiveRecord::Base
   attr_accessible :finished_at, :user, :user_id
 
   def finish
-    self.finished_at = DateTime.now
+    self.finished_at ||= DateTime.now
 
   end
 
