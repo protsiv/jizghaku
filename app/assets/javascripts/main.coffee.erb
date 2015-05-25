@@ -130,8 +130,8 @@ $(document).ready ->
 #    speed: 1000
     mode: 'fade'
     onSliderLoad: ->
-      $(".ab-description").fadeIn("slow")
-#      $('.ab-description').addClass('slideInUp')
+      $('.ab-title').addClass('animated slideInDown')
+      $('.ab-description').addClass('animated slideInUp')
       $('#scene1').parallax()
       $('#scene2').parallax()
       $('#scene3').parallax()

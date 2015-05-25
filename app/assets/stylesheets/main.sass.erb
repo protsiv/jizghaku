@@ -167,7 +167,13 @@ $banner-height: 666px
     bottom: 0
     position: absolute
     overflow: hidden
-    /*padding-top: 50px*/
+    .bx-controls-direction
+      a
+        &.bx-prev
+          background-image: asset_url('Yizhaku-banner changers-2.svg') !important
+        &.bx-next
+          background-image: asset_url('Yizhaku-banner changers-2.svg')
+
   .bx-viewport
     height: $banner-height !important
     background-color: transparent !important
@@ -1985,7 +1991,10 @@ p
       padding-top: 28px
       position: relative
       overflow: hidden
-
+      -webkit-animation-duration: .5s
+      animation-duration: .5s
+      -webkit-animation-fill-mode: both
+      animation-fill-mode: both
       .cart-watermark-wrap
         position: absolute
         top: -13px
@@ -2127,6 +2136,7 @@ p
   .cart-items-wrap
     border-bottom: 1px solid #FF9E15
     padding-bottom: 30px
+    overflow: hidden
   .cart-rez-wrap
     margin-top: 25px
     margin-bottom: 100px
