@@ -9,7 +9,7 @@ class Admin::AdminController < ApplicationController
 
   def purchase_history
     authenticate_user!
-    @carts = Cart.where(user_id: current_user.id)
+    @carts = Cart.where(user_id: current_user.id).where.not(finished_at: nil)
   end
 
   def users_list

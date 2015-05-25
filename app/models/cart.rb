@@ -6,7 +6,6 @@ class Cart < ActiveRecord::Base
 
   def finish
     self.finished_at ||= DateTime.now
-
   end
 
   # def add_product(product_args)
