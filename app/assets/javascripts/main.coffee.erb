@@ -30,24 +30,6 @@ $(document).ready ->
 
 
 # ==================================
-# init round counter
-# ==================================
-  $('.round-input .ic-button').click ->
-    $wrap = $(@).closest('.round-input')
-    $input = $wrap.find('[name=quantity]')
-    $input_val = +$wrap.find('[name=quantity]').val()
-
-    if $(@).hasClass('input-count-up')
-      $input_val++
-      $input.val($input_val)
-    else if $(@).hasClass('input-count-down')
-
-      $input_val--
-      if $input_val >= 1
-        $input.val($input_val)
-
-
-# ==================================
 # binder for checkbox group
 # ==================================
   $('input:checkbox').on 'click', ->

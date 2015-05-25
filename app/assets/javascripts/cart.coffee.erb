@@ -1,3 +1,8 @@
+
+updateValue =() ->
+  $.getScript('/get_total_price')
+  $.getScript('/get_ordered_list')
+
 $(document).ready ->
 #  =========================
 # validate form for basket
@@ -24,9 +29,7 @@ $(document).ready ->
 #  =========================
 # load total price
 #  =========================
-  $.getScript('/get_total_price')
-
-  $.getScript('/get_ordered_list')
+  updateValue()
 
 #  =========================
 # login form from basket
@@ -122,8 +125,7 @@ $(document).ready ->
           $item = data['item_template']
           $('.cart-items-wrap').append($item)
 
-        $.getScript('/get_total_price')
-        $.getScript('/get_ordered_list')
+        updateValue()
         setTimeout (->
           $status_adding.removeClass('y-sending')
           $status_adding.addClass('y-success')
@@ -168,11 +170,10 @@ $(document).ready ->
         ), 500
         count_products = _this.closest('.cart-items-wrap').find('.one-item').length - 1
         $('.basket-inner .count-wrap span, .basket-total-price-wrap h4 span').text(count_products)
-        $.getScript('/get_total_price')
+        updateValue()
 
         if count_products == 0
           $('#BasketModal').foundation('reveal', 'close')
-        $.getScript('/get_ordered_list')
 
       e.preventDefault()
 
@@ -195,8 +196,26 @@ $(document).ready ->
       success: ->
         $('.order-products-status-wrap').hide()
         $('#BasketOrderedSuccess').foundation('reveal', 'open')
+        $('.price-wrap').removeClass('y-success')
+        $('.basket-inner .count-wrap span').text('0')
       e.preventDefault()
 
+# ==================================
+# init round counter
+# ==================================
+  $('.round-input .ic-button').click ->
+    $wrap = $(@).closest('.round-input')
+    $input = $wrap.find('[name=quantity]')
+    $input_val = +$wrap.find('[name=quantity]').val()
+
+    if $(@).hasClass('input-count-up')
+      $input_val++
+      $input.val($input_val)
+    else if $(@).hasClass('input-count-down')
+
+      $input_val--
+      if $input_val >= 1
+        $input.val($input_val)
 
 # ==================================
 # counter for cart
@@ -222,14 +241,10 @@ $(document).ready ->
     DataToSend = new Object()
 
     if $(@).hasClass('input-count-up')
-      quantity++
+      #quantity++
 
       one_item_price = one_item_price * quantity
       $items_price_i.html(one_item_price+"<span>грн</span>")
-      $('.basket-total-price-wrap h4 span').text(total_count+1)
-
-#      console.log('up')
-
 
       DataToSend =
         product_id: product_id
@@ -239,19 +254,15 @@ $(document).ready ->
         type: 'PATCH'
         dataType: 'json'
         data: DataToSend
-        beforeSend: ->
-#          alert 'begin update...'
         success: ->
-#          alert 'succesfull!'
-
+          updateValue()
 
     else if $(@).hasClass('input-count-down')
       if $item_wrap.find('[name=quantity]').val()>1
-        quantity--
+#        quantity--
 
         one_item_price = one_item_price * quantity
         $items_price_i.html(one_item_price+"<span>грн</span>")
-        $('.basket-total-price-wrap h4 span').text(total_count-1)
 
         DataToSend =
           product_id: product_id
@@ -261,11 +272,8 @@ $(document).ready ->
           type: 'PATCH'
           dataType: 'json'
           data: DataToSend
-          beforeSend: ->
-#            alert 'begin update...'
           success: ->
-#            alert 'succesfull!'
-
+            updateValue()
 # ===========================================
 # clear form
 # ===========================================
