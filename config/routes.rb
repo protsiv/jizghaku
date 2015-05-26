@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   # get '/test' => 'main#test_page'
   get '/term-of-used' => 'main#terms_of_use'
   get '/:url' => 'main#about', as: 'restaurant_about'
-  get '/catalog/:restaurant/all-menu' => 'main#catalog', as: 'restaurant_all_menu'
+  get '/catalog/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'
   get '/catalog/:restaurant/:catalog' => 'main#catalog', as: 'restaurant_catalog'
 
 

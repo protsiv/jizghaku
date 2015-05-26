@@ -51,9 +51,12 @@ $(document).ready ->
 # ==================================
 #  init mixit up filters
 # ==================================
+  filterOnLoad = if window.location.hash then '.' + window.location.hash.replace('#', '') else '.all'
+
   $('.filters_container').mixItUp
+
     load:
-      filter: '.all'
+      filter: filterOnLoad
 
   $('ul.catalog-sidebar li').click ->
     $('ul.catalog-sidebar li').removeClass('active-all')

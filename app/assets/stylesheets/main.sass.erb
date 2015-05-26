@@ -169,10 +169,16 @@ $banner-height: 666px
     overflow: hidden
     .bx-controls-direction
       a
+        width: 52px
+        height: 52px
+        opacity: .5
+        transition: opacity .5
         &.bx-prev
-          background-image: asset_url('Yizhaku-banner changers-2.svg') !important
+          background-image: asset_url('Yizhaku-banner-changers-2.svg') !important
         &.bx-next
-          background-image: asset_url('Yizhaku-banner changers-2.svg')
+          background-image: asset_url('Yizhaku-banner-changers.svg')
+        &:hover
+          opacity: .8
 
   .bx-viewport
     height: $banner-height !important
@@ -215,7 +221,7 @@ $banner-height: 666px
           letter-spacing: 2px
         .ab-description
           position: relative
-        b, p, span, strong, h1, h2, h3
+        b, p, span, strong, h1, h2, h3, a
           font:
             family: inherit
             size: inherit
