@@ -71,9 +71,10 @@ class Admin::LineItemsController < Admin::AdminController
   # PATCH/PUT /admin/line_items/1.json
   def update
     product_id = params[:product_id]
-    quantity = params[:quantity]
-    @line_item = LineItem.where(product_id: params["product_id"]).first
-    # render inline: "#{@line_item.inspect}"
+    quantity = params[:quantity].to_i
+    @line_item = current_cart.line_items.where(product_id: params["product_id"]).first
+    # @line_item = LineItem.where(product_id: params["product_id"]).where(cart_id: current_cart.id).first
+
     respond_to do |format|
       if @line_item && @line_item.update(params)
         format.html { redirect_to [:admin, @line_item], notice: 'Line item was successfully updated.' }
@@ -88,6 +89,7 @@ class Admin::LineItemsController < Admin::AdminController
   # DELETE /admin/line_items/1
   # DELETE /admin/line_items/1.json
   def destroy
+
     @line_item.destroy
     respond_to do |format|
       format.html { head :no_content }

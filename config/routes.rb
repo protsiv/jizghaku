@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resources :main_banners
     resources :products
     resources :restaurants
-    # resources :reastaurant_images
     resources :categories
 
     resources :carts
@@ -51,11 +50,11 @@ Rails.application.routes.draw do
 
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
   get '/admin/users' => 'admin/admin#users_list', as: 'users_list'
-  get '/test' => 'main#test_page'
+  # get '/test' => 'main#test_page'
   get '/term-of-used' => 'main#terms_of_use'
   get '/:url' => 'main#about', as: 'restaurant_about'
-  get '/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'
-  get '/:restaurant/:catalog' => 'main#catalog', as: 'restaurant_catalog'
+  get '/catalog/:restaurant/all-menu' => 'main#catalog', as: 'restaurant_all_menu'
+  get '/catalog/:restaurant/:catalog' => 'main#catalog', as: 'restaurant_catalog'
 
 
 

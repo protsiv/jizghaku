@@ -174,6 +174,7 @@ $(document).ready ->
 
         if count_products == 0
           $('#BasketModal').foundation('reveal', 'close')
+          $('.price-wrap').removeClass('y-success')
 
       e.preventDefault()
 
@@ -204,14 +205,15 @@ $(document).ready ->
 # init round counter
 # ==================================
   $('.round-input .ic-button').click ->
+    $form = $(@).closest('form')
     $wrap = $(@).closest('.round-input')
     $input = $wrap.find('[name=quantity]')
     $input_val = +$wrap.find('[name=quantity]').val()
 
-    if $(@).hasClass('input-count-up')
+    if $form.hasClass('order-form') && $(@).hasClass('input-count-up')
       $input_val++
       $input.val($input_val)
-    else if $(@).hasClass('input-count-down')
+    else if $form.hasClass('order-form') && $(@).hasClass('input-count-down')
 
       $input_val--
       if $input_val >= 1
@@ -220,7 +222,7 @@ $(document).ready ->
 # ==================================
 # counter for cart
 # ==================================
-  $('.cart-items-wrap').on 'click', '.one-item .ic-button', ->
+  $('.cart-items-wrap').on 'click', '.one-item .ic-button',(e) ->
     $this = $(@)
     $wrap = $this.closest('.basket-modal-wrap')
     total_count = +$wrap.find('.basket-total-price-wrap h4 span').text()
@@ -241,14 +243,16 @@ $(document).ready ->
     DataToSend = new Object()
 
     if $(@).hasClass('input-count-up')
-      #quantity++
+      quantity++
 
       one_item_price = one_item_price * quantity
       $items_price_i.html(one_item_price+"<span>грн</span>")
 
+      $item_wrap.find('[name=quantity]').val(quantity)
       DataToSend =
         product_id: product_id
         quantity: quantity
+
       $.ajax
         url: "#{formURL}.json"
         type: 'PATCH'
@@ -259,11 +263,12 @@ $(document).ready ->
 
     else if $(@).hasClass('input-count-down')
       if $item_wrap.find('[name=quantity]').val()>1
-#        quantity--
+        quantity--
 
         one_item_price = one_item_price * quantity
         $items_price_i.html(one_item_price+"<span>грн</span>")
 
+        $item_wrap.find('[name=quantity]').val(quantity)
         DataToSend =
           product_id: product_id
           quantity: quantity
@@ -274,6 +279,7 @@ $(document).ready ->
           data: DataToSend
           success: ->
             updateValue()
+    e.preventDefault()
 # ===========================================
 # clear form
 # ===========================================
