@@ -43,12 +43,8 @@
               .basket
                 .animate-basket
                   = embedded_svg ("cart.svg")
-              .count-wrap
-                p
-                  |(
-                  span
-                    =get_count_products
-                  |)
+              .count-wrap._cart-total-count-items-wrap
+
           =render partial: 'partials/basket'
 =render partial: 'partials/forms/call_order'
 =render partial: 'partials/forms/basket_second_step'

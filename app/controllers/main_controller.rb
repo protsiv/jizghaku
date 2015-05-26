@@ -96,6 +96,20 @@ class MainController < ApplicationController
     $line_items = LineItem.where(cart: current_cart.id)
   end
 
+  def get_total_count_items
+    @quantity = 0
+
+    current_cart.line_items.each do |li|
+      if li.quantity
+        @quantity +=li.quantity
+      end
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def get_total_price
     @quantity = 0
     @summ = 0

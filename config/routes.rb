@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/get_total_price' => 'main#get_total_price'
   get '/get_ordered_list' => 'main#get_ordered_items_list'
+  get '/get_total_count_items' => 'main#get_total_count_items'
 
   mount Ckeditor::Engine => '/ckeditor'
 

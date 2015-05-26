@@ -1,6 +1,7 @@
 class Admin::LineItemsController < Admin::AdminController
-  before_filter :authenticate, except: [:create]
+  # before_filter :authenticate, except: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+
 
   # GET /admin/line_items
   # GET /admin/line_items.json
@@ -89,7 +90,6 @@ class Admin::LineItemsController < Admin::AdminController
   # DELETE /admin/line_items/1
   # DELETE /admin/line_items/1.json
   def destroy
-
     @line_item.destroy
     respond_to do |format|
       format.html { head :no_content }
