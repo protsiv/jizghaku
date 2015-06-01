@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
+  attr_accessible :first_name, :card, :subscribe_to, :password_confirmation
+
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  attr_accessible
+
   has_many :carts
    def current_cart
     if self.carts.length == 0 || self.carts.last.finished_at
@@ -15,7 +17,7 @@ class User < ActiveRecord::Base
     self.carts.last
    end
 
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password
 
   attr_accessible :nickname, :provider, :url, :username
 

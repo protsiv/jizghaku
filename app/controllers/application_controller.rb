@@ -17,10 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-      def configure_permitted_parameters
-          devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password) }
-          devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password, :current_password, :is_female, :date_of_birth) }
-      end
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :card, :subscribe_to,:password_confirmation, :last_name, :email, :password) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :card, :subscribe_to,:password_confirmation, :last_name, :email, :password, :current_password, :is_female, :date_of_birth) }
+    end
 
   helper_method :current_cart
 
@@ -62,4 +62,7 @@ class ApplicationController < ActionController::Base
     !!current_user.try(:admin?)
   end
 
+  # def configure_permitted_parameters  #Adding my params to devise
+  #    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :card, :subscribe_to,:password_confirmation]
+  #  end
 end
