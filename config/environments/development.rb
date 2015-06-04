@@ -39,7 +39,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
   ENV["FACEBOOK_CONSUMER_KEY"] = "849830535062555"
@@ -51,4 +50,19 @@ Rails.application.configure do
   # connection file
   # APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 
+  #Send Email In Development (Use Gmail's Servers)
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "voroninstudio.eu",
+      :user_name            => "support@voroninstudio.eu",
+      :password             => "Studiosupport123",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+  }
+  config.action_mailer.default_url_options = {
+      :host => "localhost:3000"
+  }
 end
