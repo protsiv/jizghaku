@@ -10,6 +10,7 @@
         ul.side-bar.white-board
           li = link_to 'Мій профіль', admin_root_path
           li = link_to 'Історія покупок', purchase_history_path
+          li = link_to 'Підписатись на розсилку', subscription_path
 
           - if admin?
             li = link_to 'Головний банер', admin_main_banners_path

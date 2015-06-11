@@ -1,6 +1,7 @@
 class User::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
+  self.layout "admin", except: [:create, :new]
 
   # GET /resource/sign_up
   # def new
@@ -8,25 +9,46 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    email = params[:user][:email]
 
-  # GET /resource/edit
-  def edit
-    #super
-    render :edit, :layout => 'admin'
+    if params[:subscribe_to] == true
+      @mc.lists.subscribe(@list_id, email: email)
+    end
   end
 
+  # GET /resource/edit
+
+  # def resource_name
+  #   "user"
+  # end
+  # def edit
+  #   super
+  #   #render :edit, :layout => 'admin'
+  # end
+
   # PUT /resource
-  #def update
-    # super
-  #end
+  def update
+    super
+    email = params[:user][:email]
+
+    if params[:subscribe_to] == true &&  current_user.subscribe_to == false
+      @mc.lists.subscribe(@list_id, email: email)
+    else if params[:subscribe_to] == false &&  current_user.subscribe_to == true
+      @mc.lists.unsubscribe(@list_id, email: email)
+    end
+    end
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    email = current_user.email
+    if current_user.subscribe_to == true
+      @mc.lists.unsubscribe(@list_id, email: email)
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

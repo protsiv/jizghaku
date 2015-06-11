@@ -17,13 +17,18 @@ Rails.application.routes.draw do
   # devise_for :admins
   # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
   devise_for :users, :path_names => {sign_in: "login", sign_out: "logout"},
-                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: "user/registrations" }
 
+  devise_scope :user do
+    get "admin/profile/edit", to: "user/registrations#edit"
+
+  end
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # match 'auth/failure', to: redirect('/'), via: [:get, :post]
   # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-
+  # get "admin/profile/edit", to: "user/registrations#edit", as: :edit_admin_profile
   namespace :admin do
+
     root to: "admin#index"
 
     resources :main_banners
@@ -46,12 +51,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
   post '/mcsubscribe/subscribe' => 'mcsubscribe#subscribe'
+  post '/subs' => 'admin/admin#subs'
+  post '/unsubs' => 'admin/admin#unsubs'
+
   post '/order_product' => 'main#order_product'
   post '/call_order' => 'main#call_order'
 
+
   get '/admin/purchase_history' => 'admin/admin#purchase_history', as: 'purchase_history'
+  get '/admin/subscription' => 'admin/admin#subscription', as: 'subscription'
+
+
   get '/admin/users' => 'admin/admin#users_list', as: 'users_list'
-  # get '/test' => 'main#test_page'
+  get '/test' => 'main#test_page'
   get '/term-of-used' => 'main#terms_of_use'
   get '/:url' => 'main#about', as: 'restaurant_about'
   get '/catalog/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'

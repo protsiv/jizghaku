@@ -14,8 +14,11 @@
               = f.input :first_name, autofocus: true, label: "Ім'я", input_html: {placeholder: "Ваше ім'я"}
               = f.input :card, label: "Номер картки клубу", input_html: {placeholder: 'Номер картки клубу'}
               /= f.input :last_name, label: "Прізвище", input_html: {placeholder: 'Ваше прізвище'}
+              = f.input :phone, label: "Номер телефону", input_html: {placeholder: 'Номер телефону'}
               = f.input :email, label: "Електронна скринька*", input_html: {placeholder: 'foodorder@test.com'}
+
               = f.input :subscribe_to, label: "Підписатись на розсилку"
+
               - if f.object.password_required?
                 = f.input :password, label: "Пароль", hint: false, error_html: { id: 'password_error'}, input_html: {placeholder: "password"}
                 = f.input :password_confirmation, label: "Підтвердити пароль", input_html: {placeholder: "password"}

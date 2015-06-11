@@ -5,6 +5,7 @@ html lang="en"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     X-Robots-Tag: noindex
+    = favicon_link_tag 'favicon.ico'
     title
       = content_for?(:@_seo_title) ? yield(:@_seo_title) :@_seo_title
 

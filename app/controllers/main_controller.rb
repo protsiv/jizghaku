@@ -86,10 +86,12 @@ class MainController < ApplicationController
   end
 
   def test_page
-    @categories = Category.where(common: true)
-    @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
-
-    $line_items = LineItem.where(cart: current_cart.id)
+    # @categories = Category.where(common: true)
+    # @products_common = Product.joins(:category).where(categories: {common: true}).order(created_at: :asc)
+    #
+    # $line_items = LineItem.where(cart: current_cart.id)
+    # @mc.lists.subscribe(@list_id, email: 'pnaryan.ua@gmail.com')
+    # @mc.lists.unsubscribe(@list_id, email: 'p.korenev@voroninstudio.eu')
   end
 
   def line_items

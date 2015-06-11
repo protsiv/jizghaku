@@ -1,0 +1,10 @@
+.subscribe-page-wrap
+  h2 Підписка на розсилку
+  p
+    |Отримуйте до себе на електронну пошту самі привабливі акційні пропозиції,
+      інформацію про нові товари, самі свіжі новини з життя <<Їжак.ки>> та багато іншого!
+  .admin-subscribe-wrap
+    - if current_user.subscribe_to == false
+      = render partial: "partials/subscribe"
+    - elsif current_user.subscribe_to == true
+      = render partial: "partials/unsubscribe"

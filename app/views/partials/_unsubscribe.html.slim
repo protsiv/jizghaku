@@ -1,0 +1,9 @@
+form.unsubscribe-from-yizha-ku action=unsubs_path method="PATCH"
+  .row.admin-unsubscribe-inner
+    .columns.large-6.medium-6.small-6
+      strong
+        = embedded_svg "Yizhaku-mail.svg"
+        = current_user.email
+      input name="email" type="hidden" value=current_user.email
+    .columns.large-6.medium-6.small-6
+      button.right type="submit" value="true" Відписатись від розсилки

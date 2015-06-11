@@ -11,7 +11,7 @@
   .info-block
     b
       |Контактна інформація |
-      = link_to edit_user_registration_path do
+      = link_to admin_profile_edit_path do
         = embedded_svg ("user-edit-pen.svg"), class: 'edit'
     h3
       = current_user.first_name
