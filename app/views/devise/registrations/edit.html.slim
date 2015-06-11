@@ -48,17 +48,18 @@
       /i
       /  |(введіть свій поточний пароль для підтвердження змін)
     .row
-      .columns.large-6.medium-6
+      .columns.large-8.medium-8.small-8
         = link_to '< Повернутись', admin_root_path
-      .columns.large-6.medium-6
+      .columns.large-4.medium-4.small-4
         .form-actions
           = f.submit "Зберегти зміни"
     hr
 
+  .remove-account-wrap
     h3 Видалити мій акаунт
-  .row
-    .columns.large-6.medium-6
-      p
-        |Не задоволений?
-    .columns.large-6.medium-6
-      = button_to "Видалити мій акаунт", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+    .row
+      .columns.large-6.medium-6
+        p
+          |Не задоволений?
+      .columns.large-6.medium-6
+        = button_to "Видалити мій акаунт", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
