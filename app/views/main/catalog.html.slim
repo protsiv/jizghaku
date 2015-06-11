@@ -180,7 +180,8 @@
                       - success = 'y-success'
                   .price-wrap.text-center class=success
                     .price
-                      strong = p.price.round.try(&:round)
+
+                      strong = p.price.try(&:round)
                       p грн                                                    ˙
                   .information-block
                     .name-wrap

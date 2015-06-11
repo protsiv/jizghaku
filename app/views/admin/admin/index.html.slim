@@ -22,7 +22,7 @@
     h3
       |Card:
       = current_user.card
-    = link_to 'Змінити пароль', edit_user_password_path(current_user)
+    /= link_to 'Змінити пароль', edit_user_password_path(current_user)
 
 
   = link_to 'Вилогуватись', destroy_user_session_path, :method => :delete, class: 'log-out-button'

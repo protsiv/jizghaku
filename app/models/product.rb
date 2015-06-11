@@ -9,6 +9,8 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :category, :message => "Продукт повинен належати до якоїсь категорії!"
 
+  validates_presence_of :price, :message => "Продукт не може немати ціни! Введіть вартість продукту!"
+
   has_many :line_items
 
   has_attached_file :image, styles:{
