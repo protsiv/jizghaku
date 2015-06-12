@@ -16,6 +16,10 @@ body
 
 $banner-height: 666px
 
+
+.no-padding-right
+  padding-right: 0 !important
+
 .header-wrap
   height: 90px
   background-color: #FF661B
@@ -25,6 +29,19 @@ $banner-height: 666px
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.6)
   position: relative
   z-index: 111
+  .call-order-for-mobile-wrap
+    height: 90px
+    position: relative
+    .call-order-for-mobile-inner
+      +my_vertical_align()
+        position: absolute
+      height: 35px
+      svg
+        width: 100%
+        height: 100%
+        path
+          fill: #fff
+
   .logo-wrap
     position: relative
     .logo-inner
@@ -904,6 +921,8 @@ ul
 
 .about-contact-info-wrap
   padding-top: 10px
+  @media #{$small-only}
+    padding-bottom: 50px
   h4
     font-weight: 500 !important
   svg
@@ -912,6 +931,8 @@ ul
   a
     display: block
     margin-bottom: 10px
+    @media #{$small-only}
+      text-align: center
   p
     font:
       family: "Fira Sans", sans-serif
@@ -919,6 +940,8 @@ ul
       weight: 300
     line-height: 1.125rem
     color: #6D6E71
+    @media #{$small-only}
+      text-align: center
   .contacts-wrap
     p, a
 
@@ -950,9 +973,34 @@ ul.catalog-sidebar
     list-style: none
     border: 1px solid
     border-bottom: none
+    &.catalog-all-items
+      @media #{$small-only}
+        border-top: 1px solid #6B3F22 !important
     &:last-of-type
       &:hover
         border-bottom: 1px solid #FF661B
+
+    &.catalog-sidebar-head
+
+      a
+        border-right: 1px solid #6B3F22
+        &:last-of-type
+          border-right: none
+        &.passive
+          .image
+            filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id…0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale")
+            filter: gray
+            -webkit-filter: grayscale(100%)
+            -webkit-transition: all 0.6s ease
+            -webkit-backface-visibility: hidden
+            opacity: 0.2
+      &:hover
+        background: transparent !important
+        border:
+          left: 1px solid #6B3F22 !important
+          top: 1px solid #6B3F22 !important
+          right: 1px solid #6B3F22 !important
+
     a
       font:
         family: "Lobster", cursive
@@ -965,27 +1013,111 @@ ul.catalog-sidebar
       display: block
       sup
         color: #FF661B
+
     &:hover, &.active
       background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat
       background-size: 100%
       border: none
       border-top: 1px solid #fff
       /*border-bottom: 1px solid #fff*/
+      @media #{$small-only}
+        background: transparent !important
+        a, sup, span
+          color: #FF661B
       a, sup, span
         color: #fff
-    ul
-      li
-        width: 32.33%
-        display: inline-block
+    .catalog-sidebar-restaurant-logo
+      a
+        width: 33.33%
+        display: block
+        padding: 0
+        float: left
+        .image
+          max-width: 100%
+          width: 100%
+          height: 0
+          padding-bottom: 75%
+          -webkit-background-size: cover  !important
+          -moz-background-size: cover !important
+          -o-background-size: cover !important
+          background-size: cover !important
+          margin: 0 auto
+    &.catalog-sidebar-mobile-header
+      background-color: #fff
+      @media #{$small-only}
+        position: relative
+        .catalog-list-arrow
+          width: 18px
+          height: 18px
+          +my_vertical_align()
+            position: absolute
+          right: 1rem
+          svg
+            width: 100%
+            height: 100%
+            display: block
+      a
+        sup
+          color: #FF661B
+      &:hover
+        border:
+          top: 1px solid black !important
+          left: 1px solid black !important
+          right: 1px solid black !important
+        background: #fff !important
+
+
   @media #{$small-only}
     overflow: hidden
-    height: 59px
-    &:hover
-      height: auto
+    height: 58px
+  &.mobile-menu-expand
+    height: auto
+    @media #{$small-only}
+      .catalog-sidebar-mobile-header
+        background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat !important
+        background-size: 100% !important
+        border: none
+        a, sup, span
+          color: #fff
+        path
+          fill: #fff
+        &:hover
+          background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat !important
+          background-size: 100% !important
+          border: none !important
+          a, sup, span
+            color: #fff !important
+          path
+            fill: #fff !important
+        .catalog-list-arrow
+          svg
+            +rotate(180)
+        a
+
+      li
+        border:
+          top: 1px solid black
+          left: 1px solid
+          right: 1px solid
+        &.active
+          a, sup, span
+            color: #FF661B !important
+        &:last-of-type:hover
+          border-bottom: 1px solid #6B3F22 !important
+        &:hover
+          border-top: 1px solid
+
+          a, sup, span
+            color: #FF661B
 .active-all, .catalog-sidebar-mobile-header
   background: url('<%=asset_path("pattern-white-15.png")%>') #FF661B repeat
   background-size: 100%
   border-color: #FF661B
+
+
+  /*a, sup, span*/
+    @media #{$small-only}
+      /*color: #fff !important*/
 .active-all
   border-left: 1px solid #FF661B !important
   border-top: 1px solid #FF661B !important
@@ -1009,6 +1141,15 @@ ul.catalog-sidebar
         border-bottom: 1px solid #6B3F22
         &:hover
           border-bottom: 1px solid #FF661B
+      &.catalog-sidebar-mobile-header
+        &:hover
+          a, span
+            color: #6B3F22
+    &.mobile-menu-expand
+      li.active
+        @media #{$small-only}
+          a, span
+            color: #6B3F22
   .about-contact-info-wrap
     h4, a
       color: #6B3F22
@@ -1028,6 +1169,16 @@ ul.catalog-sidebar
         border-bottom: 1px solid #00948F
         &:hover
           border-bottom: 1px solid #FF661B
+      &.catalog-sidebar-mobile-header
+        &:hover
+          a, span
+            color: #00948F
+    &.mobile-menu-expand
+      li.active
+        @media #{$small-only}
+          a, span
+            color: #00948F
+
   .about-contact-info-wrap
     h4, a
       color: #00948F
@@ -1047,6 +1198,15 @@ ul.catalog-sidebar
         border-bottom: 1px solid #BBB21E
         &:hover
           border-bottom: 1px solid #FF661B
+      &.catalog-sidebar-mobile-header
+        &:hover
+          a, span
+            color: #BBB21E
+    &.mobile-menu-expand
+      li.active
+        @media #{$small-only}
+          a, span
+            color: #BBB21E
   .about-contact-info-wrap
     h4, a
       color: #BBB21E
@@ -1623,6 +1783,8 @@ a.close-fancy-form
               size: 70%
   .r-about-restaurant-wrap
     padding-top: 93px
+    @media #{$small-only}
+      padding-top: 40px
     b
       font:
         size: rem-calc(18)
@@ -1672,6 +1834,10 @@ a.close-fancy-form
       width: 45px
       height: 45px
       top: -25px
+      //@media #{$small-only}
+        /*width: 110px*/
+        /*height: 110px*/
+        /*top: 60px*/
       .price
         strong
           font:
@@ -2678,6 +2844,33 @@ form
       line-height: 40px
       width: 100%
       text-align: center
+main
+  position: relative
+.catalog-current-logo-for-mobile
+  position: absolute
+  top: 0
+  right: 0
+
+  width: 50%
+  height: 0
+  padding-bottom: 50%
+  /*background-color: red*/
+  opacity: .1
+  .image
+    max-width: 100%
+    width: 100%
+    height: 0
+    padding-bottom: 100%
+    -webkit-background-size: cover  !important
+    -moz-background-size: cover !important
+    -o-background-size: cover !important
+    background-size: cover !important
+    margin: 0 auto
+    margin-top: -20%
+    margin-right: -20%
+
+
+
 
 
 

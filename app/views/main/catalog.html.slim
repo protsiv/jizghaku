@@ -1,7 +1,10 @@
 = provide(:description, @_seo_description)
 = provide(:keywords,  @_seo_keywords )
+.catalog-current-logo-for-mobile.show-for-small-only
+  .image style="background: url('#{@current_restaurant.logo}')no-repeat center center;"
+
 .row
-  .columns.large-10.large-offset-2.medium-10.medium-offset-2.small-9.small-offset-3.no-padding-left
+  .columns.large-10.large-offset-2.medium-10.medium-offset-2.small-8.small-offset-4.no-padding-left
     ul.breadcrumbs
       li.has-drop
         a =@current_restaurant.name
@@ -40,18 +43,19 @@
                   |(
                   span = @products_count + @products_common.count
                   | )
-            li.show-for-small-only
-              ul
-                li
-                  a
-                    |Bruno
-                li
-                  a
-                    |Baba Frania
-                li
-                  a
-                    |Barbarys
-            li.filter data-filter=".all"
+                .catalog-list-arrow
+                  = embedded_svg "Yizhaku-arrow-down.svg"
+            li.catalog-sidebar-head.show-for-small-only
+              - all_restaurant = Restaurant.order(position: :asc)
+              - if all_restaurant.any?
+                .catalog-sidebar-restaurant-logo
+                  - all_restaurant.each do |all|
+                    a class=("passive" if all.slug != @current_restaurant.slug) href=restaurant_all_menu_path(all.slug)
+                      .image style="background: url('#{all.logo}')no-repeat center center;"
+                  .clearfix
+
+
+            li.catalog-all-items.filter data-filter=".all"
               a
                 |Все меню &nbsp;
                 sup
@@ -79,7 +83,7 @@
                     span = count
                     | )
       - if @current_restaurant
-        .about-contact-info-wrap
+        .about-contact-info-wrap.hide-for-small-only
           .row
             .columns
               h4
@@ -107,7 +111,7 @@
               a.link-about-restaurant.right href=restaurant_about_path(@current_restaurant.slug)
                 |Детальніше
     .columns.large-9.medium-9
-      .row
+      .row.hide-for-small-only
         -restorans.each_with_index do |r, i|
           .columns.large-4.medium-4
             a href=restaurant_all_menu_path(r.slug)
@@ -220,7 +224,36 @@
 
                       input type="hidden" name="restaurant_id" value="1"
                       button type="submit" name="order-product"  Замовити
-
+      .row.show-for-small-only
+        .columns
+          - if @current_restaurant
+            .about-contact-info-wrap
+              .row
+                .columns
+                  h4
+                    a href=restaurant_about_path(@current_restaurant.slug)
+                      = @current_restaurant.name
+                  /= image_tag @current_restorant.avatar.url(:thumb)
+                  a href=restaurant_about_path(@current_restaurant.slug)
+                    = image_tag @current_restaurant.main_image
+                  p = @current_restaurant.short_description
+                .columns.hide-for-small-only
+                  .contacts-wrap
+                    .row
+                      .columns.large-2
+                        = embedded_svg ("Yizhaku-location.svg")
+                      .columns.large-10
+                        p = @current_restaurant.address
+                    .row
+                      .columns.large-2
+                        = embedded_svg ("Yizhaku-phone.svg")
+                      .columns.large-10
+                        p
+                          a = @current_restaurant.phone_number
+              .row.hide-for-small-only
+                .columns
+                  a.link-about-restaurant.right href=restaurant_about_path(@current_restaurant.slug)
+                    |Детальніше
 
 
 

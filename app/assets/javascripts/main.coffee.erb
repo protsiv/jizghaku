@@ -260,3 +260,13 @@ $(document).ready ->
     e.preventDefault()
 
 
+#    click for mobile menu in catalog
+  $('.catalog-sidebar-mobile-header').click ->
+    wrap = $(@).closest('ul')
+
+    if !wrap.hasClass('mobile-menu-expand')
+      wrap.addClass('mobile-menu-expand')
+    else
+      wrap.removeClass('mobile-menu-expand')
+
+
