@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   # devise_for :admins
   # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks',  registrations: "user/registrations" }
   devise_for :users, :path_names => {sign_in: "login", sign_out: "logout"},
-                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: "user/registrations" }
+                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: "users/registrations" }
 
   devise_scope :user do
-    get "admin/profile/edit", to: "user/registrations#edit"
+    get "admin/profile/edit", to: "users/registrations#edit"
 
   end
   # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
