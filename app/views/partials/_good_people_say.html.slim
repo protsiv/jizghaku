@@ -20,3 +20,7 @@
       -@reviews.each_with_index do |r, i|
         .columns.large-8.large-centered.medium-8.medium-centered.gps-tab  class=("active" if i == 0)
           =raw r.description
+  .row.text-center
+    .columns
+      .reviews-wrap
+        =link_to "Залишити відгук", reviews_path

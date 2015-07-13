@@ -64,6 +64,7 @@ Rails.application.routes.draw do
 
   get '/admin/users' => 'admin/admin#users_list', as: 'users_list'
   get '/test' => 'main#test_page'
+  get '/reviews' => 'main#reviews'
   get '/term-of-used' => 'main#terms_of_use'
   get '/:url' => 'main#about', as: 'restaurant_about'
   get '/catalog/:restaurant/menu' => 'main#catalog', as: 'restaurant_all_menu'

@@ -26,5 +26,12 @@ module Jizhaku
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     Rails.application.config.assets.precompile += %w( ckeditor/* )
+
+    config.after_initialize do
+      Disqus::defaults[:account] = "yizhaku"
+      Disqus::defaults[:developer] = true
+      Disqus::defaults[:container_id] = "disqus_thread"
+      Disqus::defaults[:show_powered_by] = false
+      end
   end
 end

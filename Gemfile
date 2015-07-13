@@ -84,4 +84,6 @@ gem 'parallax-rails'
 
 gem 'google-analytics-rails'
 
+gem 'disqus'
+
 

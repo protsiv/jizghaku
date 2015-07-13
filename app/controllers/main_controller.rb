@@ -56,6 +56,10 @@ class MainController < ApplicationController
     end
   end
 
+  def reviews
+
+  end
+
   def terms_of_use
 
     @_seo_title = 'Правила користування'
