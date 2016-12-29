@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305100727) do
+ActiveRecord::Schema.define(version: 20150610130436) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.boolean  "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.datetime "finished_at"
   end
 
   add_index "carts", ["user_id"], name: "index_carts_on_user_id"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "common"
+    t.integer  "position"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -103,6 +105,39 @@ ActiveRecord::Schema.define(version: 20150305100727) do
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
 
+  create_table "mail_lists", force: :cascade do |t|
+    t.string   "call_order"
+    t.string   "order_product"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "main_banners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "layer_1_file_name"
+    t.string   "layer_1_content_type"
+    t.integer  "layer_1_file_size"
+    t.datetime "layer_1_updated_at"
+    t.string   "layer_2_file_name"
+    t.string   "layer_2_content_type"
+    t.integer  "layer_2_file_size"
+    t.datetime "layer_2_updated_at"
+    t.string   "layer_3_file_name"
+    t.string   "layer_3_content_type"
+    t.integer  "layer_3_file_size"
+    t.datetime "layer_3_updated_at"
+    t.string   "layer_background_file_name"
+    t.string   "layer_background_content_type"
+    t.integer  "layer_background_file_size"
+    t.datetime "layer_background_updated_at"
+    t.text     "title"
+    t.text     "description"
+    t.integer  "position"
+    t.boolean  "published"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -124,6 +159,17 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at",         null: false
     t.integer  "banner_id"
     t.boolean  "offer_of_the_week"
+    t.integer  "position"
+    t.boolean  "business_lunch"
+    t.string   "size"
+    t.float    "weight"
+    t.string   "diameter"
+    t.string   "other"
+    t.boolean  "d_monday"
+    t.boolean  "d_tuesday"
+    t.boolean  "d_wednesday"
+    t.boolean  "d_thursday"
+    t.boolean  "d_friday"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
@@ -150,6 +196,19 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "description"
+    t.boolean  "published"
+    t.integer  "position"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -172,6 +231,14 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "subscribe_to"
+    t.string   "provider"
+    t.string   "url"
+    t.string   "nickname"
+    t.string   "username"
+    t.string   "uid"
+    t.string   "card"
+    t.boolean  "subscribe"
+    t.string   "phone"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
