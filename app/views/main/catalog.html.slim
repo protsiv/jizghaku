@@ -112,11 +112,12 @@
                 |Детальніше
     .columns.large-9.medium-9
       .row.hide-for-small-only
-        -restorans.each_with_index do |r, i|
-          .columns.large-4.medium-4
-            a href=restaurant_all_menu_path(r.slug)
-              .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
-                =image_tag r.logo
+        - if false
+          -restorans.each_with_index do |r, i|
+            .columns.large-4.medium-4
+              a href=restaurant_all_menu_path(r.slug)
+                .restaurant-logo class="#{ 'passive' if r.slug != params[:restaurant] }"
+                  =image_tag r.logo
       .row.filters_container
         - if @products && @products.count > 0
           - @products.each_with_index do |p, i|
