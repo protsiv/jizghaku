@@ -34,7 +34,7 @@
 
       .cart-items-wrap
         - current_cart.line_items.each do |li|
-          =render partial: "partials/one_item_cart", locals: {li: li}
+          = render partial: "partials/one_item_cart", locals: {li: li} if li.product
       .cart-rez-wrap
         .row
           .columns.large-7.medium-7.right
