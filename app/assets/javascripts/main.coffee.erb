@@ -131,9 +131,16 @@ $(document).ready ->
 #    onSlideBefore: ->
 #      alert 'before'
     onSlideAfter: ->
-#      alert 'after'
       $('.ab-description').addClass('slideInUp')
 
+  $('.logos-slider').bxSlider(
+    slideWidth: 200
+    minSlides: 2
+    maxSlides: 3
+    slideMargin: 10
+    pager: false
+    speed: 3000
+  )
 
 # ==================================
 # init buisness launch carousel

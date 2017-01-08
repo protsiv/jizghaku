@@ -1,19 +1,16 @@
--if restorans && restorans.count > 0
+- if restorans && restorans.count > 0
   .selector_restaurants_wrap
-    .row.text-center
-      -restorans.each_with_index do |r, i|
-        .columns.large-4.medium-4.small-4
-          .restaurant-wrap
-            .row
-              .columns
-                a href=restaurant_all_menu_path(r.slug)
-                  .restaurant-logo.box-shadow-restourant
-                    = image_tag r.logo
-            .row
-              .columns
-                .about-restaurant.align-center
-                  a href=restaurant_all_menu_path(r.slug)
-                    = raw r.about
+    .row.text-center#land_logos
+      .logos-slider
+        - restorans.each_with_index do |r, i|
+          .slide
+            div
+              a href=restaurant_all_menu_path(r.slug)
+                = image_tag r.logo
+            .about-restaurant.align-center
+              a href=restaurant_all_menu_path(r.slug)
+                = raw r.about
+
 
       /.columns.large-4.medium-4.small-4
       /  .restaurant-wrap
