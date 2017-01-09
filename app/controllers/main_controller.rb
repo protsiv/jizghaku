@@ -14,12 +14,12 @@ class MainController < ApplicationController
   def catalog
     @current_restaurant = Restaurant.find_by_slug(params[:restaurant])
     @restaurants = Restaurant.where.not(id: @current_restaurant).order(created_at: :asc)
-    @categories = Category.joins(:restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(position: :asc)
+    @categories = Category.joins(:restaurant).where(restaurants: {slug: @current_restaurant.try(:slug)}).order(position: :asc)
     @common_categories = Category.where(common: true).order(position: :asc)
-    @products = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).order(position: :asc)
+    @products = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.try(:slug)}).order(position: :asc)
     @products_common = Product.joins(:category).where(categories: {common: true}).order(position: :asc)
 
-    @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.slug}).count
+    @products_count = Product.joins(category: :restaurant).where(restaurants: {slug: @current_restaurant.try(:slug)}).count
 
     if @current_restaurant.slug == 'bruno'
       @_seo_title = 'Каталог їжі. Ресторан Бруно'
