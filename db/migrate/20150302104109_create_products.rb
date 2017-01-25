@@ -7,11 +7,9 @@ class CreateProducts < ActiveRecord::Migration
       t.text :description
       t.has_attached_file :image
       t.belongs_to :category, index: true
-      t.belongs_to :index_banner, index: true
 
       t.timestamps null: false
     end
     add_foreign_key :products, :categories
-    add_foreign_key :products, :index_banners
   end
 end

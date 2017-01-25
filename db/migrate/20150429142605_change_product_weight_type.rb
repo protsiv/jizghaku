@@ -1,5 +1,6 @@
 class ChangeProductWeightType < ActiveRecord::Migration
   def change
-    change_column :products, :weight, :float
+    remove_column :products, :weight
+    add_column :products, :weight, :float
   end
 end

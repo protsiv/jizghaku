@@ -1,6 +1,5 @@
 class ChangeBannerAssociationWithProduct < ActiveRecord::Migration
   def change
-    remove_column :products, :index_banner_id
-    add_column :products, :banner_id, :integer
+    add_reference :products, :banner, index: true
   end
 end

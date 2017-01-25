@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305100727) do
+ActiveRecord::Schema.define(version: 20150610130436) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "banners", force: :cascade do |t|
     t.string   "name"
@@ -45,9 +48,10 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.boolean  "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.datetime "finished_at"
   end
 
-  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "common"
+    t.integer  "position"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -71,8 +76,8 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -89,7 +94,7 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -100,8 +105,41 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+
+  create_table "mail_lists", force: :cascade do |t|
+    t.string   "call_order"
+    t.string   "order_product"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "main_banners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "layer_1_file_name"
+    t.string   "layer_1_content_type"
+    t.integer  "layer_1_file_size"
+    t.datetime "layer_1_updated_at"
+    t.string   "layer_2_file_name"
+    t.string   "layer_2_content_type"
+    t.integer  "layer_2_file_size"
+    t.datetime "layer_2_updated_at"
+    t.string   "layer_3_file_name"
+    t.string   "layer_3_content_type"
+    t.integer  "layer_3_file_size"
+    t.datetime "layer_3_updated_at"
+    t.string   "layer_background_file_name"
+    t.string   "layer_background_content_type"
+    t.integer  "layer_background_file_size"
+    t.datetime "layer_background_updated_at"
+    t.text     "title"
+    t.text     "description"
+    t.integer  "position"
+    t.boolean  "published"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -124,9 +162,21 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "updated_at",         null: false
     t.integer  "banner_id"
     t.boolean  "offer_of_the_week"
+    t.integer  "position"
+    t.boolean  "business_lunch"
+    t.string   "size"
+    t.string   "diameter"
+    t.string   "other"
+    t.boolean  "d_monday"
+    t.boolean  "d_tuesday"
+    t.boolean  "d_wednesday"
+    t.boolean  "d_thursday"
+    t.boolean  "d_friday"
+    t.float    "weight"
   end
 
-  add_index "products", ["category_id"], name: "index_products_on_category_id"
+  add_index "products", ["banner_id"], name: "index_products_on_banner_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
@@ -148,6 +198,19 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.text     "description"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "description"
+    t.boolean  "published"
+    t.integer  "position"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -172,10 +235,23 @@ ActiveRecord::Schema.define(version: 20150305100727) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "subscribe_to"
+    t.string   "provider"
+    t.string   "url"
+    t.string   "nickname"
+    t.string   "username"
+    t.string   "uid"
+    t.string   "card"
+    t.boolean  "subscribe"
+    t.string   "phone"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "carts", "users"
+  add_foreign_key "identities", "users"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "products", "categories"
 end
