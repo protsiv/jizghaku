@@ -1,38 +1,31 @@
 @media screen and (min-width: 100px)
-  #land_logos
-    .bx-wrapper
-      background: transparent
-      margin: -82px auto 60px
+  #logo_features
+    background: #3498db none repeat scroll 0 0
+    color: #fff
 
-      .bx-loading
-        background: none
+    .logo-content
+      display: inline
+      margin: auto
+      padding: 20px
+      width: 600px
 
-      .bx-viewport
-        background: none
-        img
-          border-radius: 100px
+      img
+        color: #3498db
+        font-size: 36px
+        line-height: 100px
+        padding: 5%
+        position: relative
+        text-align: center
 
-      .bx-controls
-        .bx-prev
-          left: 0
-          background: url(/assets/controls.png) no-repeat 0 -32px
-        .bx-next
-          right: 0
-          background: url(/assets/controls.png) no-repeat -43px -32px
+      .center-logo img
+        opacity: 0.6
+        transition: all 300ms ease 0s
 
-@media screen and (min-width: 400px)
-  #land_logos
-    .bx-wrapper
-      margin: -111px auto 60px
+      .center-logo .slick-center img
+        color: #e67e22
+        opacity: 1
+        transform: scale(1.08)
 
 @media screen and (min-width: 750px)
-  #land_logos
-    .bx-wrapper
-      .bx-controls
-        .bx-prev
-          left: -50px
-        .bx-next
-          right: -50px
-
-.hidden-logo
-  display: none
+  #logo_features .logo-content
+    display: block

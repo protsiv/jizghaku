@@ -22,5 +22,6 @@
 //= require bxslider
 //= require_tree .
 //= require ckeditor/init
+//= require jquery.slick
 
 $(function(){ $(document).foundation(); });
