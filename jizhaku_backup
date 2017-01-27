@@ -2,12 +2,11 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.0
--- Dumped by pg_dump version 9.6.0
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -694,105 +693,105 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: admins id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY admins ALTER COLUMN id SET DEFAULT nextval('admins_id_seq'::regclass);
 
 
 --
--- Name: banners id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY banners ALTER COLUMN id SET DEFAULT nextval('banners_id_seq'::regclass);
 
 
 --
--- Name: carts id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY carts ALTER COLUMN id SET DEFAULT nextval('carts_id_seq'::regclass);
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
 
 
 --
--- Name: ckeditor_assets id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY ckeditor_assets ALTER COLUMN id SET DEFAULT nextval('ckeditor_assets_id_seq'::regclass);
 
 
 --
--- Name: comments id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 
 
 --
--- Name: identities id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY identities ALTER COLUMN id SET DEFAULT nextval('identities_id_seq'::regclass);
 
 
 --
--- Name: line_items id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY line_items ALTER COLUMN id SET DEFAULT nextval('line_items_id_seq'::regclass);
 
 
 --
--- Name: mail_lists id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY mail_lists ALTER COLUMN id SET DEFAULT nextval('mail_lists_id_seq'::regclass);
 
 
 --
--- Name: main_banners id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY main_banners ALTER COLUMN id SET DEFAULT nextval('main_banners_id_seq'::regclass);
 
 
 --
--- Name: posts id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY posts ALTER COLUMN id SET DEFAULT nextval('posts_id_seq'::regclass);
 
 
 --
--- Name: products id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY products ALTER COLUMN id SET DEFAULT nextval('products_id_seq'::regclass);
 
 
 --
--- Name: restaurants id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY restaurants ALTER COLUMN id SET DEFAULT nextval('restaurants_id_seq'::regclass);
 
 
 --
--- Name: reviews id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY reviews ALTER COLUMN id SET DEFAULT nextval('reviews_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: admin
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
@@ -20671,6 +20670,8 @@ COPY carts (id, user_id, order_number, status, created_at, updated_at, finished_
 19871	\N	\N	\N	2017-01-25 23:26:05.062932	2017-01-25 23:26:05.062932	\N
 19872	\N	\N	\N	2017-01-26 19:22:54.104035	2017-01-26 19:22:54.104035	\N
 19873	\N	\N	\N	2017-01-26 23:45:20.550107	2017-01-26 23:45:20.550107	\N
+19874	11	\N	\N	2017-01-27 12:14:48.091373	2017-01-27 12:30:24.315459	\N
+19875	11	\N	\N	2017-01-27 12:36:06.848387	2017-01-27 12:41:20.254606	\N
 \.
 
 
@@ -20678,7 +20679,7 @@ COPY carts (id, user_id, order_number, status, created_at, updated_at, finished_
 -- Name: carts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('carts_id_seq', 19873, true);
+SELECT pg_catalog.setval('carts_id_seq', 19875, true);
 
 
 --
@@ -24501,7 +24502,7 @@ COPY restaurants (id, name, slug, logo_file_name, logo_content_type, logo_file_s
 10	Етно-паб «Баба-Франя»	baba-franya	Y-logo-Baba-Franya.jpg	image/jpeg	48583	2015-04-29 12:09:34.098573	2	<b>«Баба-Франя»</b>\r\n<p>Бограч, Журек,вареники, стейки, рулька по-лемківськи</p>	RZP_6598.jpg	image/jpeg	6679503	2015-07-22 14:07:23.621562	Етно-паб «Баба-Франя» пропонує вас скуштувати найкращі страви західно-української  кухні.	вул.Зеновія Красівського,32 м. Стрий	+38 (097) 998 -05-05	11:00-24:00	<p><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Заклад присвячений українському етносу Карпат: &laquo;бойкам&raquo;, &laquo;лемкам&raquo;, &laquo;гуцулам&raquo;, &laquo; русинам&raquo; та іншим.</span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Символом закладу є &laquo;Баба&raquo; Франя &ndash; українська жінка-лемкиня. Ця прекрасна жінка була родом з Лемківщини, та мешкала на теренах Стрийщини. Вона була: красива, розумна, щаслива, весела та неперевершено вміла готувати.</span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Разом з чоловіком до&nbsp;<strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">1939</strong>&nbsp;року в &laquo;Баби&raquo; Франі у місті Стрию був заклад домашньо-етнічної кухні. Це було улюблене місце відпочинку всіх стриян та гостей міста. І кожний знав, що якщо він хоче добре поїсти &ndash; він йде до Франі!</span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Надіємося, що і сьогодні Ви надалі будете продовжувати цю славну традицію започатковану стриянами минулих поколінь!</span><br />\r\n&nbsp;&nbsp;</p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;">&nbsp;</p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Бізнес-ланчі, всього за 38 грн.</strong></span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Святкування бенкетів</strong></span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Проведення фуршетів</strong></span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Вечори живої музики</strong></span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Проведення дитячих днів народжень</strong></span></p>\r\n\r\n<p data-mce-style="margin-bottom: 0px; padding: 0px 0px 0.5em; border: 0px; outline: 0px; vertical-align: baseline; color: #333333; font-family: Arial, Helvetica, sans-serif; font-size: 14.3999996185303px; line-height: 20px; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;" style="margin-bottom: 0px; font-size: 14px; border: 0px; font-family: Arial, Helvetica, sans-serif; vertical-align: baseline; outline: invert none 0px; padding: 0px 0px 0.5em; line-height: 20px; background-size: initial; background-origin: initial; background-clip: initial;"><span data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-size: small; background: transparent;" style="FONT-SIZE: small; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px"><strong data-mce-style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: transparent;" style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM: 0px; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px">Випікання тортів під замовлення</strong></span></p>\r\n	2015-02-28 15:01:23.488266	2016-11-30 08:31:11.796477
 11	Тратторія «Бруно»	bruno	Y-logo-Bruno.jpg	image/jpeg	19513	2015-04-29 12:10:42.896256	1	<b>«Бруно»</b>\r\n\r\n<p>Піца, паста, свіжі салати, напої</p>\r\n	IMG_5958.jpg	image/jpeg	2271156	2016-01-22 10:34:37.354832	Тратторія «Бруно» пропонує вас скуштувати найкращі страви італійської кухні.	вул. Є.Коновальця,8, м. Стрий	+38 (097) 057 -05-05	Пн-Сб    10:00-22:00\r\nНд         12:00-22:00	<p>Італіййська кухня</p>\r\n	2015-02-28 15:01:23.495549	2016-11-30 08:31:49.690909
 12	Кафе-клуб «Барбарис»	barbarus	Y-logo-Barbarus.jpg	image/jpeg	26719	2015-04-29 12:10:59.048164	3	<b>«Барбарис»</b>\r\n\r\n<p>Суші, супи, роли та інші японські страви</p>\r\n	6IS5l3hkitM.jpg	image/jpeg	70298	2015-07-22 14:16:26.777086	Кафе-бар «Барбарис» пропонує вас скуштувати найкращі страви японської кухні.	вул. Шевченка ,171, м. Стрий	+38 (097) 977 -05-05	13:00-1:00		2015-02-28 15:01:23.502408	2016-11-30 08:32:16.912834
-20	Єнот	Enot	1.jpg	image/jpeg	42497	2017-01-25 19:00:37.040171	4	Єнотова кухня	1.jpg	image/jpeg	42497	2017-01-25 19:00:37.169251	Єнот готує	вул. Дідова 66	+380 978066734	22 00 -23 00		2017-01-25 19:00:37.681046	2017-01-25 19:00:37.681046
+21	PlayBoy	playBoy	playboy.jpeg	image/jpeg	9026	2017-01-27 12:46:39.19798	4	Плейбойова кухня	playboy.jpeg	image/jpeg	9026	2017-01-27 12:46:39.212089	ПлайБой готує	вул. Плайбой 666	0976666666	23 00 - 24 00		2017-01-27 12:46:39.382972	2017-01-27 12:46:39.382972
 \.
 
 
@@ -24509,7 +24510,7 @@ COPY restaurants (id, name, slug, logo_file_name, logo_content_type, logo_file_s
 -- Name: restaurants_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
-SELECT pg_catalog.setval('restaurants_id_seq', 21, false);
+SELECT pg_catalog.setval('restaurants_id_seq', 21, true);
 
 
 --
@@ -24588,7 +24589,6 @@ COPY users (id, email, encrypted_password, reset_password_token, reset_password_
 8	gorin_olya89@mail.ru	$2a$10$KbMEUrt14Pfm5KCZp9OuT.rG6v35MCjQxE2DwO92svy2Oqg2wPJMC	\N	\N	\N	0	\N	\N	\N	\N	2015-05-22 13:45:38.470075	2015-05-22 13:45:38.470075	\N	\N	\N	\N	00a39971f934c97b9ab9c51418ac80caea8084bab83bd550859981305eb72562	\N	2015-05-22 13:45:38.9843	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 9	stronia@ukr.net	$2a$10$m30Lp/jVIjuZNLfwh32Mqe2n2T7UzXF39dpRhUIIMXywO2HN8X/Vq	\N	\N	\N	0	\N	\N	\N	\N	2015-05-23 20:52:19.67924	2015-05-23 20:52:19.67924	\N	\N	\N	\N	4c767e3c1ae53851484edeb236ee3cdea68349174d2f6918266deaaa8b7f8e1c	\N	2015-05-23 20:52:20.189492	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 10	evelyna050289@gmail.com	$2a$10$cq.o/Ya05Vk24vEE1gMlke/mysWbbDhaL0c2b7nApm.Bu8p/Flwse	\N	\N	\N	0	\N	\N	\N	\N	2015-06-03 13:19:35.714641	2015-06-03 13:19:35.714641	\N	Христина	\N	\N	779f3133b3c9a0ea25bcdfb6705ad155ca8749d442379fce3ea1f18cc7ec0811	\N	2015-06-03 13:19:36.235282	\N	t	\N	\N	\N	\N	\N	12515	\N	\N
-11	protsiv.roman@gmail.com	$2a$10$03uBV0MHqrMjsJmz3nLpMeR.oEaVR97xireNzksQNmNcT0QbPTLpq	b8aab004cadc2019a313442b76230d076bfe299a8b443927e5e2afb94070c07a	2016-12-06 09:40:34.344625	\N	114	2017-01-25 18:59:28.377778	2017-01-24 08:58:39.196834	127.0.0.1	109.207.116.3	2015-06-04 14:03:13.050468	2017-01-25 18:59:28.379581	t	Роман	\N	\N	ae08e0e0033188b007584d4846b0db413def040f929d296b11427267eee11fd5	2015-06-04 14:13:59.955313	2015-06-04 17:03:31.29216	\N	f	\N	\N	\N	\N	\N		\N	\N
 14	p.korenev@voroninstudio.eu	$2a$10$IK8Jd2PtVvQPrPNNWNp6feirKsr/47i9naCU.EOHGuGnmntoU5ykO	1de0ba9f267b442a33a3cc8824f8213b86d45a75dda9ec41407d1f5238997716	2015-07-11 10:51:43.20871	\N	0	\N	\N	\N	\N	2015-06-04 17:05:29.740678	2015-07-11 10:51:43.209695	\N	\N	\N	\N	d8e389e86095d08ff04e066aa76eacbcead0eb429f8fc080dc474712c55e9b10	\N	2015-06-04 18:28:40.257213	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 15	shkudor12@gmail.com	$2a$10$caALRD5hW7Nsb1ZK4BaJgON74FL1uXRq9TiICTVG1JIDuMoPwXVAK	\N	\N	\N	0	\N	\N	\N	\N	2015-06-08 13:23:41.676217	2015-06-08 13:23:41.676217	\N	Оксана	\N	\N	94fbe25fd9015370e41ed08a1c62aec7f177ca8c3b9aa30de54a49efdcbbd217	\N	2015-06-08 13:23:42.181725	\N	t	\N	\N	\N	\N	\N		\N	\N
 16	0937515297oksana@gmail.com	$2a$10$B4/6iKipiF6i09DW64zYOOx37FXfVMHTOa1fiJNHoSf8D1TlxjhsK	\N	\N	\N	0	\N	\N	\N	\N	2015-06-08 13:35:02.159624	2015-06-08 13:35:02.159624	\N	Оксана	\N	\N	acec9f832303579321c017c9354bdedf7312690adac478833cda83510c8f3fed	\N	2015-06-08 13:35:02.666005	\N	t	\N	\N	\N	\N	\N		\N	\N
@@ -24636,6 +24636,7 @@ COPY users (id, email, encrypted_password, reset_password_token, reset_password_
 59	mail@dim-stryi.com.ua	$2a$10$cDCSsPLF6vjh3RP0r2gMAem8UfVlpE11bpEVqBroPuEcTtiumjBWS	\N	\N	\N	0	\N	\N	\N	\N	2016-11-19 19:38:04.587855	2016-11-19 19:38:04.587855	\N	Ігор	\N	\N	f6b7c28e87a404bb1d928b6e8cd6045a1725775895f305891371b03b6488eaff	\N	2016-11-19 19:38:04.589653	\N	f	\N	\N	\N	\N	\N		\N	0678444670
 60	bodnar.yasya@mail.ru	$2a$10$CJ/JJJ2NXyD2HymFjyV1C.oKi84.cJKpYnd6WjEGp9sGv1lSDGCSa	\N	\N	\N	0	\N	\N	\N	\N	2016-11-20 20:52:44.059358	2016-11-20 20:52:44.059358	\N	Andriana	\N	\N	af6874f0542c54d8985d1ec61b6c96b5966ef81c5c9f82ead7d6176176c5b253	\N	2016-11-20 20:52:44.556161	\N	t	\N	\N	\N	\N	\N		\N	380930121629
 61	y.tunska@mail.ru	$2a$10$hNiUmprgkv7GcaUGlneW/eeVViH5Z3A0FWX.EIF9remJw9UFmUwoO	\N	\N	\N	0	\N	\N	\N	\N	2016-11-27 18:49:30.295535	2016-11-27 18:49:30.295535	\N	Юлія	\N	\N	c3f3e4ece61443eb3c3ec7d04849e1bb6f49c8089d72afd71d1ca3ee77fd914f	\N	2016-11-27 18:49:30.549149	\N	f	\N	\N	\N	\N	\N		\N	+380938745473
+11	protsiv.roman@gmail.com	$2a$10$WCJxKR1WSdHdE7BLWpnzxO.xMF7O/vxIzDE0tgvvWuoWsy5h03Tum	b8aab004cadc2019a313442b76230d076bfe299a8b443927e5e2afb94070c07a	2016-12-06 09:40:34.344625	\N	116	2017-01-27 12:41:20.083196	2017-01-27 12:30:24.042686	127.0.0.1	127.0.0.1	2015-06-04 14:03:13.050468	2017-01-27 12:41:20.085266	t	Роман	\N	\N	ae08e0e0033188b007584d4846b0db413def040f929d296b11427267eee11fd5	2015-06-04 14:13:59.955313	2015-06-04 17:03:31.29216	\N	f	\N	\N	\N	\N	\N		\N	\N
 \.
 
 
@@ -24647,7 +24648,7 @@ SELECT pg_catalog.setval('users_id_seq', 62, false);
 
 
 --
--- Name: admins admins_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: admins_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY admins
@@ -24655,7 +24656,7 @@ ALTER TABLE ONLY admins
 
 
 --
--- Name: banners banners_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: banners_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY banners
@@ -24663,7 +24664,7 @@ ALTER TABLE ONLY banners
 
 
 --
--- Name: carts carts_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: carts_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY carts
@@ -24671,7 +24672,7 @@ ALTER TABLE ONLY carts
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY categories
@@ -24679,7 +24680,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: ckeditor_assets ckeditor_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: ckeditor_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY ckeditor_assets
@@ -24687,7 +24688,7 @@ ALTER TABLE ONLY ckeditor_assets
 
 
 --
--- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY comments
@@ -24695,7 +24696,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: identities identities_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: identities_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY identities
@@ -24703,7 +24704,7 @@ ALTER TABLE ONLY identities
 
 
 --
--- Name: line_items line_items_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: line_items_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY line_items
@@ -24711,7 +24712,7 @@ ALTER TABLE ONLY line_items
 
 
 --
--- Name: mail_lists mail_lists_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: mail_lists_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY mail_lists
@@ -24719,7 +24720,7 @@ ALTER TABLE ONLY mail_lists
 
 
 --
--- Name: main_banners main_banners_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: main_banners_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY main_banners
@@ -24727,7 +24728,7 @@ ALTER TABLE ONLY main_banners
 
 
 --
--- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY posts
@@ -24735,7 +24736,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: products_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY products
@@ -24743,7 +24744,7 @@ ALTER TABLE ONLY products
 
 
 --
--- Name: restaurants restaurants_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: restaurants_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY restaurants
@@ -24751,7 +24752,7 @@ ALTER TABLE ONLY restaurants
 
 
 --
--- Name: reviews reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY reviews
@@ -24759,7 +24760,7 @@ ALTER TABLE ONLY reviews
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY users
@@ -24855,6 +24856,16 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --

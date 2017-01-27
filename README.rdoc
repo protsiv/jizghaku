@@ -1,5 +1,0 @@
-Setup the project
-
-   rake db:create
-   psql jizhaku_2_development < db/first_dump
-   rails c --> and change user password
