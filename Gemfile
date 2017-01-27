@@ -35,7 +35,6 @@ gem 'mailchimp-api', require: 'mailchimp'
 gem 'parallax-rails'
 gem 'google-analytics-rails'
 gem 'disqus'
-gem 'letter_opener', group: :development
 gem 'jquery-slick-rails'
 
 group :development, :test do
