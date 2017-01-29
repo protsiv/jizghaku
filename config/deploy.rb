@@ -1,14 +1,20 @@
 # config valid only for current version of Capistrano
 lock "3.7.2"
 
+set :user, 'deployer'
 set :application, "jizhaku"
+set :rails_env, 'production'
 set :repo_url, "git@github.com:protsiv/jizghaku.git"
+server '185.69.53.152', user: 'deploy', roles: %w{app db web}, primary: true
+set :deploy_to, "/home/deploy/jizhaku"
+set :stage, :production
+set :pty, true
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/jizhaku"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
