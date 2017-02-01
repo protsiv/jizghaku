@@ -16,7 +16,6 @@ html lang="en"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    = analytics_init :local => Rails.env.development?
 
   body#body
     header
@@ -25,4 +24,3 @@ html lang="en"
       = content_for?(:admin_layout) ? yield(:admin_layout) : yield
     footer
       = render 'footer'
-
