@@ -36,6 +36,7 @@ gem 'parallax-rails'
 gem 'google-analytics-rails'
 gem 'disqus'
 gem 'jquery-slick-rails'
+gem 'pry'
 
 group :development do
   gem 'capistrano', '~> 3.7', '>= 3.7.2'
@@ -45,7 +46,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
