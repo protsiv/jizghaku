@@ -32,8 +32,10 @@ require 'capistrano/nginx'
 require "capistrano/rails"
 require 'capistrano/rails/db'
 require 'capistrano/puma/nginx'
+require 'capistrano/upload-config'
 require 'capistrano/rails/migrations'
 require 'sshkit/sudo'
+
 
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

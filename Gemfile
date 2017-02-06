@@ -45,6 +45,7 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-nginx'
   gem 'sshkit-sudo'
+  gem 'capistrano-upload-config'
 end
 
 group :development, :test do
