@@ -44,6 +44,7 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano3-puma'
   gem 'capistrano-nginx'
+  gem 'sshkit-sudo'
 end
 
 group :development, :test do
