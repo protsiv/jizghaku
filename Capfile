@@ -1,7 +1,4 @@
-# Load DSL and set up stages
 require "capistrano/setup"
-
-# Include default deployment tasks
 require "capistrano/deploy"
 
 # Load the SCM plugin appropriate to your project:
@@ -30,18 +27,12 @@ require 'capistrano/rbenv'
 set :rbenv_type, :deploy
 set :rbenv_ruby, File.read('.ruby-version').strip
 
+require 'capistrano/puma'
+require 'capistrano/nginx'
 require "capistrano/rails"
 require 'capistrano/rails/db'
-require 'capistrano/passenger'
-require 'capistrano/rails/assets'
+require 'capistrano/puma/nginx'
 require 'capistrano/rails/migrations'
-
-#require "capistrano/passenger"
-
-# require "capistrano/rvm"
-# require "capistrano/rbenv"
-# require "capistrano/chruby"
-# require "capistrano/rails/migrations"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
