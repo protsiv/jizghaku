@@ -9,7 +9,7 @@
         - h = { a: "5", b: "8"}
         .columns.large-2.medium-2.small-3.gps-header class=("end" if @reviews.count-1 == i) *(h) class=("active" if i == 0)
           .pictures-wrap
-            .pbi style="background: url('#{r.image.url(:avatar)}')no-repeat center center;"
+            .pbi= image_tag r.image.url(:avatar)
           h4 =r.name
 
   .row.text-center
