@@ -27,8 +27,13 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  #config.assets.compile = true
+  #config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
+
+  config.assets.compress = true
   config.assets.compile = true
-  config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
+  config.assets.digest = true
+  config.assets.initialize_on_precompile = false
   config.log_level = :info
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
