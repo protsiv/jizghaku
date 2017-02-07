@@ -3,9 +3,9 @@ server '185.69.53.152', user: 'deploy', roles: %w{app db web}, primary: true
 
 set :pty, true
 set :user, 'deploy'
-set :stage, :development
+set :stage, :production
 set :application, "jizhaku"
-set :rails_env, 'development'
+set :rails_env, 'production'
 set :conditionally_migrate, true
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :repo_url, "git@github.com:protsiv/jizghaku.git"
