@@ -1,5 +1,8 @@
 lock "3.7.2"
-server '185.69.53.152', user: 'deploy', roles: %w{app db web}, primary: true
+server '185.69.53.152', user: 'deploy', roles: %w{app db web}, primary: true, ssh_options: {
+  forward_agent: true,
+  keys: [File.join(ENV["HOME"], ".ssh", "t4vps")]
+}
 
 set :pty, true
 set :user, 'deploy'
@@ -21,6 +24,6 @@ namespace :deploy do
   before 'check:linked_files', 'config:push'
   before 'check:linked_files', 'puma:config'
   before 'check:linked_files', 'puma:nginx_config'
-  #before 'deploy:migrate', 'deploy:db:create'
+  before 'deploy:migrate', 'deploy:db:create'
   after 'puma:smart_restart', 'nginx:restart'
 end
