@@ -47,5 +47,3 @@ group :development do
   gem 'sshkit-sudo'
   gem 'capistrano-upload-config'
 end
-
-gem 'rails_12factor', group: :production
