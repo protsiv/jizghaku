@@ -47,3 +47,5 @@ group :development do
   gem 'sshkit-sudo'
   gem 'capistrano-upload-config'
 end
+
+gem 'rails_serve_static_assets'

@@ -203,6 +203,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_serve_static_assets (0.0.5)
     railties (4.2.7.1)
       actionpack (= 4.2.7.1)
       activesupport (= 4.2.7.1)
@@ -301,6 +302,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.7.1)
   rails-admin-scaffold
+  rails_serve_static_assets
   russian
   sass-rails (= 5.0.6)
   seed_dump
