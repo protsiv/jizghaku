@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.7.1'
 gem 'pg'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', ' 2.7.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
+gem 'sass-rails', '5.0.6'
+gem 'uglifier', '2.7.0'
+gem 'coffee-rails', '4.1.1'
+gem 'jquery-rails', '4.2.2'
+gem 'jbuilder', '2.6.1'
 gem 'slim-rails'
 gem 'foundation-rails', '5.5.1.0'
 gem 'owlcarousel-rails'
@@ -46,11 +46,6 @@ group :development do
   gem 'capistrano-nginx'
   gem 'sshkit-sudo'
   gem 'capistrano-upload-config'
-end
-
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
 end
 
 gem 'rails_12factor', group: :production

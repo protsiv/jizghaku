@@ -1,37 +1,37 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.2.0)
-      actionpack (= 4.2.0)
-      actionview (= 4.2.0)
-      activejob (= 4.2.0)
+    actionmailer (4.2.7.1)
+      actionpack (= 4.2.7.1)
+      actionview (= 4.2.7.1)
+      activejob (= 4.2.7.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (4.2.0)
-      actionview (= 4.2.0)
-      activesupport (= 4.2.0)
-      rack (~> 1.6.0)
+    actionpack (4.2.7.1)
+      actionview (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
+      rack (~> 1.6)
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    actionview (4.2.0)
-      activesupport (= 4.2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (4.2.7.1)
+      activesupport (= 4.2.7.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    activejob (4.2.0)
-      activesupport (= 4.2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activejob (4.2.7.1)
+      activesupport (= 4.2.7.1)
       globalid (>= 0.3.0)
-    activemodel (4.2.0)
-      activesupport (= 4.2.0)
+    activemodel (4.2.7.1)
+      activesupport (= 4.2.7.1)
       builder (~> 3.1)
-    activerecord (4.2.0)
-      activemodel (= 4.2.0)
-      activesupport (= 4.2.0)
+    activerecord (4.2.7.1)
+      activemodel (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
       arel (~> 6.0)
     activerecord-reset-pk-sequence (0.2.0)
-    activesupport (4.2.0)
+    activesupport (4.2.7.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -41,12 +41,9 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.4)
     bcrypt (3.1.11)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     breadcrumbs_on_rails (2.3.0)
-    builder (3.2.2)
+    builder (3.2.3)
     bxslider-rails (4.1.0)
-    byebug (9.0.6)
     capistrano (3.7.2)
       airbrussh (>= 1.0.0)
       capistrano-harrow
@@ -89,7 +86,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
-    debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -111,7 +107,7 @@ GEM
       activesupport (>= 4.1.0)
     google-analytics-rails (1.1.0)
     hashie (3.4.6)
-    i18n (0.7.0)
+    i18n (0.8.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -121,7 +117,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-slick-rails (1.6.0.2)
       railties (>= 3.1)
-    json (1.8.3)
+    json (1.8.6)
     jwt (1.5.6)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -186,16 +182,16 @@ GEM
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.2.0)
-      actionmailer (= 4.2.0)
-      actionpack (= 4.2.0)
-      actionview (= 4.2.0)
-      activejob (= 4.2.0)
-      activemodel (= 4.2.0)
-      activerecord (= 4.2.0)
-      activesupport (= 4.2.0)
+    rails (4.2.7.1)
+      actionmailer (= 4.2.7.1)
+      actionpack (= 4.2.7.1)
+      actionview (= 4.2.7.1)
+      activejob (= 4.2.7.1)
+      activemodel (= 4.2.7.1)
+      activerecord (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.0)
+      railties (= 4.2.7.1)
       sprockets-rails
     rails-admin-scaffold (0.1.0)
       rails (>= 4.0)
@@ -212,9 +208,9 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
-    railties (4.2.0)
-      actionpack (= 4.2.0)
-      activesupport (= 4.2.0)
+    railties (4.2.7.1)
+      actionpack (= 4.2.7.1)
+      activesupport (= 4.2.7.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
@@ -272,11 +268,6 @@ GEM
       json (>= 1.8.0)
     warden (1.2.6)
       rack (>= 1.0)
-    web-console (2.3.0)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
   ruby
@@ -285,7 +276,6 @@ DEPENDENCIES
   activerecord-reset-pk-sequence (= 0.2.0)
   breadcrumbs_on_rails (= 2.3.0)
   bxslider-rails (= 4.1.0)
-  byebug
   capistrano (~> 3.7, >= 3.7.2)
   capistrano-nginx
   capistrano-rails (~> 1.2, >= 1.2.2)
@@ -293,13 +283,13 @@ DEPENDENCIES
   capistrano-upload-config
   capistrano3-puma
   ckeditor (= 4.1.1)
-  coffee-rails (~> 4.1.0)
+  coffee-rails (= 4.1.1)
   devise (= 3.4.1)
   disqus
   foundation-rails (= 5.5.1.0)
   google-analytics-rails
-  jbuilder (~> 2.0)
-  jquery-rails
+  jbuilder (= 2.6.1)
+  jquery-rails (= 4.2.2)
   jquery-slick-rails
   mailchimp-api
   mixitup_rails
@@ -314,11 +304,11 @@ DEPENDENCIES
   protected_attributes (= 1.0.8)
   pry
   puma
-  rails (= 4.2.0)
+  rails (= 4.2.7.1)
   rails-admin-scaffold
   rails_12factor
   russian
-  sass-rails (~> 5.0)
+  sass-rails (= 5.0.6)
   seed_dump
   simple_form
   simple_form_fancy_uploads
@@ -326,7 +316,6 @@ DEPENDENCIES
   sshkit-sudo
   truncate_html
   uglifier (= 2.7.0)
-  web-console (~> 2.0)
 
 RUBY VERSION
    ruby 2.3.0p0
