@@ -15,6 +15,8 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.static_cache_control = "public, max-age=31536000"
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
