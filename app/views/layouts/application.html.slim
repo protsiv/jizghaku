@@ -1,7 +1,18 @@
 doctype html
-html
+html lang='en'
   head
-    = javascript_include_tag 'application'
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+
+    X-Robots-Tag: noindex
+    = favicon_link_tag 'favicon.ico', rel: 'Їжа.ки'
+    title
+      = content_for?(:@_seo_title) ? yield(:@_seo_title) :@_seo_title
+
+    meta name='description' content= yield(:description)
+    meta name='keywords' content= yield(:keywords)
+    = javascript_include_tag 'application', async: true
+    = csrf_meta_tags
   body#body
     header
       = render 'header'
