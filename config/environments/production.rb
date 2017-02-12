@@ -3,6 +3,8 @@ Rails.application.configure do
 
   config.serve_static_files = true
 
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

@@ -1,8 +1,6 @@
 doctype html
 html
   head
-    = javascript_include_tag 'application'
-
   body#body
     header
       = render 'header'
@@ -10,3 +8,4 @@ html
       = content_for?(:admin_layout) ? yield(:admin_layout) : yield
     footer
       = render 'footer'
+    = javascript_include_tag 'application'
