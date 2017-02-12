@@ -7,3 +7,7 @@
 //= require owl.carousel
 //= require mixitup
 //= require bxslider
+//= require ckeditor/init
+//= require jquery.slick
+
+$(function(){ $(document).foundation(); });
