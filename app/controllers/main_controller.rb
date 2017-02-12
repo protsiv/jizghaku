@@ -1,10 +1,10 @@
 class MainController < ApplicationController
 
   def index
-    @products_of_week = []#Product.where(offer_of_the_week: true).order(created_at: :asc).limit(4)
-    @reviews = []#Review.order(position: :asc).where(published: true).limit(6)
+    @products_of_week = Product.where(offer_of_the_week: true).order(created_at: :asc).limit(4)
+    @reviews = Review.order(position: :asc).where(published: true).limit(6)
 
-    @main_banners = []#MainBanner.where(published: true).order(position: :asc).limit(3)
+    @main_banners = MainBanner.where(published: true).order(position: :asc).limit(3)
 
     @_seo_title = "Їжа.ки (Стрий) — це служба швидкої доставки їжі з різних закладів. Італійська кухня, Піцца, Суші та Українська кухня на всі випадки життя!"
     @_seo_description = "Їжа.ки — це проект служби доставки їжі з різних закладів на всі смаки та забаганки. Ми доставляємо італійську, традиційну та японську кухню. Доставка здійснюється нашим кур'єром протягом 15-60 хв. після оформлення замовлення. Оплата здійснюється по місцю, після видачі замовлення. доставка БЕЗКОШТОВНА"
