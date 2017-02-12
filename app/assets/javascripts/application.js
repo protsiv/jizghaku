@@ -4,3 +4,6 @@
 //= require foundation
 //= require parallax
 //= require jquery.parallax
+//= require owl.carousel
+//= require mixitup
+//= require bxslider
