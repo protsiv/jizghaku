@@ -2,16 +2,16 @@
 
 @font-face{
     font-family: 'Fira Sans';
-    src: url("eot/FiraSans-Light.eot");
+    src: url("/assets/FiraSans-Light.eot");
     src: local("Fira Sans Light"),
-         url("eot/FiraSans-Light.eot") format("embedded-opentype"),
-         url("woff/FiraSans-Light.woff") format("woff"),
-         url("ttf/FiraSans-Light.ttf") format("truetype");
+         url("/assets/FiraSans-Light.eot") format("embedded-opentype"),
+         url("/assets/FiraSans-Light.woff") format("woff"),
+         url("/assets/FiraSans-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
 }
 
-@font-face{
+/* @font-face{
     font-family: 'Fira Sans';
     src: url("eot/FiraSans-LightItalic.eot");
     src: local("Fira Sans Light Italic"),
@@ -86,4 +86,4 @@
          url("ttf/FiraSans-BoldItalic.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
-}
+}*/
