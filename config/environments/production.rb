@@ -1,8 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.serve_static_files = true
-  config.static_cache_control = 'public, max-age=1000'
+  #config.serve_static_files = true
 
   # Code is not reloaded between requests.
   config.cache_classes = true
