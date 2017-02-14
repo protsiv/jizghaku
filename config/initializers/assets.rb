@@ -9,5 +9,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /vendor\/assets\/images/ }
+#config.assets.precompile += %w(subfolder/*.jpg)
+#Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /vendor\/assets\/images\images/ }
+#Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /vendor\/assets\/images\images/ && !%w(.js .css).include?(File.extname(path)) }
 #Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /vendor\/assets/ && !%w(.js .css).include?(File.extname(path)) }
