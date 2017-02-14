@@ -46,4 +46,5 @@ group :development do
   gem 'capistrano-nginx'
   gem 'sshkit-sudo'
   gem 'capistrano-upload-config'
+  gem 'capistrano-rails-db'
 end
