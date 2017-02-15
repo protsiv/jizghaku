@@ -37,7 +37,6 @@ gem 'disqus'
 gem 'jquery-slick-rails'
 gem 'pry'
 gem 'puma'
-gem 'non-stupid-digest-assets'
 
 group :development do
   gem 'capistrano', '~> 3.7', '>= 3.7.2'

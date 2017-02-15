@@ -143,8 +143,6 @@ GEM
     net-ssh (4.0.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    non-stupid-digest-assets (1.0.9)
-      sprockets (>= 2.0)
     oauth2 (1.3.0)
       faraday (>= 0.8, < 0.11)
       jwt (~> 1.0)
@@ -293,7 +291,6 @@ DEPENDENCIES
   jquery-slick-rails
   mailchimp-api
   mixitup_rails
-  non-stupid-digest-assets
   omniauth
   omniauth-facebook (= 2.0.0)
   omniauth-vkontakte
