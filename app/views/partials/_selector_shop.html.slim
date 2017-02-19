@@ -1,8 +1,12 @@
 - if restorans.present?
-  #logo_features
-    .logo-content
-      .center-logo
+  .selector_restaurants_wrap
+    .row.text-center#land_logos
+      .logos-slider
         - restorans.each_with_index do |r, i|
-          div
-            a href=restaurant_all_menu_path(r.slug)
-              = image_tag r.logo
+          .slide
+            div
+              a href=restaurant_all_menu_path(r.slug)
+                = image_tag r.logo
+            .about-restaurant.align-center
+              a href=restaurant_all_menu_path(r.slug)
+                = raw r.about
