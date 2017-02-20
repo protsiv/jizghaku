@@ -12,7 +12,7 @@ html lang='en'
     meta name='description' content= yield(:description)
     meta name='keywords' content= yield(:keywords)
     = stylesheet_link_tag    'application'
-    = javascript_include_tag 'application', defer: Rails.env.production?
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   body#body
     header
