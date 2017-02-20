@@ -95,4 +95,16 @@ module ApplicationHelper
     @a_common_restaurant = Restaurant.where.not(id: @a_restaurant).order(created_at: :asc)
   end
 
+  def chameleon
+    case params[:restaurant]
+    when 'bruno'
+      'brown'
+    when 'baba-franya'
+      'blue'
+    when 'barbarus'
+      'yellow-green'
+    else
+      'red'
+    end
+  end
 end
