@@ -1,7 +1,6 @@
 module ApplicationHelper
   def embedded_svg filename, options={}
-   #embedded_svg_from_abs(Rails.root.join('app', 'assets', 'images', 'svg', filename), options)
-    image_tag filename, options
+    embedded_svg_from_abs(Rails.root.join('app', 'assets', 'images', 'svg', filename), options)
   end
 
   def embedded_svg_from_abs filename, options = {}
