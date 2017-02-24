@@ -41,30 +41,20 @@ Rails.application.configure do
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
-  ENV["FACEBOOK_CONSUMER_KEY"] = "849830535062555"
-  ENV["FACEBOOK_CONSUMER_SECRET"] = "49c4a8f9e3d0ad623325a39614f987a3"
-
   # replace this with your development tracker code
-  GA.tracker = "UA-63240701-1"
-
-  # connection file
-  # APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
+  GA.tracker = ENV['GA_TRACKER']
 
   #Send Email In Development (Use Gmail's Servers)
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      #:domain               => "voroninstudio.eu",
-      #:user_name            => "support@voroninstudio.eu",
-      #:password             => "Studiosupport123",
-      user_name: "partido12@gmail.com",
-      password:  "pasha1991",
-      :authentication       => :plain,
-      :enable_starttls_auto => true
-  }
-  config.action_mailer.default_url_options = {
-      :host => "localhost:3000"
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'localhost:3000',
+    user_name: ENV['GMAIL_USER_NAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end

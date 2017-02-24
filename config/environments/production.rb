@@ -53,29 +53,18 @@ Rails.application.configure do
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
-  ENV["FACEBOOK_CONSUMER_KEY"] = "849830535062555"
-  ENV["FACEBOOK_CONSUMER_SECRET"] = "49c4a8f9e3d0ad623325a39614f987a3"
-
   # replace this with your development tracker code
-  GA.tracker = "UA-63240701-1"
-
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
-
-  #config.action_mailer.perform_deliveries = true
+  GA.tracker = ENV['GA_TRACKER']
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'yizhaky.com.ua' }
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      #:domain               => "voroninstudio.eu",
-      #:user_name            => "support@voroninstudio.eu",
-      #:password             => "Studiosupport123",
-      user_name: "partido12@gmail.com",
-      password:  "pasha1991",
-      :authentication       => :plain,
-      :enable_starttls_auto => true
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'yizhaky.com.ua',
+    user_name: ENV['GMAIL_USER_NAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end
