@@ -37,6 +37,7 @@ gem 'disqus'
 gem 'pry'
 gem 'puma'
 gem 'non-stupid-digest-assets'
+gem 'sendgrid'
 
 group :development do
   gem 'capistrano', '~> 3.7', '>= 3.7.2'

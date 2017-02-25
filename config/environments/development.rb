@@ -49,11 +49,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp.sendgrid.net',
     port: 587,
     domain: 'localhost:3000',
-    user_name: ENV['GMAIL_USER_NAME'],
-    password: ENV['GMAIL_PASSWORD'],
+    user_name: ENV['SENDGRID_NAME'],
+    password: ENV['SENDGRID_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
   }

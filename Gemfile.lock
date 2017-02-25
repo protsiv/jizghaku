@@ -226,6 +226,8 @@ GEM
     seed_dump (3.2.4)
       activerecord (>= 4)
       activesupport (>= 4)
+    sendgrid (1.2.4)
+      json
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -307,6 +309,7 @@ DEPENDENCIES
   russian
   sass-rails (= 5.0.6)
   seed_dump
+  sendgrid
   simple_form
   simple_form_fancy_uploads
   slim-rails
