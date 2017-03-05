@@ -54,6 +54,8 @@ GEM
       capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-harrow (0.5.3)
+    capistrano-nginx (1.0.0)
+      capistrano (~> 3.1)
     capistrano-rails (1.2.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -270,6 +272,7 @@ DEPENDENCIES
   breadcrumbs_on_rails (= 2.3.0)
   bxslider-rails (= 4.1.0)
   capistrano (~> 3.7, >= 3.7.2)
+  capistrano-nginx
   capistrano-rails (~> 1.2, >= 1.2.2)
   capistrano-rails-db
   capistrano-rbenv (~> 2.1)

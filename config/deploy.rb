@@ -1,4 +1,5 @@
 lock '3.7.2'
+
 server '185.69.53.152', user: 'deploy', roles: %w{app db web}, primary: true, ssh_options: {
   forward_agent: true,
   keys: [File.join(ENV['HOME'], '.ssh', 't4vps')]
