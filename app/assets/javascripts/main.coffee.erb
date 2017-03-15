@@ -133,14 +133,44 @@ $(document).ready ->
     onSlideAfter: ->
       $('.ab-description').addClass('slideInUp')
 
-  $('.logos-slider').bxSlider(
-    slideWidth: 200
-    minSlides: 2
-    maxSlides: 3
-    slideMargin: 10
-    pager: false
-    speed: 3000
-  )
+  $('#light-slider').lightSlider({
+    item: 6
+    loop: false,
+    slideMove: 1,
+    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+    speed: 600
+    controls: false
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          item: 4
+          slideMove: 1
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          item: 3
+          slideMove: 1
+        }
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          item: 2
+          slideMove: 1
+        }
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          item: 1
+          slideMove: 1
+        }
+      }
+    ]
+  })
 
 # ==================================
 # init buisness launch carousel

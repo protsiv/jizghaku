@@ -11,8 +11,8 @@ html lang='en'
 
     meta name='description' content= yield(:description)
     meta name='keywords' content= yield(:keywords)
-    = stylesheet_link_tag    'application', async: true
-    = javascript_include_tag 'application', async: true
+    = stylesheet_link_tag    'application', async: Rails.env.production?
+    = javascript_include_tag 'application', async: Rails.env.production?
     = csrf_meta_tags
   body#body
     header
