@@ -7,6 +7,9 @@
   <thead>
   <tr>
     <th>
+      Ресторан:
+    </th>
+    <th>
       Назва:
     </th>
     <th>
@@ -17,6 +20,9 @@
   <tbody>
     <% @current_cart.line_items.each do |item|%>
       <tr>
+        <td>
+          <%= item.product.restaurant_name%>
+        </td>
         <td>
           <%= item.product.name%>
         </td>

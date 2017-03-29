@@ -4,6 +4,8 @@ class Category < ActiveRecord::Base
   belongs_to :restaurant
   has_many :products
 
+  delegate :name, to: :restaurant, prefix: true
+
   validates_presence_of :name
   # validates_uniqueness_of :slug
   # validates_presence_of :restaurant

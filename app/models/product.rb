@@ -6,7 +6,6 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :banner
 
-
   validates_presence_of :category, :message => "Продукт повинен належати до якоїсь категорії!"
 
   validates_presence_of :price, :message => "Продукт не може немати ціни! Введіть вартість продукту!"
@@ -33,5 +32,9 @@ class Product < ActiveRecord::Base
 
   def generate_url
     self.slug = name.parameterize || self.slug == ''
+  end
+
+  def restaurant_name
+    category.restaurant_name
   end
 end

@@ -15,7 +15,7 @@ class Restaurant < ActiveRecord::Base
   validates_attachment :main_image, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'] }
 
   validates :name, presence: true
-  # validates :slug, presence: true, uniqueness: true
+  validates :slug, presence: true, uniqueness: true
 
   # def friendly_url
   #   self.slug = name.parameterize
